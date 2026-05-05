@@ -1,0 +1,1629 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Aplicar la fuente a TODO el documento */
+    font-family: "Inter" , sans-serif;
+}
+
+
+body {
+    display: flex;
+    min-height: 100vh;
+    background-color: var(--fondo-app);
+}
+
+.main-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0; /* Evita que el contenido desborde el flex */
+}
+
+
+/* TEMA CLARO (Basado exactamente en la imagen) */
+:root {
+    /* Colores de Fondo */
+    --fondo-app: #f6f7f9;          /* Gris azulado muy claro del fondo */
+    --fondo-tarjeta: #ffffff;      /* Blanco para las tarjetas */
+    --fondo-input: #e2e8f0;        /* Gris de la barra de búsqueda */
+
+    /* Colores Principales */
+    --color-primario: #4c46e0;     /* Violeta del botón "Agregar Cliente" */
+    --color-primario-hover: #3f39c5;
+    --texto-principal: #2a3544;    /* Gris casi negro para títulos */
+    --texto-secundario: #64748b;   /* Gris medio para "10 clientes" o "Adeuda" */
+    
+    /* Bordes y Sombras */
+    --borde-suave: #f0f0f0;
+    --sombra-tarjeta: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+
+    /* Estados (Badges de la imagen) */
+    --peligro-fondo: #fee2e2;      /* Rojo claro (Atrasado) */
+    --peligro-texto: #dc2626;
+    
+    --alerta-fondo: #fef3c7;      /* Ámbar claro (Próximo a vencer) */
+    --alerta-texto: #f08a17;
+    
+    --exito-fondo: #dcfce7;       /* Verde claro (Al día) */
+    --exito-texto: #16a34a;
+
+    --otros-fondo: #f1f5f9;       /* Gris claro (Sin plan) */
+    --otros-texto: #475569;
+
+    /* Avatares (Colores variados de la imagen) */
+    --avatar-violeta: #a855f7;
+    --avatar-naranja: #f59e0b;
+    --avatar-rosa: #d946ef;
+    --avatar-celeste: #06b6d4;
+
+    --barra-estado: #bfcde1;
+
+    --hamburguesa: #ffffff;
+    --hamburguesa-dentro: #363636;
+
+    --mostrando-clientes: #363636;
+    --clientes-totales: #363636;
+  
+  
+  
+     /* Colores para las Cards de Resumen */
+    --card-azul-bg: rgba(79, 70, 229, 0.1);
+    --card-azul-txt: #4f46e5;
+    
+    --card-violeta-bg: rgba(147, 51, 234, 0.1);
+    --card-violeta-txt: #9333ea;
+    
+    --card-verde-bg: #dcfce7;
+    --card-verde-txt: #15803d;
+    
+    --card-amarillo-bg: #fef3c7;
+    --card-amarillo-txt: #a16207;
+
+    --card-borde: rgba(0, 0, 0, 0.05);
+
+    --card-inicio: #f7f7f7; }
+
+
+/* TEMA OSCURO (Adaptación profesional) */
+.tema-oscuro {
+    /* Colores de Fondo */
+    --fondo-app: #0f172a;          /* Azul oscuro profundo */
+    --fondo-tarjeta: #1e293b;      /* Azul grisáceo para tarjetas */
+    --fondo-input: #334155;
+
+    /* Colores Principales */
+    --color-primario: #6366f1;     /* Violeta un poco más brillante */
+    --color-primario-hover: #818cf8;
+    --texto-principal: #f8fafc;    /* Blanco humo */
+    --texto-secundario: #94a3b8;   /* Gris azulado claro */
+    
+    /* Bordes y Sombras */
+    --borde-suave: #334155;
+    --sombra-tarjeta: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+
+    /* Estados en modo oscuro (colores más opacos para no lastimar la vista) */
+    --peligro-fondo: rgba(220, 38, 38, 0.2);
+    --peligro-texto: #eb4141;
+    
+    --alerta-fondo: rgba(217, 119, 6, 0.2);
+    --alerta-texto: #fbb024;
+    
+    --exito-fondo: rgba(22, 163, 74, 0.2);
+    --exito-texto: #4ade80;
+
+    --otros-fondo: #334155;
+    --otros-texto: #cbd5e1;
+
+    --barra-estado: #233247;
+
+    --mostrando-clientes: #b5b5b5;
+    --clientes-totales: #6366f1;
+
+    --hamburguesa: #233247;
+    --hamburguesa-dentro: #6366f1;
+  
+  
+    /* Colores para las Cards de Resumen (Más brillantes para resaltar) */
+    --card-azul-bg: rgba(99, 102, 241, 0.15);
+    --card-azul-txt: #818cf8;
+    
+    --card-violeta-bg: rgba(168, 85, 247, 0.15);
+    --card-violeta-txt: #c084fc;
+    
+    --card-verde-bg: rgba(34, 197, 94, 0.15);
+    --card-verde-txt: #4ade80;
+    
+    --card-amarillo-bg: rgba(234, 179, 8, 0.15);
+    --card-amarillo-txt: #fbbf24;
+
+    --card-borde: rgba(255, 255, 255, 0.06);
+
+    --card-inicio: rgba(255, 255, 255, 0.06);
+}
+
+
+
+/*-------------- MODAL AL INICIAR LA APP POR PRIMERA VEZ -----------------*/
+/* Modal Onboarding */
+.modal-onboarding {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    display: none; /* Se activa por JS */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.onboarding-content {
+    background: var(--fondo-tarjeta, white);
+    padding: 40px;
+    border-radius: 24px;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.welcome-icon { font-size: 50px; margin-bottom: 10px; }
+
+.paso-inicial {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    background: var(--primario-ligero, #f0f7ff);
+    padding: 20px;
+    border-radius: 16px;
+    text-align: left;
+    margin: 25px 0;
+}
+
+.paso-numero {
+    background: var(--primario, #3b82f6);
+    color: white;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-weight: bold;
+}
+
+/* --- ANIMACIÓN DE PULSO PARA LA TARJETA --- */
+.highlight-pulse {
+    animation: pulse-blue 2s infinite;
+    position: relative;
+    z-index: 1000;
+    border: 2px solid #4c46e0 !important;
+}
+
+@keyframes pulse-blue {
+    0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(59, 130, 246, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --------------------- CARDS --------------------------*/
+/* Ajustes generales para coincidir con la imagen */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    padding: 24px;
+}
+
+.card {
+    background-color: var(--fondo-tarjeta);
+    border-radius: 10px;
+    padding: 24px;
+    border: 1px solid var(--borde-suave);
+    box-shadow: var(--sombra-tarjeta);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+.tema-oscuro .card:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 150%;
+    height: 150%;
+    border-radius: 50%;
+    opacity: 0.3;
+    pointer-events: none;
+    z-index: 0;
+    transition: opacity 0.3s ease;
+}
+
+.card:hover::before {
+    opacity: 0.5;
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 1;
+}
+
+.card-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.card-label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--texto-secundario);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.card-valor {
+    font-size: 2.2rem;
+    font-weight: 800;
+    text-align: center;
+    margin-top: 15px;
+    z-index: 1;
+    letter-spacing: -0.5px;
+}
+
+.card-footer {
+    margin-top: 8px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(150, 150, 150, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.card-footer span{
+font-size: 10px;
+}
+
+#btn-cerrar-modal-proyeccion{
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, #4c46e0, #5853f5);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+
+.card-trend {
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--exito-texto);
+}
+
+.card-trend.text-muted {
+    color: var(--texto-secundario);
+    font-weight: 500;
+}
+
+/* Modificadores Dinámicos */
+
+/* Azul */
+.card--azul .card-icon { background: var(--card-azul-bg); color: var(--card-azul-txt); }
+.card--azul .card-valor { color: var(--card-azul-txt); }
+.card--azul::before { background: radial-gradient(circle, var(--card-azul-bg) 0%, transparent 60%); }
+
+/* Amarillo */
+.card--amarillo .card-icon { background: var(--card-amarillo-bg); color: var(--card-amarillo-txt); }
+.card--amarillo .card-valor { color: var(--card-amarillo-txt); }
+.card--amarillo::before { background: radial-gradient(circle, var(--card-amarillo-bg) 0%, transparent 60%); }
+
+/* Violeta */
+.card--violeta .card-icon { background: var(--card-violeta-bg); color: var(--card-violeta-txt); }
+.card--violeta .card-valor { color: var(--card-violeta-txt); }
+.card--violeta::before { background: radial-gradient(circle, var(--card-violeta-bg) 0%, transparent 60%); }
+
+/* Verde */
+.card--verde .card-icon { background: var(--card-verde-bg); color: var(--card-verde-txt); }
+.card--verde .card-valor { color: var(--card-verde-txt); }
+.card--verde::before { background: radial-gradient(circle, var(--card-verde-bg) 0%, transparent 60%); }
+
+
+
+
+
+
+
+/* Contenedor del Modal (Fondo oscuro) */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.548); /* Fondo semi-transparente */
+    backdrop-filter: blur(4px); /* Efecto de desenfoque al fondo */
+    align-items: center;
+    justify-content: center;
+}
+
+/* Caja del Modal (El recuadro blanco) */
+.modal-content {
+    background-color: var(--fondo-tarjeta); /* Usa tus variables de tema */
+    padding: 1.5rem;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    animation: aparecer 0.3s ease-out;
+}
+
+.modal-content h2{
+color: var(--texto-principal);
+font-size: 18px;
+font-family: "Poppins";
+margin: 0;
+padding: 0;}
+
+.modal-header-logout, h2{
+    margin-bottom: 12px;
+    font-size: 20px;
+}
+
+.modal-content p{
+    margin-top: 1px;
+    margin-bottom: 30px;
+color: var(--texto-principal);
+font-size: 13px;
+font-family: "Poppins";
+color: var(--texto-secundario);
+
+text-align: center;}
+
+.capitalinicia {
+    margin-top: 1px;
+    margin-bottom: 30px;
+color: var(--texto-principal);
+font-size: 12px;
+font-family: "Poppins";
+color: var(--texto-secundario);
+font-weight: 300;
+}
+
+
+.input-group label{
+    margin-top: 20px;
+color: var(--texto-principal);
+font-size: 12px;
+font-family: "Poppins";
+font-weight: 600;}
+
+/* Botón de cerrar (X) */
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+}
+
+/* Animación de entrada */
+@keyframes aparecer {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Estilos extra para el formulario dentro del modal */
+#form-capital .input-group {
+    margin: 10px 0;
+}
+
+#form-capital input {
+width: 100%;
+        padding: 12px 12px;
+        background: var(--fondo-input);
+        color: var(--texto-principal);
+        border: 1px solid transparent;
+        border-radius: 8px;
+        font-size: 14px;
+        outline: none;
+}
+
+#form-capital .btn-primario {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, #4c46e0, #4641ce);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+
+/*----------------------------- CARD TORTA ---------------------------*/
+/*----------------------------- CARD TORTA ACTUALIZADA ---------------------------*/
+
+.card-torta {
+  background: var(--fondo-tarjeta);
+  border: 1px solid var(--borde-suave);
+  border-radius: 10px;
+  padding: 16px;
+  margin: 0 16px;
+  box-shadow: var(--sombra-tarjeta);
+}
+
+.torta-titulo {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--texto-principal);
+  margin: 0 0 12px 0;
+}
+
+.torta-contenido {
+    display: flex;
+    flex-direction: row; /* Asegura que estén uno al lado del otro */
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.torta-grafico {
+  width: 140px;
+  height: 140px;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.torta-centro {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.torta-centro-num {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--texto-principal);
+}
+
+.torta-centro-label {
+  font-size: 11px;
+  color: var(--texto-secundario);
+}
+
+.torta-leyenda {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  flex: 1;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.leyenda-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 110px;
+}
+
+.leyenda-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Uso de variables de estado para los puntos */
+.leyenda-dot--verde    { background: #3b82f6; }
+.leyenda-dot--rojo     { background: var(--peligro-texto); }
+.leyenda-dot--gris     { background: var(--otros-texto); }
+.leyenda-dot--amarillo { background: var(--alerta-texto); }
+
+.leyenda-nombre {   
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--texto-secundario);
+
+}
+
+.leyenda-num {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--texto-principal);
+}
+
+
+
+/*-------------------------- CARD COBROS -------------------*/
+/*-------------------------- CARD COBROS ACTUALIZADA -------------------*/
+.card-cobros {
+  background: var(--fondo-tarjeta);
+  border: 1px solid var(--borde-suave);
+  border-radius: 10px;
+  padding: 16px;
+  margin: 12px 16px 0;
+  box-shadow: var(--sombra-tarjeta);
+}
+
+.cobros-titulo {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--texto-principal);
+}
+
+/* Lista */
+.cobros-lista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Cada item */
+.cobro-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--card-inicio);
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+
+/* Estado Urgente */
+.cobro-item--urgente {
+  border-left: 3px solid #d33939; /* Nueva variable para bordes de error */
+}
+
+/* Info izquierda */
+.cobro-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.cobro-nombre {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--texto-principal);
+}
+
+.cobro-fecha {
+  font-size: 11px;
+  color: var(--texto-secundario);
+}
+
+
+
+/* Monto derecha */
+.cobro-monto {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--texto-principal);
+  white-space: nowrap;
+}
+
+
+/* Estado de Alerta (Hoy y Mañana) */
+.cobro-item--alerta {
+    border-left: 3px solid #f59e0b; /* Borde naranja */
+}
+
+
+/* Ajuste para que el SVG del reloj se vea bien */
+.cobro-fecha svg {
+    flex-shrink: 0;
+}
+
+/* Estado Normal (Más de 2 días) */
+.cobro-item--normal {
+    border-left: 3px solid #3b82f6; /* Borde blanco como pediste */
+}
+
+
+/* Rojo para lo Vencido */
+.cobro-fecha--urgente, .cobro-monto--urgente {
+    color: #ef4444 !important; /* Rojo vibrante */
+    display: flex;
+    align-items: center;
+}
+
+/* Naranja para Hoy/Mañana */
+.cobro-fecha--alerta {
+    color: #f59e0b !important; /* Naranja */
+    display: flex;
+    align-items: center;
+}
+
+/* Blanco para el futuro */
+.cobro-fecha--normal, .cobro-monto--normal {
+    display: flex;
+    align-items: center;
+}
+
+/* Responsive */
+@media (max-width: 400px) {
+  .cobro-item {
+    align-items: flex-start;
+    gap: 6px;
+  }
+}
+
+
+.card-header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.btn-ver-todos {
+    background: none;
+    border: none;
+    color: #6366f1; /* Color de tu marca */
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-ver-todos:hover {
+    color: #4f46e5;
+}
+
+.btn-ver-todos {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: none;
+    border: none;
+    color: #6366f1;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+.btn-ver-todos svg {
+    transition: transform 0.3s ease;
+}
+
+
+
+
+.texto-asistente {
+    font-size: 0.85rem;
+    color: var(--texto-principal);
+    margin-top: 5px;
+    line-height: 1.4;
+    font-weight: 600;
+    padding: 0 0 10px 0;
+    border-bottom: 2px solid var(--card-inicio);
+}
+
+.texto-asistente strong {
+    color: var(--texto-principal);
+    font-weight: 600;
+}
+
+.texto-asistente .urgente {
+    color: #ef4444; /* Rojo */
+    font-weight: bold;
+}
+
+.texto-asistente .hoy {
+    color: #f59e0b; /* Azul */
+    font-weight: bold;
+}
+
+
+
+
+/*--------------------------------- SIDEBAR -------------------------------------------*/
+/*--------------------------------- SIDEBAR -------------------------------------------*/
+
+/* --- CONTENEDOR SIDEBAR --- */
+.sidebar {
+    position: sticky; /* Cambia de fixed a sticky para que empuje el contenido */
+    top: 0;
+    width: 260px;
+    height: 100vh;
+    flex-shrink: 0; /* Evita que el sidebar se encoja */
+    background-color: var(--fondo-tarjeta); /* Antes #ffffff */
+    border-right: 1px solid var(--borde-suave); /* Antes #e2e8f0 */
+    display: flex;
+    flex-direction: column;
+    padding: 24px 16px;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.sidebar-overlay {
+    display: none; /* Oculto por defecto */
+}
+
+/* LOGO / TÍTULO */
+.sidebar-logo {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--texto-principal); /* Antes #1e293b */
+    margin-bottom: 10px;
+    padding-left: 12px;
+}
+
+.sidebar-logo span {
+    color: var(--color-primario); /* Antes #4f46e5 */
+}
+
+/* ETIQUETAS DE SECCIÓN (Ej: GENERAL) */
+.menu-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--texto-secundario); /* Antes #94a3b8 */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding-left: 12px;
+    margin-bottom: 6px;
+}
+
+.menu-labell {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--texto-secundario); /* Antes #94a3b8 */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding-left: 12px;
+    margin-top: 5px;
+    margin-bottom: 7px;
+}
+
+.barrita{
+background-color: var(--borde-suave);
+height: 1px;
+margin-top: 15px;
+margin-bottom: 15px;
+}
+
+/* BOTONES DEL MENÚ */
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+    flex-grow: 1;
+}
+
+.sidebar-menu a{
+font-size: 13px;}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 16px;
+    text-decoration: none;
+    color: var(--texto-secundario); /* Antes #64748b */
+    font-weight: 600;
+    font-size: 15px;
+    border-radius: 12px;
+    margin-bottom: 5px;
+    transition: all 0.2s ease;
+}
+
+.barritaa {
+    background-color: var(--borde-suave);
+height: 1px;
+margin-top: 15px;
+margin-bottom: 15px;
+
+}
+
+/* Iconos (El secreto es el tamaño fijo) */
+.menu-item svg {
+    width: 20px;
+    height: 20px;
+    stroke-width: 2;
+    
+}
+
+/* ESTADO ACTIVO Y HOVER */
+.menu-item:hover {
+    background-color: var(--otros-fondo); /* Antes #f1f5f9 */
+    color: var(--texto-principal); /* Antes #1e293b */
+}
+
+.menu-item.active {
+    background-color: var(--otros-fondo); /* Fondo suave adaptado al tema */
+    color: var(--color-primario); 
+             /* Antes #4f46e5 */
+}
+
+/* FOOTER / PERFIL */
+.sidebar-footer {
+    border-top: 1px solid var(--borde-suave); /* Antes #e2e8f0 */
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-left: 10px;
+}
+
+.avatar-small {
+    width: 36px;
+    height: 36px;
+    background: var(--color-primario); /* Antes #4f46e5 */
+    border-radius: 10px;
+    color: #ffffff; /* FIJO: Siempre blanco para contraste */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+}
+
+.user-info p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--texto-principal); /* Antes #1e293b */
+}
+
+.user-info span {
+    font-size: 12px;
+    color: var(--texto-secundario); /* Antes #94a3b8 */
+}
+
+/* BOTÓN CERRAR SESIÓN */
+.btn-logout {
+    background: var(--otros-fondo); /* Antes #f1f5f9 */
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    color: var(--peligro-texto); /* Antes #ef4444 */
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-logout:hover {
+    background: var(--peligro-fondo); /* Antes #fee2e2 */
+}
+
+/* Adaptación a Celular --- */
+/* --- CORRECCIÓN MOBILE --- */
+@media (max-width: 1024px) {
+    body {
+        display: block; /* En móvil volvemos al flujo normal */
+    }
+
+    .sidebar {
+        position: fixed;
+        left: -260px; /* Escondido */
+        transition: 0.3s ease;
+    }
+
+    .sidebar.open {
+        left: 0; /* Se muestra al activar la clase */
+    }
+
+    .sidebar-overlay.active {
+        display: block; /* Se muestra la capa oscura */
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.5);
+        backdrop-filter: blur(4px);
+        z-index: 999;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Estilos específicos para el modal de Logout */
+.modal-header-logout {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.icon-warning {
+    background: var(--peligro-fondo);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px;
+}
+
+.modal-acciones {
+    display: flex;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.btn-secundario {
+    flex: 1;
+    padding: 12px;
+    background: var(--otros-fondo);
+    border: none;
+    border-radius: 8px;
+    color: var(--texto-principal);
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.btn-peligro {
+    flex: 1;
+    padding: 12px;
+    background: #ef4444;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.btn-peligro:hover {
+    background: #dc2626;
+}
+
+
+/*---------------------------- TOP BAR (Optimizado) -------------------------------------*/
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: transparent;
+    border-bottom: 1px solid var(--borde-suave);
+    border-top: 1px solid var(--borde-suave);
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.topbar-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Hamburguesa Violeta */
+.menu-toggle {
+    background-color: var(--hamburguesa);
+    color: white;
+    border: 1px solid var(--borde-suave);
+    width: 42px;
+    height: 30px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    /*box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);*/
+}
+
+.menu-toggle svg{
+    color: var(--hamburguesa-dentro);
+ 
+}
+
+.menu-toggle:hover {
+    background-color: var(--color-primario-hover);
+    transform: translateY(-1px);
+}
+
+.titulo-seccion h1 {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--texto-principal);
+    margin: 0;
+}
+
+.titulo-seccion .subtitulo {
+    font-size: 14px;
+    color: var(--texto-secundario);
+}
+
+.header-acciones {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Botón Tema */
+.btn-circular-tema {
+    width: 35px;
+    height: 35px;
+    border-radius: 8px;
+    background: var(--fondo-tarjeta);
+    border: 1px solid var(--borde-suave);
+    color: var(--texto-principal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* Botón Principal */
+.btn-principal-v2 {
+    background-color: var(--color-primario);
+    color: white;
+    border: none;
+    height: 35px;
+    border-radius: 8px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 12px;
+}
+
+/*----------- SALUDO AL USUARIO ARRIBA ---------------*/
+.header-title-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.welcome-msg {
+    font-size: 0.78rem;
+    color: var(--texto-secundario, #888);
+    font-family: "Poppins";
+    font-weight: 500;
+}
+
+.welcome-msg strong {
+    color: var(--color-primario); /* Color azul de tu app */
+    font-weight: 600;
+}
+
+/* --- AJUSTES MOBILE --- */
+@media (max-width: 600px) {
+    .topbar {
+        padding: 20px 20px;
+    }
+
+    .titulo-seccion h1 {
+        font-size: 20px;
+    }
+
+    .titulo-seccion .subtitulo {
+        font-size: 12px;
+    }
+
+
+
+    .btn-principal-v2 svg {
+        margin: 0;
+    }
+}
+
+
+/*--------------------- CARD TOP CLIENTES --------------------*/
+/*--------------------- CARD TOP CLIENTES ACTUALIZADA --------------------*/
+
+/* Contenedor Principal */
+.card-topc {
+    background-color: var(--fondo-tarjeta);
+    border: 1px solid var(--card-borde);
+    border-radius: 16px;
+    padding: 16px;
+    color: var(--texto-principal);
+    box-shadow: var(--sombra-tarjeta);
+    margin: 12px 16px 0;
+}
+
+.card-topc h2 {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--texto-principal);
+    margin: 0 0 12px 0;
+}
+
+.top-lista {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Cada bloque de cliente */
+.top-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 12px;
+    background: var(--card-inicio);
+    border-radius: 10px;
+    transition: transform 0.2s;
+}
+
+.top-perfil {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* El avatar/iniciales */
+.top-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: var(--texto-secundario); /* Color neutro por defecto */
+    color: var(--fondo-tarjeta); /* Texto contrastado con el fondo del avatar */
+}
+
+/* Colores de Podio para los Avatares */
+/* (Puedes definir estas variables de color oro/plata/bronce en tu :root) */
+.top-item:nth-child(1) .top-avatar { background: var(--color-primario); color: #fff; } 
+.top-item:nth-child(2) .top-avatar { background: var(--color-primario); color: #fff; } 
+.top-item:nth-child(3) .top-avatar { background: var(--color-primario); color: #fff; } 
+
+/* Montos con el color primario de tu app */
+.top-item:nth-child(1) .top-monto,
+.top-item:nth-child(2) .top-monto,
+.top-item:nth-child(3) .top-monto {
+    color: var(--color-primario);
+}
+
+.top-nombre {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--texto-principal);
+}
+
+.top-monto {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--texto-principal);
+    white-space: nowrap;
+}
+
+/* Contenedor para nombre y ranking */
+.top-detalles {
+    display: flex;
+    flex-direction: column; /* Apila el texto verticalmente */
+    gap: 4px;
+}
+
+.top-nombre {
+    font-size: 13px;
+    font-weight: 600; /* Un poco más de peso */
+    color: var(--texto-principal);
+    line-height: 1.2;
+}
+
+.top-rank {
+    font-size: 10px; /* Tamaño chiquito como pediste */
+    color: #94a3b8; /* Un gris suave (o usa var(--texto-secundario)) */
+    font-weight: 500;
+}
+
+/* Ajuste opcional para centrar el avatar con el bloque de texto */
+.top-perfil {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+
+
+
+/* --- RESPONSIVO MOBILE (Optimizado para Infinix Hot 40 Pro - 360px) --- */
+/* --- RESPONSIVO MOBILE (Optimizado para Infinix Hot 40 Pro - 360px) --- */
+
+@media (max-width: 600px) {
+    /* 1. Ajuste de Margenes Generales */
+    .main-content {
+        padding-bottom: 30px; /* Espacio extra al final */
+    }
+
+    /* 2. Cards de Capital en 2 Columnas (Estilo Imagen) */
+    .cards {
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 10px; /* Un poco más de espacio entre cards */
+        padding: 10px 16px;
+    }
+
+    .card {
+        padding: 5px 13px 15px 13px; /* Más aire arriba/abajo */
+        border-radius: 10;
+        border: 1px solid var(--borde-suave);
+    }
+
+
+    .card-icon svg {
+        width: 18px; /* Iconos más pequeños para móvil */
+        height: 18px;
+        padding: 0;
+    }
+
+
+
+    .card-label {
+        font-size: 12px; /* Tamaño reducido para evitar saltos de línea */
+        white-space: nowrap; /* Fuerza a que el título esté en una línea */
+        letter-spacing: -0.2px;
+        color: var(--texto-principal) !important;
+        font-weight: 400;
+    }
+
+    .card-valor {
+        font-size: 1.15rem; /* Tamaño destacado pero controlado */
+        font-weight: 800;
+        margin-top: 2px;
+        display: flex;
+        justify-content: center;
+
+    }
+
+    .card-torta{
+    margin-top: 5px;}
+
+    /* 3. Ajuste de Card Torta (Gráfico Izquierda, Leyenda Derecha) */
+    .torta-contenido {
+        flex-direction: row; /* Cambiado de column a row */
+        justify-content: space-between;
+        gap: 10px; /* Espacio reducido para que quepa en 360px */
+    }
+
+    .torta-grafico {
+        width: 130px; /* Reducido un poco para dar espacio a la derecha */
+        height: 130px;
+        flex-shrink: 0; /* Evita que el gráfico se aplaste */
+    }
+
+   /* 3. Ajuste de Card Torta */
+    .torta-leyenda {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+        margin-left: 20px; /* Ajustado para dar más espacio al texto */
+    }
+
+    .leyenda-item {
+        display: flex;
+        align-items: center;
+        width: 95%;
+        font-size: 11px;
+        position: relative;
+    }
+
+    .leyenda-color {
+        width: 10px;
+        height: 10px;
+    }
+
+    .leyenda-num{
+    width: 100;
+    position: absolute;
+    right: 0;}
+
+    /* 4. Ajustes en Card Cobros y Top Clientes */
+    .card-cobros, .card-topc {
+        margin: 15px 16px;
+        padding: 12px;
+    }
+
+    .cobro-item, .top-item {
+        padding: 15px 10px;
+        display: flex;
+        align-items: center;
+    }
+
+    .cobro-nombre, .top-nombre {
+        font-size: 14px;
+        max-width: 160px; /* Evita que nombres largos rompan la línea */
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-weight: 600;
+    }
+
+    .cobro-info{
+    margin-left: 6px;
+    display: flex;
+    gap: 8px;}
+
+    .cobro-monto {
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        font-weight: 800;
+    }
+
+    /* 5. Topbar móvil */
+    .topbar {
+        padding: 15px 16px;
+        margin-bottom: 10px;
+    }
+
+    .titulo-seccion h1 {
+        font-size: 20px;
+        color: var(--color-primario);
+    }
+
+    /* 6. Sidebar (Ajuste de ancho para móviles angostos) */
+    .sidebar {
+        width: 250px;
+    }
+}
+
+/* Ajuste extra para pantallas muy pequeñas o con zoom alto */
+@media (max-width: 340px) {
+    .cards {
+        padding: 10px;
+    }
+    .card-valor {
+        font-size: 0.9rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Overlay */
+.modal-onboarding {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 15, 30, 0.75);
+    backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+/* Contenedor */
+.onboarding-content {
+    width: 90%;
+    max-width: 480px;
+    background: linear-gradient(145deg, #0f172a, #111c34);
+    border-radius: 18px;
+    padding: 28px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    color: #e5e7eb;
+    animation: fadeInScale 0.3s ease;
+}
+
+/* Animación */
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95) translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Header */
+.onboarding-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Logo estilo sidebar */
+.welcome-logo {
+    font-size: 26px;
+    font-weight: 800;
+    margin-bottom: 30px;
+    letter-spacing: 0.5px;
+}
+
+.welcome-logo span {
+    color: var(--color-primario);
+    text-shadow: 0 0 12px rgba(59, 130, 246, 0.4);
+}
+
+/* Título */
+.onboarding-header h2 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #fff;
+}
+
+/* Texto */
+.onboarding-content p {
+    font-size: 14px;
+    color: #9ca3af;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+/* Paso */
+.paso-inicial {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    background: rgba(30, 41, 59, 0.6);
+    border-radius: 12px;
+    padding: 14px;
+    margin-bottom: 24px;
+    border: 1px solid rgba(59, 130, 246, 0.15);
+}
+
+/* Número */
+.paso-numero {
+    min-width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #4c46e0, #433eca);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
+}
+
+/* Texto paso */
+.paso-texto strong {
+    display: block;
+    font-size: 14px;
+    color: #f3f4f6;
+}
+
+.paso-texto p {
+    font-size: 13px;
+    color: #9ca3af;
+    margin: 4px 0 0 0;
+}
+
+/* Botón */
+.btn-primario-grande {
+    width: 100%;
+    padding: 14px;
+    border-radius: 12px;
+    border: none;
+    background: linear-gradient(135deg, #4c46e0, #4641ce);
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* Hover */
+.btn-primario-grande:hover {
+    background: linear-gradient(135deg, #4c46e0, #4641ce);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 5px rgba(37, 100, 235, 0.192);
+}
+
+/* Click */
+.btn-primario-grande:active {
+    transform: scale(0.98);
+}
+
+
+
+/* reutiliza .modal-onboarding y .onboarding-content */
+
+#modal-guia-clientes {
+    display: none;
+}
+
+
+
+
+.cobros-lista {
+    transition: all 0.3s ease;
+}
+
+.cobro-item {
+    animation: fadeInItem 0.3s ease forwards;
+    opacity: 0;
+}
+
+@keyframes fadeInItem {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+

@@ -1,0 +1,3324 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Aplicar la fuente a TODO el documento */
+    font-family: 'Poppins', sans-serif;
+}
+
+html, body {
+    overflow-x: hidden; /* Prohíbe el scroll horizontal en toda la web */
+    width: 100%;
+    position: relative;
+    height: 100%;
+}
+
+
+
+/* TEMA CLARO (Basado exactamente en la imagen) */
+:root {
+    /* Colores de Fondo */
+    --fondo-app: #eef2f5;          /* Gris azulado muy claro del fondo */
+    --fondo-tarjeta: #ffffff;      /* Blanco para las tarjetas */
+    --fondo-input: #e2e8f0;        /* Gris de la barra de búsqueda */
+
+    /* Colores Principales */
+    --color-primario: #4c46e0;     /* Violeta del botón "Agregar Cliente" */
+    --color-primario-hover: #3f39c5;
+    --texto-principal: #1f2937;    /* Gris casi negro para títulos */
+    --texto-secundario: #64748b;   /* Gris medio para "10 clientes" o "Adeuda" */
+    
+    /* Bordes y Sombras */
+    --borde-suave: #dfe6f0;
+    --sombra-tarjeta: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+
+    /* Estados (Badges de la imagen) */
+    --peligro-fondo: #fee2e2;      /* Rojo claro (Atrasado) */
+    --peligro-texto: #dc2626;
+    
+    --alerta-fondo: #fef3c7;      /* Ámbar claro (Próximo a vencer) */
+    --alerta-texto: #f08a17;
+    
+    --exito-fondo: #dcfce7;       /* Verde claro (Al día) */
+    --exito-texto: #16a34a;
+
+    --otros-fondo: #f1f5f9;       /* Gris claro (Sin plan) */
+    --otros-texto: #475569;
+
+    /* Avatares (Colores variados de la imagen) */
+    --avatar-violeta: #a855f7;
+    --avatar-naranja: #f59e0b;
+    --avatar-rosa: #d946ef;
+    --avatar-celeste: #06b6d4;
+
+    --barra-estado: #bfcde1;
+
+    --hamburguesa: #ffffff;
+    --hamburguesa-dentro: #363636;
+
+    --mostrando-clientes: #363636;
+    --clientes-totales: #363636;
+}
+
+/* TEMA OSCURO (Adaptación profesional) */
+.tema-oscuro {
+    /* Colores de Fondo */
+    --fondo-app: #0f172a;          /* Azul oscuro profundo */
+    --fondo-tarjeta: #1e293b;      /* Azul grisáceo para tarjetas */
+    --fondo-input: #334155;
+
+    /* Colores Principales */
+    --color-primario: #6366f1;     /* Violeta un poco más brillante */
+    --color-primario-hover: #818cf8;
+    --texto-principal: #f8fafc;    /* Blanco humo */
+    --texto-secundario: #94a3b8;   /* Gris azulado claro */
+    
+    /* Bordes y Sombras */
+    --borde-suave: #334155;
+    --sombra-tarjeta: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+
+    /* Estados en modo oscuro (colores más opacos para no lastimar la vista) */
+    --peligro-fondo: rgba(220, 38, 38, 0.2);
+    --peligro-texto: #eb4141;
+    
+    --alerta-fondo: rgba(217, 119, 6, 0.2);
+    --alerta-texto: #fbb024;
+    
+    --exito-fondo: rgba(22, 163, 74, 0.2);
+    --exito-texto: #4ade80;
+
+    --otros-fondo: #334155;
+    --otros-texto: #cbd5e1;
+
+    --barra-estado: #233247;
+
+    --mostrando-clientes: #b5b5b5;
+    --clientes-totales: #6366f1;
+
+    --hamburguesa: #233247;
+    --hamburguesa-dentro: #6366f1; 
+
+
+}
+
+
+
+
+
+/* Layout Principal */
+.app {
+        display: flex;
+    width: 100%;
+    overflow-x: hidden; /* Evita que el flex se desborde */
+    height: 100%;
+}
+
+
+/* --- Contenido Principal --- */
+.main-content {
+    flex-grow: 1; /* Ocupa todo el espacio restante */
+    padding: 0 60px; /* Dale aire a los costados */
+    max-width: calc(100vw - 260px); /* Evita que se desborde */
+    background-color: var(--fondo-app);
+    height: 100vh;
+}
+
+/*---------------------------- TOP BAR (Optimizado) -------------------------------------*/
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    background: transparent;
+    border-bottom: 1px solid var(--borde-suave);
+    border-top: 1px solid var(--borde-suave);
+
+    margin-bottom: 20px;
+}
+
+.topbar-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Hamburguesa Violeta */
+.menu-toggle {
+    background-color: var(--hamburguesa);
+    color: white;
+    border: 1px solid var(--borde-suave);
+    width: 42px;
+    height: 30px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    /*box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);*/
+}
+
+.menu-toggle svg{
+    color: var(--hamburguesa-dentro);
+ 
+}
+
+.menu-toggle:hover {
+    background-color: var(--color-primario-hover);
+    transform: translateY(-1px);
+}
+
+.titulo-seccion h1 {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--texto-principal);
+    margin: 0;
+}
+
+.titulo-seccion .subtitulo {
+    font-size: 14px;
+    color: var(--texto-secundario);
+}
+
+.header-acciones {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Botón Tema */
+.btn-circular-tema {
+    width: 35px;
+    height: 35px;
+    border-radius: 8px;
+    background: var(--fondo-tarjeta);
+    border: 1px solid var(--borde-suave);
+    color: var(--texto-principal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* Botón Principal */
+.btn-principal-v2 {
+    background-color: var(--color-primario);
+    color: white;
+    border: none;
+    height: 40px;
+    border-radius: 8px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 12px;
+}
+
+.btn-cancelarr{
+    background: var(--otros-fondo);
+    color: var(--texto-principal);
+    border: 1px solid var(--fondo-input);
+        height: 80px;
+        font-size: 14px;
+        border-radius: 10px;
+    width: 90%;
+    margin: 15px auto;
+font-weight: 600;}
+
+/* --- AJUSTES MOBILE --- */
+@media (max-width: 600px) {
+    .topbar {
+        padding: 20px 0;
+    }
+
+    .titulo-seccion h1 {
+        font-size: 20px;
+    }
+
+    .titulo-seccion .subtitulo {
+        font-size: 12px;
+    }
+
+
+
+    .btn-principal-v2 svg {
+        margin: 0;
+    }
+}
+
+
+/* --------------------- SECCIÓN BUSCADORRR ----------------- */
+/* --------------------- SECCIÓN BUSCADORRR ----------------- */
+
+.seccion-busqueda {
+    margin: 17px 0;
+}
+
+.buscador-container-v2 {
+    position: relative;
+    width: 100%;
+}
+
+.buscador-container-v2 input {
+    width: 100%;
+    padding: 10px 18px 10px 50px; /* Espacio para el icono de lupa */
+    background-color: var(--fondo-tarjeta); /* Color gris claro de la imagen */
+    border: 1px solid var(--borde-suave);
+    border-radius: 10px;
+    font-size: 14px;
+    color: var(--texto-principal);
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.buscador-container-v2 input::placeholder {
+    color: #94a3b8;
+}
+
+.buscador-container-v2 input:focus {
+    background-color: var(--fondo-tarjeta);
+    border-color: var(--color-primario);
+    box-shadow: 0 0 0 4px rgba(76, 70, 224, 0.1);
+}
+
+/* Icono LUPA dentro del input */
+.search-icon {
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #64748b;
+    pointer-events: none;
+}
+
+/* Ocultar menú toggle en escritorio si es necesario */
+@media (min-width: 768px) {
+    .menu-toggle {
+        display: none;
+    }
+
+    .btn-principal-v2 {
+    background-color: var(--color-primario);
+    color: white;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(76, 70, 224, 0.3);
+}
+}
+
+
+
+
+
+
+
+.seccion-busqueda {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.filtro-dropdown-wrap {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.filtro-dropdown-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 5px;
+    height: 42px;
+    border-radius: 10px;
+    border: 1px solid var(--borde-suave);
+    background-color: var(--fondo-tarjeta);
+    color: var(--texto-principal);
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: 0.2s;
+}
+
+.filtro-dropdown-btn:hover {
+    border-color: var(--color-primario);
+}
+
+.filtro-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    background-color: var(--fondo-tarjeta);
+    border: 1px solid var(--borde-suave);
+    border-radius: 14px;
+    list-style: none;
+    padding: 6px;
+    margin: 0;
+    min-width: 180px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    z-index: 100;
+}
+
+.filtro-menu.open {
+    display: block;
+}
+
+.filtro-opcion {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 14px;
+    border-radius: 1px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    color: var(--texto-principal);
+    transition: 0.15s;
+}
+
+.filtro-opcion:hover {
+    background-color: var(--otros-fondo);
+}
+
+.filtro-opcion.active {
+    background-color: var(--otros-fondo);
+    font-weight: 700;
+    color: var(--color-primario);
+}
+
+.dot-filtro {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    flex-shrink: 0;
+}
+.dot-filtro.azul    { background-color: #3b82f6; }
+.dot-filtro.naranja { background-color: #f59e0b; }
+.dot-filtro.rojo    { background-color: #ef4444; }
+.dot-filtro.verde   { background-color: #22c55e; }
+.dot-filtro.naranja-hoy { background-color: #ee840b; }
+.dot-filtro.blanco { background-color: #ffffff; border: 1px solid var(--borde-suave); }
+
+
+
+/*---------------------------------------- CUADRITOS --------------------------------------------------*/
+
+/* CONTENEDOR DE CUADRITOS */
+.resumen-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas en escritorio */
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+/* ESTILO BASE DEL CUADRITO */
+.resumen-grid .card-resumen {
+    background-color: var(--fondo-tarjeta);
+    border: 1px solid var(--borde-suave);
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+
+.card-resumen:hover {
+    transform: translateY(-3px);
+}
+
+/* ÍCONOS (Círculos de color) */
+.icon-resumen {
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+}
+
+/* Colores de los íconos basados en la imagen */
+.icon-resumen.atrasados { background-color: var(--peligro-fondo); color: var(--peligro-texto); border: 1px solid #ee575744; }
+.icon-resumen.total     { background-color: #0070f11e; color: #3b82f6; border: 1px solid #3b82f6; }
+.icon-resumen.vencer    { background-color: #ffc0132f; color: var(--avatar-naranja); border: 1px solid var(--avatar-naranja); }
+.icon-resumen.al-dia    { background-color: #12a85127; color: var(--exito-texto); border: 1px solid var(--exito-texto); }
+
+/* TEXTOS DENTRO DEL CUADRITO */
+.card-resumen strong {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--texto-principal);
+    display: block;
+    line-height: 1;
+}
+
+.card-resumen span {
+    font-size: 12px;
+    color: var(--texto-secundario);
+    font-weight: 500;
+    margin-top: 4px;
+}
+
+/* --- ADAPTACIÓN PARA CELULAR (Responsive) --- */
+@media (max-width: 768px) {
+    .resumen-grid {
+        grid-template-columns: repeat(4, 1fr); /* 2 columnas en tablets/celus grandes */
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .resumen-grid {
+        grid-template-columns: repeat(4, 1fr); /* Mantenemos 2x2 para que no ocupen tanto espacio vertical */
+    }
+    
+    .card-resumen {
+        padding: 12px;
+    }
+    
+    .card-resumen strong {
+        font-size: 18px;
+    }
+}
+
+
+/*------------------------------------- FILTROS -----------------------------------------------------*/
+
+/* CONTENEDOR PRINCIPAL */
+.contenedor-filtros-pills {
+    margin: 20px 0;
+    width: 100%;
+    position: relative;
+}
+
+/* CONTENEDOR DEL SCROLL */
+.filtros-scroll {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    overflow-x: auto;
+    padding: 5px 2px;
+    /*scrollbar-width: thin;*/
+    -ms-overflow-style: none;
+}
+
+.filtros-scroll::-webkit-scrollbar {
+    height: 4px;
+}
+
+.filtros-scroll::-webkit-scrollbar-thumb {
+    background: var(--borde-suave); /* Antes #cbd5e1 */
+    border-radius: 10px;
+}
+
+/* ESTILO BASE DE LA PÍLDORA */
+.pill-filter {
+    display: inline-flex;
+    align-items: center;
+    gap: 1px;
+    padding: 8px 5px;
+    background-color: var(--otros-fondo); /* Antes #f1f5f9 */
+    border: 1px solid var(--borde-suave); /* Antes #e2e8f0 */
+    border-radius: 10px;
+    color: var(--texto-secundario); /* Antes #64748b */
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* ESTADO ACTIVO (BOTÓN VIOLETA/AZUL) */
+.pill-filter.active {
+    background-color: var(--color-primario); /* Antes #4338ca */
+    color: var(--fondo-tarjeta); /* Blanco */
+    border-color: var(--color-primario);
+    box-shadow: 0 4px 10px rgba(76, 70, 224, 0.3); /* Sombra basada en color-primario */
+}
+
+.pill-filter.active .badge-pill {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* NÚMERO PEQUEÑO AL LADO DEL TEXTO */
+.badge-pill {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--texto-secundario); /* Antes #94a3b8 */
+}
+
+/* PUNTITOS DE COLOR */
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.dot.rojo { background-color: var(--peligro-texto); }    /* Antes #ef4444 */
+.dot.naranja { background-color: var(--alerta-texto); }  /* Antes #f59e0b */
+.dot.verde { background-color: var(--exito-texto); }     /* Antes #10b981 */
+.dot.gris { background-color: var(--otros-texto); }      /* Antes #94a3b8 */
+.dot.azul { background-color: var(--otros-texto); }      /* Antes #94a3b8 */
+
+/* EFECTO HOVER */
+.pill-filter:not(.active):hover {
+    background-color: var(--fondo-input); /* Antes #e2e8f0 */
+    transform: translateY(-1px);
+}
+
+
+
+
+/*---------------------------- LISTA CLIENTES (COMPLETO) -------------------------------------*/
+
+.lista-clientes {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* --- TARJETA BASE Y LÓGICA DE COLORES POR ESTADO --- */
+.cliente-card {
+    background-color: var(--fondo-tarjeta);
+    border: 1px solid var(--borde-suave);
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    overflow: hidden;
+    border-left: 5px solid transparent !important; /* Base del borde */
+}
+
+/* --- ESTADO: AL DÍA (AZUL) --- */
+.status-al-dia { border-left-color: #3b82f6 !important; }
+.status-al-dia .cliente-avatar { background-color: #3b82f6 !important; color: var(--fondo-tarjeta);}
+.status-al-dia .barra-completada { background-color: #3b82f6 !important; }
+.status-al-dia .badge-estado { background: rgba(59, 130, 246, 0.15); color: #3b82f6; }
+
+/* --- ESTADO: ATRASADO (ROJO) --- */
+.status-atrasado { border-left-color: var(--peligro-texto) !important; }
+.status-atrasado .cliente-avatar { background-color: var(--peligro-texto) !important; color: var(--fondo-tarjeta);}
+.status-atrasado .barra-completada { background-color: var(--peligro-texto) !important; }
+
+/* --- ESTADO: FINALIZADO (VERDE) --- */
+.status-finalizado { border-left-color: var(--exito-texto) !important; }
+.status-finalizado .cliente-avatar { background-color: var(--exito-texto) !important; color: var(--fondo-tarjeta);}
+.status-finalizado .barra-completada { background-color: var(--exito-texto) !important; }
+
+/* --- ESTADO: SIN PRÉSTAMO (BLANCO) --- */
+.status-sin-prestamo { border-left: 6px solid #cecece    !important; }
+.status-sin-prestamo .cliente-avatar { background-color: #cecece!important; color: var(--fondo-tarjeta); }
+.status-sin-prestamo .barra-completada { background-color: #f59e0b !important; }
+.status-sin-prestamo .badge-estado { background: rgba(167, 166, 166, 0.5); color: #ffffff; border:1px solid #e6e6e63b;}
+
+
+/* --- ESTADO: VENCE MAÑANA (NARANJA) --- */
+.status-vence-mañana { border-left: 6px solid #f59e0b !important; }
+.status-vence-mañana .cliente-avatar { background-color: #f59e0b !important; color: var(--fondo-tarjeta); }
+.status-vence-mañana .barra-completada { background-color: #f59e0b !important; }
+.status-vence-mañana .badge-estado { background: rgba(245, 158, 11, 0.15); color: #f59e0b; }
+
+/* Badge para vence mañana */
+.badge-vence-mañana { background: rgba(253, 107, 23, 0.822); color: #e6e6e6; border-color: #e6e6e6; }
+
+
+.cliente-card:hover {
+    box-shadow: var(--sombra-tarjeta);
+    transform: translateY(-2px);
+}
+
+.status-vence-hoy { border-left: 6px solid #ee840b !important; }
+.avatar-vence-hoy    { background-color: #ee840b ; }
+
+/* HEADER DE LA TARJETA (Lo que siempre se ve) */
+.cliente-header {
+    padding: 10px 8px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+}
+
+.cliente-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #313131; /* FIJO: Siempre blanco para contraste */
+    font-weight: 700;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.cliente-info {
+    flex-grow: 1;
+}
+
+.cliente-info h3 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--texto-principal);
+}
+
+.cliente-info p {
+    margin: 0;
+    font-size: 11.5px;
+    color: var(--texto-secundario);
+}
+
+.cliente-info .monto {
+    color: var(--peligro-texto);
+    font-weight: 700;
+}
+
+/* SECCIÓN DE DETALLES (Oculta por defecto) */
+.cliente-detalles {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 18px;
+    transition: all 0.3s ease;
+    border-top: 1px solid transparent;
+}
+
+/* CUANDO ESTÁ EXPANDIDO */
+.cliente-card.expanded {
+    background-color: var(--fondo-tarjeta);
+    cursor: default;
+}
+
+.cliente-card.expanded .cliente-detalles {
+    max-height: 500px; 
+    padding: 10px 18px;
+    border-top: 1px solid var(--borde-suave);
+}
+
+.cliente-card.expanded .chevron-detalle {
+    transform: rotate(180deg);
+}
+
+/* GRID DE INFORMACIÓN INTERNA */
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--texto-principal);
+}
+
+.info-item strong {
+    color: var(--texto-secundario);
+    font-weight: 500;
+}
+
+.info-item text{
+color: #06b6d4;}
+
+/* BARRA DE PROGRESO */
+.cuotas-progreso {
+    background-color: var(--otros-fondo);
+    padding: 12px 15px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    border: 1px solid var(--borde-suave);
+}
+
+.progreso-header {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--texto-principal);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.barra-fondo {
+    height: 6px;
+    background: var(--barra-estado);
+    border-radius: 10px;
+    position: relative;
+}
+
+.barra-completada {
+    height: 100%;
+    background: var(--color-primario);
+    border-radius: 10px;
+    transition: width 0.5s ease;
+}
+
+/* BOTONES DE ACCIÓN */
+.acciones-card {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-secundario-v2 {
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: 0.2s;
+    background-color: var(--otros-fondo);
+    color: var(--texto-principal);    
+}
+
+.btn-ver-detalles{
+    background-color: var(--borde-suave);
+    border: 1px solid var(--barra-estado);
+    width: 300px;
+    height: 42px;
+    display: flex;
+    justify-content: center;}
+
+.btn-cobrar{
+    display: flex;
+    justify-content: center;
+    width: 300px;
+    height: 42px;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+}
+
+.btn-otorgar{
+    display: flex;
+    justify-content: center;
+    width: 300px;
+    height: 42px;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+}
+
+.btn-eliminar{
+    display: flex;
+    justify-content: center;
+    width: 300px;
+    height: 42px;
+    box-shadow: 0 4px 15px rgba(241, 99, 99, 0.3);
+}
+
+/* --- BADGES DE ESTADO (Mapeados a tu paleta) --- */
+.badge-estado {
+    padding: 3px 2px !important;
+    border-radius: 6px!important;
+    font-size: 0.55rem!important;
+    font-weight: 800!important;
+    text-transform: uppercase!important;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid transparent;
+}
+
+/* Colores de Badges */
+.badge-atrasado     { background: var(--peligro-fondo); color: var(--peligro-texto); border-color: var(--peligro-fondo); }
+.badge-al-dia       { background: rgba(59, 130, 246, 0.15); color: #2275fa ; border-color: #2275fa4d ; }
+.badge-finalizado   { background: var(--exito-fondo); color: var(--exito-texto); border-color: var(--exito-fondo); }
+.badge-vence-mañana { background: rgba(245, 158, 11, 0.15); color: #f59e0b; border-color: #f59f0b38;}
+.badge-vence-hoy {background: rgba(245, 158, 11, 0.15); color: #ee840b ; border-color: #f59f0b38;}
+.badge-sin-prestamo { background: rgba(167, 166, 166, 0.5); color: #ffffff; border:1px solid #e6e6e63b;}
+
+
+
+.chevron-detalle {
+    transition: 0.3s;
+    color: var(--texto-secundario);
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .badge-estado span {
+        display: none; 
+    }
+}
+
+
+
+
+/* Color por defecto del monto (Negro/Texto principal) */
+.monto-adeuda {
+    color: var(--texto-principal); 
+    font-weight: 600;
+    font-size: 11px;
+}
+
+/* Color Rojo SI Y SOLO SI la tarjeta es "atrasado" */
+.status-atrasado .monto-adeuda {
+    color: var(--peligro-texto) !important;
+}
+
+
+
+.btn-pag:disabled { opacity: 0.3; cursor: not-allowed; }
+
+#contadorInfo{
+display: flex;
+justify-content: space-between;
+margin: 5px 5px;
+}
+
+#textoMostrando{
+color: var(--mostrando-clientes);
+font-weight: 600;
+font-size: 13px;}
+
+#textoTotal{
+color: var(--clientes-totales);
+font-weight: 600;
+font-size: 13px;}
+
+
+/* ==========================================
+   PAGINACIÓN
+   ========================================== */
+.paginacion-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1px;
+    padding: 17px 0 10px 0;
+}
+
+.btn-pag {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    background: var(--barra-estado);
+    color: var(--mostrando-clientes);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-pag:hover:not(:disabled) {
+    background: var(--color-primario);
+    border-color: var(--color-primario);
+    color: #ffffff;
+    transform: scale(1.05);
+}
+
+.btn-pag:disabled {
+    opacity: 1;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.info-pag-texto {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--mostrando-clientes);
+    min-width: 50px;
+    text-align: center;
+    border-radius: 10px;
+}
+/*--------------------------------- SIDEBAR -------------------------------------------*/
+
+/* --- CONTENEDOR SIDEBAR --- */
+.sidebar {
+    position: sticky; /* Cambia de fixed a sticky para que empuje el contenido */
+    top: 0;
+    width: 260px;
+    height: 100vh;
+    flex-shrink: 0; /* Evita que el sidebar se encoja */
+    background-color: var(--fondo-tarjeta); /* Antes #ffffff */
+    border-right: 1px solid var(--borde-suave); /* Antes #e2e8f0 */
+    display: flex;
+    flex-direction: column;
+    padding: 24px 16px;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+/* LOGO / TÍTULO */
+.sidebar-logo {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--texto-principal); /* Antes #1e293b */
+    margin-bottom: 10px;
+    padding-left: 12px;
+}
+
+.sidebar-logo span {
+    color: var(--color-primario); /* Antes #4f46e5 */
+}
+
+/* ETIQUETAS DE SECCIÓN (Ej: GENERAL) */
+.menu-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--texto-secundario); /* Antes #94a3b8 */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding-left: 12px;
+    margin-bottom: 6px;
+}
+
+.menu-labell {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--texto-secundario); /* Antes #94a3b8 */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding-left: 12px;
+    margin-top: 5px;
+    margin-bottom: 7px;
+}
+
+.barrita{
+background-color: var(--borde-suave);
+height: 1px;
+margin-top: 15px;
+margin-bottom: 15px;
+}
+
+/* BOTONES DEL MENÚ */
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+    flex-grow: 1;
+}
+
+.sidebar-menu a{
+font-size: 13px;}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 16px;
+    text-decoration: none;
+    color: var(--texto-secundario); /* Antes #64748b */
+    font-weight: 600;
+    font-size: 15px;
+    border-radius: 12px;
+    margin-bottom: 5px;
+    transition: all 0.2s ease;
+}
+
+.barritaa {
+    background-color: var(--borde-suave);
+height: 1px;
+margin-top: 15px;
+margin-bottom: 15px;
+
+}
+
+/* Iconos (El secreto es el tamaño fijo) */
+.menu-item svg {
+    width: 20px;
+    height: 20px;
+    stroke-width: 2;
+    
+}
+
+/* ESTADO ACTIVO Y HOVER */
+.menu-item:hover {
+    background-color: var(--otros-fondo); /* Antes #f1f5f9 */
+    color: var(--texto-principal); /* Antes #1e293b */
+}
+
+.menu-item.active {
+    background-color: var(--otros-fondo); /* Fondo suave adaptado al tema */
+    color: var(--color-primario); 
+             /* Antes #4f46e5 */
+}
+
+/* FOOTER / PERFIL */
+.sidebar-footer {
+    border-top: 1px solid var(--borde-suave); /* Antes #e2e8f0 */
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-left: 10px;
+}
+
+.avatar-small {
+    width: 36px;
+    height: 36px;
+    background: var(--color-primario); /* Antes #4f46e5 */
+    border-radius: 10px;
+    color: #ffffff; /* FIJO: Siempre blanco para contraste */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+}
+
+.user-info p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--texto-principal); /* Antes #1e293b */
+}
+
+.user-info span {
+    font-size: 12px;
+    color: var(--texto-secundario); /* Antes #94a3b8 */
+}
+
+/* BOTÓN CERRAR SESIÓN */
+.btn-logout {
+    background: var(--otros-fondo); /* Antes #f1f5f9 */
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    color: var(--peligro-texto); /* Antes #ef4444 */
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-logout:hover {
+    background: var(--peligro-fondo); /* Antes #fee2e2 */
+}
+
+/* Adaptación a Celular --- */
+@media (max-width: 1024px) {
+    .sidebar {
+        position: fixed;
+        left: -260px;
+    }
+
+    .sidebar.open {
+        left: 0;
+    }
+
+    .main-content {
+        width: 100%;
+        max-width: 100vw;
+        padding: 0 10px;
+    }
+
+    .sidebar-overlay.active {
+        display: block;
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.4); /* El overlay suele quedar fijo para visibilidad */
+        backdrop-filter: blur(4px);
+        z-index: 999;
+    }
+}
+
+
+
+/*------------------------- MMMOOOODDDDAAAALLLEEEESSSS --------------------------------*/
+
+
+/*------------------------- CREAR CLIENTE --------------------------------*/
+
+
+
+/* --- ESTILOS DEL MODAL --- */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5); /* FIJO: El overlay siempre es oscuro con opacidad */
+    backdrop-filter: blur(4px);
+    display: none; /* Oculto por defecto */
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.modal-overlay.active { display: flex; }
+
+.modal-container {
+    background: var(--fondo-tarjeta); /* Antes: white */
+    width: 90%;
+    max-width: 550px;
+    max-height: 90vh;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--sombra-tarjeta); /* Antes: sombra fija */
+}
+
+.modal-header {
+    padding: 25px 30px 20px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1px solid var(--borde-suave);
+    margin-bottom: 10px;
+}
+
+.modal-titulo h2 { 
+    margin: 0; 
+    font-size: 20px; 
+    font-weight: 800; 
+    color: var(--texto-principal); 
+}
+
+.modal-titulo p { 
+    margin: 5px 0 0; 
+    color: var(--color-primario); /* Antes: #64748b */
+    font-size: 11.5px;
+    letter-spacing:0cap;
+    font-weight: 600; 
+}
+
+.btn-cerrar-modal {
+    background: var(--otros-fondo); /* Antes: #f1f5f9 */
+    color: var(--texto-secundario);
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.modal-body {
+    padding: 0 24px 24px;
+    overflow-y: auto; /* Scroll interno */
+}
+
+/* GRID DE INPUTS */
+.input-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.input-group.full-width { grid-column: span 2; }
+
+.input-group label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--otros-texto); /* Antes: #475569 */
+    text-transform: uppercase;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px 10px;
+    background: var(--fondo-input); /* Antes: #e2e8f0 */
+    color: var(--texto-principal);
+    border: 1px solid transparent;
+    border-radius: 10px;
+    font-size: 13px;
+    outline: none;
+}
+
+/* FOOTER */
+.modal-footer {
+    padding: 18px 24px;
+    border-top: 1px solid var(--borde-suave); /* Antes: #e2e8f0 */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-row { display: flex; gap: 10px; }
+
+.btn-cancelar, .btn-guardar-solo, .btn-guardar-prestamo {
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    font-size: 14px;
+}
+
+.btn-cancelar { 
+    flex: 1; 
+    background: var(--otros-fondo); /* Antes: #f1f5f9 */
+    color: var(--texto-principal);
+    border: 1px solid var(--fondo-input);
+    width: 80%;
+    justify-content: center;
+    display: flex;
+}
+
+.btn-guardar-solo { 
+    flex: 1; 
+    background: var(--color-primario); /* Antes: #9494d6 */
+    color: #ffffff; /* FIJO: Siempre blanco para contraste */
+    border-radius: 10px;
+}
+
+.btn-guardar-prestamo { 
+    background: var(--color-primario); /* Antes: #9494d6 */
+    color: #ffffff; /* FIJO: Siempre blanco para contraste */
+    width: 100%;
+    border-radius: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*------------------------- COBRAR CUOTA --------------------------------*/
+
+/* ESTILOS ESPECÍFICOS MODAL COBRO */
+.resumen-cobro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.resumen-item {
+    background: var(--fondo-input); /* Antes: #e2e8f0 */
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.resumen-item span {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--texto-secundario); /* Antes: #64748b */
+    display: block;
+    margin-bottom: 5px;
+}
+
+.resumen-item p {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--texto-principal); /* Antes: #1e293b */
+}
+
+.progreso-bar-container {
+    height: 8px;
+    background: var(--borde-suave); /* Antes: #e2e8f0 */
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.progreso-bar-fill {
+    height: 100%;
+    background: var(--color-primario); /* Antes: #4338ca */
+    border-radius: 10px;
+}
+
+.control-pago label, .total-a-pagar-box label {
+    display: block;
+    font-size: 12px;
+    color: var(--texto-secundario); /* Antes: #64748b */
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.selector-cantidad {
+    display: flex;
+    gap: px;
+    margin-bottom: 25px;
+            border-radius: 10px;
+
+}
+
+.btn-step {
+    width: 50px;
+    height: 50px;
+    background: var(--fondo-input); /* Antes: #e2e8f0 */
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    color: var(--color-primario);
+    border: none;
+
+}
+
+#btnMas{
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+#btnMenos{
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+
+    
+}
+
+.valor-display {
+    flex: 1;
+    background: var(--fondo-input); /* Antes: #e2e8f0 */
+    border-radius: px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--texto-principal);
+}
+
+.total-a-pagar-box {
+    background: var(--otros-fondo); /* Antes: #f1f5f9 */
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid var(--borde-suave); /* Ajustado para consistencia de tema */
+}
+
+.monto-final {
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--color-primario); /* Antes: #4338ca */
+    text-align: center;
+}
+
+.btn-pagar-todo {
+    background: var(--otros-fondo); /* Antes: #f1f5f9 */
+    border: 1px solid var(--borde-suave); /* Antes: #e2e8f0 */
+    padding: 14px;
+    border-radius: 15px;
+    font-weight: 700;
+    color: var(--texto-principal); /* Antes: #1e293b */
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.btn-confirmar-final {
+    background: var(--color-primario); /* Antes: #4338ca */
+    color: #ffffff; /* FIJO: Siempre blanco para contraste */
+    padding: 18px;
+    border-radius: 18px;
+    font-weight: 800;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+
+
+.progreso-header-cobro {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--texto-principal);
+}
+
+#porcentajeCobro {
+    font-weight: 800;
+    color: #22c55e;
+}
+
+
+.modal-footerr-{
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 10px;
+width: 100%;
+padding: 0 25px;
+margin-bottom: 25px;}
+
+.modal-footerr- .btn-cancelar-finall{
+background-color: var(--otros-fondo);
+color: var(--texto-principal);
+width: 300px;
+border-radius: 10px;
+border: 1px solid var(--fondo-input);
+height: 45px;
+font-weight: 700;
+}
+
+.modal-footerr- .btn-confirmar-final{
+    background: var(--color-primario); /* Antes: #9494d6 */
+    color: #ffffff; /* FIJO: Siempre blanco para contraste */
+    border-radius: 10px;
+    border-radius: 10px;
+    height: 45px;
+    margin: 0;
+    padding: 0;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*------------------------ MODAL DE VER DETALLES -----------------------------------*/
+
+
+/* ----------------  MODAL DETALLES ----------------  */
+
+/* 1. Fondo del modal (Overlay) */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* FIJO: Sombra de fondo */
+    backdrop-filter: blur(2px);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.active { display: flex; }
+
+/* 2. Contenedor Principal */
+.detalle-cliente-modal {
+    background: var(--fondo-app); /* Color de fondo general del modal */
+    width: 95%;
+    max-width: 480px;
+    border-radius: 35px; 
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    max-height: 90vh;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15); /* FIJO: Profundidad visual */
+    border: 1px solid rgba(255,255,255,0.6); /* FIJO: Brillo en el borde */
+}
+
+#modalDetalles{
+padding: 0;}
+
+/* 3. Header y Línea superior */
+.header-top-line {
+    width: 45px;
+    height: 4px;
+    background: var(--borde-suave);
+    border-radius: 10px;
+    margin: 12px auto 5px;
+}
+
+.header-main {
+    padding: 10px 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.header-title-area h2 {
+    font-size: 1.4rem;
+    color: var(--texto-principal);
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.cliente-badge-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nombre-destacado {
+    color: var(--color-primario);
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.badge-atrasado {
+    background: var(--peligro-fondo);
+    color: var(--peligro-texto);
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border: 1px solid var(--peligro-fondo);
+}
+
+.btn-cerrar-modal {
+    background: var(--fondo-input);
+    border: none;
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: var(--otros-texto);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 4. Cuerpo con Scroll */
+.modal-body-scroll {
+    overflow-y: auto;
+    padding: 0 20px 20px;
+    flex-grow: 1;
+}
+
+/* 5. Secciones y Títulos */
+.seccion-titulo {
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    color: var(--texto-secundario);
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    margin: 20px 0 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* 6. Cuadrícula de Información (Info Boxes) */
+.info-grid-detalle {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+}
+
+.info-box {
+    background: var(--fondo-input); /* Gris de las cajitas adaptado */
+    padding: 5px 10px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.info-box.full { grid-column: span 2; }
+
+.info-box label {
+    font-size: 0.7rem;
+    color: var(--texto-secundario);
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.info-box span {
+    font-size: .80rem;
+    font-weight: 700;
+    color: var(--texto-principal);
+}
+
+/* 7. Barra de Progreso */
+.progreso-container {
+    background: var(--fondo-input);
+    padding: 15px;
+    border-radius: 8px;
+    margin: 16px 0;
+}
+
+/* Contenedor principal de la barra */
+.barra-progreso-bg {
+    width: 100%;
+    height: 8px;           /* Grosor de la barra */
+    background-color: var(--barra-estado); /* ESTE ES EL FONDO GRIS que verás siempre */
+    border-radius: 8px;    /* Bordes redondeados */
+    overflow: hidden;       /* Para que la barra verde no se salga de los bordes */
+    margin-bottom: 8px;
+    position: relative;
+}
+
+/* La barrita verde que se mueve */
+.barra-progreso-fill {
+    height: 100%;
+    width: 0%;              /* Empieza en 0, el JS le dará el ancho */
+    background-color: #22c55e; /* Color verde de éxito */
+    border-radius: 2px;
+    transition: width 0.5s ease; /* Para que se llene con una animación suave */
+}
+
+/* Texto de "X de X cuotas" */
+.progreso-texto {
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--texto-secundario);
+    text-align: center;
+    text-transform: uppercase;
+}
+/* 8. Historial de Cuotas (Cards dentro de la lista) */
+.cuota-item {
+    background: var(--fondo-input);
+    padding: 5px 20px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.cuota-item.pagada {
+    border-left: 6px solid var(--exito-texto);
+}
+
+.cuota-item.atrasada{
+    border-left: 6px solid var(--peligro-texto);
+    background-color: #ff474727;
+}
+
+.cuota-item p { margin: 0; color: var(--texto-principal); }
+
+.badge-cuota {
+    font-size: 0.65rem;
+    font-weight: 800;
+    padding: 4px 10px;
+    border-radius: 8px;
+    text-transform: uppercase;
+}
+
+.badge-cuota.pagada { background: var(--exito-fondo); color: var(--exito-texto); }
+.badge-cuota.pendiente { background: var(--borde-suave); color: var(--texto-secundario); }
+
+
+.btn-editar-cliente {
+    width: 100%;
+    border: 1px solid var(--borde-suave);
+    font-weight: 800;
+    cursor: pointer;
+    flex: 1; 
+    background: var(--color-primario); /* Antes: #9494d6 */
+    color: #ffffff; /* FIJO: Siempre blanco para contraste */
+    border-radius: 10px;
+
+}
+
+/* Scrollbar estética */
+.modal-body-scroll::-webkit-scrollbar { width: 5px; }
+.modal-body-scroll::-webkit-scrollbar-thumb { background: var(--borde-suave); border-radius: 10px; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Estilos para el historial del modal detalles */
+.det-fechas-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.fecha-box {
+    background: var(--fondo-input);
+    padding: 12px 15px;
+    border-radius: 12px;
+}
+
+.fecha-box label {
+    font-size: 10px;
+    color: var(--texto-secundario);
+    font-weight: 700;
+    display: block;
+    text-transform: none;
+}
+
+.fecha-box span {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--texto-principal);
+}
+
+.progreso-container-v4 {
+    margin: 20px 0;
+}
+
+.cuota-item {
+    background: var(--fondo-input);
+    padding: 8px 20px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    border-left: 5px solid transparent;
+    border: 1px solid var(--borde-suave);
+}
+
+.cuota-item.pagada {
+    border-left-color: #22c55e;
+    background: #f0fdf4; /* Un toque verde muy suave si está paga */
+}
+
+.tema-oscuro .cuota-item.pagada { background: rgba(34, 197, 94, 0.1); }
+
+.cuota-info p { margin: 0; }
+.cuota-numero { font-weight: 700; color: var(--texto-principal); font-size: 14px; }
+.cuota-fecha { font-size: 10px; color: var(--texto-secundario); }
+
+.cuota-monto-status { display: flex; align-items: center; gap: 15px; }
+.cuota-monto { font-weight: 800; color: var(--texto-principal); }
+
+.badge-cuota {
+    font-size: 10px;
+    font-weight: 800;
+    padding: 4px 8px;
+    border-radius: 6px;
+}
+.badge-cuota.pagada { background: #16a34a; color: #f7fffa; }
+.badge-cuota.pendiente { background: #e2e8f0; color: #64748b; }
+
+.badge-cuota.atrasada { background: #ef4444; color: #ffffff; }
+
+.cuota-item.atrasada {
+    border-left-color: 2px #ef4444;
+}
+.tema-oscuro .cuota-item.atrasada { background: rgba(239, 68, 68, 0.1); }
+
+
+/* -------------------- MODAL EDITAR CLIENTE ----------------*/
+
+.detalle-cliente-modal{
+background-color: var(--fondo-tarjeta) !important;}
+
+/* 1. Fondo del Modal (Overlay) */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(30, 41, 59, 0.5); /* FIJO: Overlay oscuro */
+    backdrop-filter: blur(4px);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.modal.active { display: flex; }
+
+/* 2. Contenedor Principal */
+.detalle-cliente-modal {
+    background: var(--fondo-app); /* Antes: #f1f3f6 */
+    width: 100%;
+    max-width: 480px; 
+    border-radius: 20px !important; 
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    max-height: 90vh; 
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    border: none;
+}
+
+/* 3. Barrita superior de "arrastre" */
+.modal-handle {
+    width: 40px;
+    height: 4px;
+    background: var(--borde-suave); /* Antes: #cbd5e1 */
+    border-radius: 10px;
+    margin: 12px auto 0;
+}
+
+/* 4. Header */
+.modal-header-detalle {
+    padding: 5px 25px;
+    border-bottom: 1px solid var(--borde-suave);
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-title-area h2 {
+    font-size: 1.3rem;
+    color: var(--texto-principal); /* Antes: #1e293b */
+    font-weight: 800;
+    margin: 0;
+}
+
+.btn-cerrar-modal {
+    background: var(--fondo-input); /* Antes: #e2e8f0 */
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--texto-secundario); /* Antes: #64748b */
+    font-size: 1.2rem;
+}
+
+/* 5. Cuerpo con Scroll */
+.modal-body-scroll {
+    padding: 0px 20px 25px;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+/* 6. Grid de Inputs (2 columnas) */
+.info-grid-detalle {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+/* 7. Cajitas de los Inputs */
+.info-box-v3 {
+    background: var(--fondo-input); /* Antes: #e2e8f0 */
+    padding: 4px 16px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.2s;
+}
+
+.info-box-v3.full { grid-column: span 2; }
+
+/* Etiquetas de los inputs */
+.info-box-v3 label {
+    font-size: 0.65rem;
+    color: var(--texto-secundario); /* Antes: #64748b */
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Inputs limpios */
+.info-box-v3 input {
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--texto-principal); /* Antes: #1e293b */
+    padding: 0;
+}
+
+.modal-footer-detalle {
+    display: flex;
+    gap: 10px;
+    border-top: 1px solid var(--borde-suave);
+    width: 100%;
+    padding: 0 18px;
+    justify-content: center;
+}
+
+
+
+.btn-confirmar-final {
+    background: var(--color-primario); /* Antes: #e2e8f0 */
+    border: 1px solid var(--borde-suave); /* Antes: #cbd5e1 */
+    padding: 8px;
+    border-radius: 10px;
+    font-weight: 800;
+    color: #fff; /* Antes: #1e293b */
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 15px;
+}
+
+
+/* Scrollbar estética */
+.modal-body-scroll::-webkit-scrollbar { width: 5px; }
+.modal-body-scroll::-webkit-scrollbar-thumb { background: var(--borde-suave); border-radius: 10px; }
+
+
+
+
+
+
+
+/*-------------------- MODAL OTORGAR PRESTAMO -----------------------------*/
+/* ==========================================
+   MODAL OTORGAR PRÉSTAMO — AISLADO
+   ========================================== */
+
+
+.oto-modal-card {
+    background: var(--fondo-tarjeta) !important;
+    border-radius: 20px !important;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4) !important;
+    width: 95% !important;
+    max-width: 550px !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.oto-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px 0 8px;
+}
+
+.oto-field { display: flex; flex-direction: column;}
+
+.oto-label {
+    font-size: 0.62rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: var(--texto-secundario);
+    margin-bottom: 3px;
+}
+
+/* INPUT CON PREFIJO $ */
+.oto-input-prefix {
+    display: flex;
+    align-items: center;
+    background: var(--fondo-input);
+    border: 1.5px solid var(--borde-suave);
+    border-radius: 8px;
+    padding: 0 14px;
+    height: 40px;
+    gap: 6px;
+    transition: border-color 0.2s;
+}
+.oto-input-prefix:focus-within { border-color: var(--color-primario); }
+
+.oto-prefix {
+    color: var(--texto-secundario);
+    font-weight: 700;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.oto-input-prefix input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--texto-principal);
+    width: 100%;
+    -moz-appearance: textfield;
+}
+.oto-input-prefix input::-webkit-outer-spin-button,
+.oto-input-prefix input::-webkit-inner-spin-button { -webkit-appearance: none; }
+
+/* STEPPER */
+.oto-stepper {
+    display: flex;
+    background: var(--fondo-input);
+    border: 1.5px solid var(--borde-suave);
+    border-radius: 8px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.oto-step-btn {
+    font-size: 1.3rem;
+    font-weight: 700;
+    cursor: pointer;
+    color: var(--color-primario);
+    background: transparent;
+    user-select: none;
+    transition: background 0.15s;
+    display: flex;
+    justify-content: center;
+}
+.oto-step-btn:hover { background: rgba(99,102,241,0.12); }
+
+.oto-step-input {
+    border: none;
+    outline: none;
+    text-align: center;
+    background: transparent;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--texto-principal);
+    -moz-appearance: textfield;
+}
+.oto-step-input::-webkit-outer-spin-button,
+.oto-step-input::-webkit-inner-spin-button { -webkit-appearance: none; }
+
+/* BOTONES FRECUENCIA */
+.oto-frec-btns {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+}
+
+.oto-frec-btn {
+    padding: 8px 0;
+    border-radius: 8px;
+    border: none;
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    background: var(--fondo-input);
+    color: var(--texto-secundario);
+    border: 1.5px solid var(--borde-suave);
+    transition: all 0.2s;
+}
+
+.oto-frec-btn.oto-frec-active {
+    background: var(--color-primario);
+    color: #fff;
+    border-color: var(--color-primario);
+}
+
+/* FECHAS */
+.oto-grid .oto-field:has(.oto-date-wrap),
+.oto-grid .oto-field:has(.oto-date-wrap) + .oto-field:has(.oto-date-wrap) {
+    /* se manejan con el wrapper de abajo */
+}
+
+/* Contenedor de los dos campos de fecha en fila */
+.oto-grid {
+    /* redefine solo el área de fechas con sub-grid */
+}
+
+
+
+.oto-date-wrap {
+    display: flex;
+    align-items: center;
+    background: var(--fondo-input);
+    border: 1.5px solid var(--borde-suave);
+    border-radius: 8px;
+    height: 48px;
+    transition: border-color 0.2s;
+    width: 140px;
+    padding: 0;
+    justify-content: center;
+    
+}
+.oto-date-wrap:focus-within { border-color: var(--color-primario); }
+
+.oto-date-icon { font-size: 0.9rem; flex-shrink: 0;}
+
+.oto-date-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--texto-principal);
+    colorscheme: dark;
+    width: 100%;
+}
+
+/* RESUMEN */
+.oto-calculos-box {
+    background: var(--fondo-input);
+    border: 1.5px solid var(--color-primario);
+    border-radius: 18px;
+    padding: 14px 16px;
+}
+
+.oto-calculos-title {
+    color: var(--color-primario);
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    margin: 0 0 12px 0;
+}
+
+.oto-calculos-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.oto-calc-item {
+    background: var(--fondo-tarjeta);
+    border-radius: 12px;
+    padding: 10px 10px;
+}
+
+.oto-calc-label {
+    display: block;
+    font-size: 0.58rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--texto-secundario);
+    margin-bottom: 4px;
+}
+
+.oto-calc-item span {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: var(--texto-principal);
+}
+
+.oto-cuota-highlight {
+    color: var(--color-primario) !important;
+}
+
+.oto-resumen-sub {
+    font-size: 0.72rem;
+    color: var(--texto-secundario);
+    text-align: center;
+    margin: 0;
+}
+
+/* FOOTER */
+.oto-footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding: 14px 24px 24px;
+    border-top: 1px solid var(--borde-suave);
+    flex-shrink: 0;
+}
+
+.oto-btn-cancel {
+    background: transparent;
+    border: 1.5px solid var(--borde-suave);
+    padding: 13px;
+    border-radius: 14px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--texto-principal);
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+.oto-btn-cancel:hover { opacity: 0.7; }
+
+.oto-btn-primary {
+    background: var(--color-primario);
+    color: #fff;
+    border: none;
+    padding: 13px;
+    border-radius: 14px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+.oto-btn-primary:hover { opacity: 0.85; }
+
+/* Header del modal */
+#modalOtorgar .modal-header-prestamo {
+    padding: 10px 24px 10px;
+    border-bottom: 1px solid var(--borde-suave);
+    flex-shrink: 0;
+}
+
+#modalOtorgar .header-title-area h2 {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--texto-principal);
+    margin: 0;
+}
+
+#modalOtorgar .btn-cerrar-modal {
+    background: var(--fondo-input);
+    border: none;
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: var(--texto-secundario);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* Body con padding */
+#modalOtorgar .modal-body-scroll {
+    padding: 0 20px 12px;
+    overflow-y: auto;
+    flex: 1;
+}
+
+/* Footer — botón que no se corte */
+.oto-footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding: 14px 20px 24px;
+    border-top: 1px solid var(--borde-suave);
+    flex-shrink: 0;
+}
+
+.oto-btn-primary {
+    background: var(--color-primario);
+    color: #fff;
+    border: none;
+    padding: 13px 5px;
+    border-radius: 14px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    line-height: 1.3;
+    text-align: center;
+}
+
+.oto-btn-cancel {
+    background: var(--otros-fondo);
+    border: 1.5px solid var(--borde-suave);
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--texto-principal);
+    cursor: pointer;
+    transition: opacity 0.2s;
+    height: 40px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+/* Quitar campo oto-nombre (input oculto — ya no se muestra) */
+#oto-nombre { display: none; }
+#modalOtorgar .oto-field:has(#oto-nombre) { display: none; }
+
+/* Eliminar el icono de calendario por defecto del navegador */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}
+
+/* Centrar la X dentro del modal */
+#modalOtorgar .oto-modal-card {
+    position: relative; /* Importante para que la X se mueva con el modal */
+}
+
+#modalOtorgar .btn-cerrar-modal {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--fondo-input);
+    border-radius: 10px;
+    width: 36px;
+    height: 36px;
+    transition: all 0.2s;
+}
+
+/* Centrar las fechas y labels */
+.oto-fechas-row {
+    display: flex;
+    margin-top: 7px;
+    width: 100%;
+    justify-content: center;
+    gap: 5px;
+    margin-bottom: 5px;
+    
+}
+
+.oto-date-wrap {
+    justify-content: center; /* Centra el contenido horizontalmente */
+    padding: 0 10px;
+    align-items: center;
+}
+
+.oto-date-input {
+    text-align: center; /* Centra el texto de la fecha */
+    padding-right: 0px; /* Compensa el espacio del icono de la izquierda para que se vea centrado */
+}
+
+.oto-date-icon {
+    margin-right: -10px; /* Acerca el SVG al texto centrado */
+    z-index: 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*-------------------------RESPONSIVEE? ------------------------*/
+
+/* ==========================================
+   RESPONSIVE MÓVIL — INFINIX HOT 40 PRO
+   Pantalla: ~393px ancho CSS
+   ========================================== */
+
+@media (max-width: 768px) {
+
+    html, body { height: 100%; }
+
+    .app {
+        flex-direction: column;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    /* Sidebar oculto por defecto */
+    .sidebar {
+        position: fixed;
+        left: -260px;
+        height: 100vh;
+        z-index: 1000;
+        transition: left 0.3s ease;
+    }
+    .sidebar.open { left: 0; }
+
+    /* Contenido principal */
+    .main-content {
+        width: 100%;
+        max-width: 100vw;
+        padding: 0 14px;
+        height: 100vh;
+        overflow-y: auto;
+    }
+
+    /* Topbar */
+    .topbar { padding: 25px 0; }
+    .titulo-seccion h1 { font-size: 20px; color: var(--clientes-totales); }
+    .btn-principal-v2 { padding: 0px 16px; font-size: 13px; }
+
+    /* Buscador + filtro en fila */
+    .seccion-busqueda { flex-direction: row; gap: 8px; }
+    .buscador-container-v2 input {
+        font-size: 13px;
+        padding: 10px 14px 10px 42px;
+    }
+
+    /* Lista de clientes */
+    .lista-clientes { gap: 10px; }
+    .cliente-header { padding: 10px 12px; gap: 10px; }
+    .cliente-info h3 { font-size: 13px; }
+    .cliente-info p  { font-size: 12px; }
+    .cliente-avatar { width: 36px; height: 36px; font-size: 12px; color: var(--fondo-tarjeta);}
+    .badge-estado { font-size: 0.5rem !important; padding: 3px 2px !important; }
+
+    /* Botones de acción dentro de tarjeta */
+    .acciones-card {  gap: 8px; }
+    .btn-ver-detalles,
+    .btn-cobrar,
+    .btn-otorgar,
+    .btn-eliminar {
+        width: 100%;
+        height: 40px;
+        font-size: 11px;
+    }
+
+    .info-grid { grid-template-columns: 1fr; gap: 5px; }
+
+
+
+
+    /* =============================================
+       MODALES — ESTRUCTURA 2 COLUMNAS EN MÓVIL
+       (igual a las imágenes de referencia)
+       ============================================= */
+
+    .modal-overlay {
+        align-items: flex-end; /* El modal sube desde abajo en móvil */
+        padding: 0;
+    }
+
+    .modal-container {
+        width: 100%;
+        max-width: 100%;
+        border-radius: 24px 24px 0 0; /* Bordes solo arriba */
+        max-height: 95vh;
+        padding-bottom: env(safe-area-inset-bottom, 16px);
+    }
+
+    .modal-header {
+        padding: 22px 20px 14px;
+    }
+
+    .modal-titulo h2 {
+        font-size: 22px;
+        font-weight: 800;
+    }
+
+    .modal-titulo p {
+        font-size: 12px;
+        margin-top: 3px;
+    }
+
+    .modal-body {
+        padding: 0 16px 16px;
+        overflow-y: auto;
+    }
+
+    /* -----------------------------------------------
+       INPUT GRID: 2 COLUMNAS en móvil (como la imagen)
+       ----------------------------------------------- */
+    .input-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* ← CLAVE: 2 columnas */
+        gap: 10px;
+    }
+
+    /* Ocupación, Seña, Monto → ancho completo */
+    .input-group.full-width {
+        grid-column: span 2;
+    }
+
+    .input-group label {
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--otros-texto);
+        text-transform: uppercase;
+        display: block;
+        margin-bottom: 4px;
+    }
+
+    .input-group input {
+        width: 100%;
+        padding: 12px 12px;
+        background: var(--fondo-input);
+        color: var(--texto-principal);
+        border: 1px solid transparent;
+        border-radius: 8px;
+        font-size: 14px;
+        outline: none;
+    }
+
+    .input-group input::placeholder {
+        color: var(--texto-secundario);
+        font-size: 13px;
+    }
+
+    /* Footer del modal */
+    .modal-footer {
+        padding: 8px 16px 20px;
+        border-top: 1px solid var(--borde-suave);
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .footer-row {
+        display: flex;
+        gap: 10px;
+        flex-direction: row; /* ← Cancelar y Guardar JUNTOS en fila */
+    }
+
+    .btn-cancelar {
+        flex: 1;
+        height: 40px;
+        font-size: 12px;
+        border-radius: 10px;
+    }
+
+    .btn-guardar-solo {
+        flex: 1;
+        font-size: 12px;
+        border-radius: 10px;
+    }
+
+    .btn-guardar-prestamo {
+        width: 100%;
+        height: 40px;
+        font-size: 12px;
+        border-radius: 10px;
+    }
+
+
+    /* =============================================
+       MODAL COBRAR CUOTA
+       ============================================= */
+
+    #modalCobrarCuota .modal-container {
+        border-radius: 24px 24px 0 0;
+    }
+
+    /* Las 4 tarjetitas de resumen: 2x2 */
+    .resumen-cobro-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-bottom: 16px;
+    }
+
+    .resumen-item {
+        padding: 8px;
+        border-radius: 8px;
+    }
+
+    .resumen-item span {
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 6px;
+    }
+
+    .resumen-item p {
+        font-size: 17px;
+        font-weight: 800;
+    }
+
+    /* Barra de progreso */
+    .progreso-header-cobro {
+        font-size: 12px;
+        font-weight: 700;
+        margin-bottom: 8px;
+        margin-top: 20px;
+    }
+
+    /* Selector de cuotas */
+    .control-pago label {
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    .selector-cantidad {
+        display: flex;
+        margin-bottom: 14px;
+        border-radius: 14px;
+        overflow: hidden;
+        height: 54px;
+    }
+
+    .btn-step {
+        width: 60px;
+        height: 40px;
+        font-size: 22px;
+        background: var(--fondo-input);
+        color: var(--color-primario);
+        border: none;
+        cursor: pointer;
+    }
+
+    #btnMenos { border-radius: 14px 0 0 14px; }
+    #btnMas   { border-radius: 0 14px 14px 0; }
+
+    .valor-display {
+        flex: 1;
+        font-size: 22px;
+        font-weight: 800;
+        background: var(--fondo-input);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--texto-principal);
+        height: 40px;
+    }
+
+    /* Caja Total a Pagar */
+    .total-a-pagar-box {
+        padding: 8px;
+        border-radius: 10px;
+        border: 1px solid var(--color-primario);
+
+    }
+
+    #titulo-totalapagar {
+        font-size: 12px;
+        font-weight: 900;
+        text-transform: uppercase;
+        color: var(--color-primario);
+    }
+
+    .monto-final {
+        font-size: 36px;
+        font-weight: 900;
+        text-align: center;
+        color: var(--color-primario);
+    }
+
+    /* Footer cobro: 2 botones en fila */
+    .modal-footerr- {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        padding: 15px 16px 20px;
+        margin-bottom: 0;
+        border-top: 1px solid var(--borde-suave);
+    }
+
+    .modal-footerr- .btn-cancelar-finall {
+        flex: 1;
+        height: 40px;
+        font-size: 14px;
+        font-weight: 700;
+        border-radius: 12px;
+        width: auto;
+    }
+
+    .modal-footerr- .btn-confirmar-final {
+        flex: 1;
+        height: 40px;
+        font-size: 12px;
+        font-weight: 700;
+        border-radius: 12px;
+        padding: 0;
+        margin: 0;
+    }
+
+
+
+
+    /* =============================================
+       MODAL DETALLE CLIENTE
+       ============================================= */
+
+    .detalle-cliente-modal {
+        width: 100%;
+        max-width: 100%;
+        border-radius: 24px 24px 0 0 !important;
+        max-height: 95vh;
+    }
+
+    .modal-header-detalle { padding: 6px 18px ; }
+
+    .header-title-area h2 { font-size: 1.3rem; }
+
+    .input-grid.det-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .modal-footer-detalle {
+        flex-direction: row;
+        gap: 10px;
+        padding: 14px 16px 0px;
+    }
+
+    .btn-guardar-solo{
+    display: flex;
+    align-items: center;
+    justify-content: center;}
+
+    .btn-cancelar{
+    display: flex;
+    align-items: center;
+    justify-content: center;}
+
+
+    .modal-footer-detalle .btn-cancelar,
+    .modal-footer-detalle .btn-editar-cliente {
+        flex: 1;
+        font-size: 13px;
+    }
+
+
+
+/* =============================================
+   MODAL ELIMINAR (ESTILO PREMIUM DARK)
+   ============================================= */
+
+#modalEliminar .modal-container {
+    background: var(--fondo-tarjeta); /* Fondo ultra oscuro */
+    border: 1px solid var(--borde-suave);
+    max-width: 380px !important;
+    padding: 35px 25px !important;
+    text-align: center;
+    border-radius: 24px !important;
+}
+
+/* Contenedor del icono */
+.alerta-icono {
+    background: rgba(239, 68, 68, 0.1); /* Rojo muy suave de fondo */
+    width: 70px;
+    height: 70px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.alerta-icono svg {
+    stroke: #ef4444; /* Rojo vibrante */
+    width: 35px;
+    height: 35px;
+}
+
+#modalEliminar h2 {
+    color: var(--texto-principal) !important;
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 12px;
+}
+
+#modalEliminar p {
+    color: #94a3b8 !important; /* Gris suave */
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 25px;
+}
+
+#nombreClienteEliminar {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+/* Botones del modal de eliminar */
+.modal-acciones-v2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.modal-acciones-v2 .btn-secundario-v2 {
+    flex: 1;
+    background: var(--otros-fondo);
+    border: none;
+    border-radius: 8px;
+    color: var(--texto-principal);
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.modal-acciones-v2 .btn-principal-v22 {
+    flex: 1;
+    background: #ef4444;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    text-align: c;
+}
+
+.modal-acciones-v2 .btn-principal-v2:hover {
+    transform: translateY(-2px);
+    background: #dc2626 !important;
+}
+
+
+
+
+
+
+    
+}
+
+
+/* =============================================
+   AJUSTE FINO — PANTALLAS MUY PEQUEÑAS (<360px)
+   ============================================= */
+@media (max-width: 360px) {
+    .input-grid { gap: 8px; }
+    .input-group input { padding: 10px; font-size: 13px; }
+    .oto-step-btn { width: 48px; }
+    .resumen-item p { font-size: 15px; }
+    .monto-final { font-size: 28px; }
+}
+
+
+/* =============================================
+   MODALES — CENTRADOS, MISMO TAMAÑO, TODOS
+   Aplica a: modal-overlay, .modal (detalle/otorgar)
+   ============================================= */
+
+/* --- OVERLAY FIJO Y OSCURO --- */
+.modal-overlay,
+.modal {
+    position: fixed !important;
+    inset: 0 !important;
+    background: rgba(0, 0, 0, 0.55) !important;
+    backdrop-filter: blur(4px) !important;
+    display: none;
+    justify-content: center !important;
+    align-items: center !important;
+    z-index: 2000 !important;
+    padding: 20px !important; /* Espacio en todos los costados */
+}
+
+.modal-overlay.active,
+.modal.active {
+    display: flex !important;
+}
+
+/* --- CONTENEDOR DEL MODAL (mismo tamaño para todos) --- */
+.modal-container,
+.detalle-cliente-modal,
+.oto-modal-card {
+    width: 100% !important;
+    max-width: 460px !important;
+    max-height: 88vh !important;
+    border-radius: 22px !important;
+    overflow: hidden;
+    display: flex !important;
+    flex-direction: column !important;
+    background: var(--fondo-tarjeta) !important;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35) !important;
+    /* Quita el borde-redondeado solo arriba que teníamos en móvil */
+    border-radius: 22px !important;
+}
+
+/* --- MÓVIL: centrado con margen lateral --- */
+@media (max-width: 768px) {
+
+    .modal-overlay,
+    .modal {
+        padding: 16px !important; /* Espacio a los 4 costados en móvil */
+        align-items: center !important; /* Centrado vertical */
+    }
+
+    .modal-container,
+    .detalle-cliente-modal,
+    .oto-modal-card {
+        width: 100% !important;
+        max-width: 100% !important;    /* Ocupa el ancho menos el padding del overlay */
+        max-height: 90vh !important;
+        border-radius: 22px !important; /* Bordes redondeados en todos los lados */
+    }
+
+    /* Quitar el "sube desde abajo" que teníamos antes */
+    .modal-overlay { align-items: center !important; }
+    .modal         { align-items: center !important; }
+}
+
+
+
+
+
+
+
+
+
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--texto-principal);
+}
+
+.info-item svg {
+    color: var(--texto-principal);
+    flex-shrink: 0;
+    height: 14px;
+}
+
+.info-item strong {
+    color: var(--texto-secundario);
+    font-weight: 400;
+}
+
+.seccion-titulo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.seccion-titulo svg{
+    color: var(--color-primario);
+}
+
+
+
+
+
+
+
+/* Estilos específicos para el modal de Logout */
+
+.modal-containerrrr {
+    background-color: var(--fondo-tarjeta);
+    padding: 1.5rem;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    animation: aparecer 0.3s ease-out;}
+
+.modal-contentt {
+    background-color: var(--fondo-tarjeta);
+    padding: 1.5rem;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    animation: aparecer 0.3s ease-out;}
+
+
+.modal-contentt p {
+    margin-top: 1px;
+    margin-bottom: 30px;
+    color: var(--texto-principal);
+    font-size: 12.5px;
+    font-family: "Poppins";
+    color: var(--texto-secundario);
+    text-align: center;
+}
+
+
+.modal-containerrr, h2{
+    text-align: center;
+    margin-bottom: 12px;
+    font-size: 20px;
+    color: var(--texto-principal);
+}
+
+.icon-warning {
+    background: var(--peligro-fondo);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px;
+}
+
+.modal-acciones {
+    display: flex;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.btn-secundario {
+    flex: 1;
+    padding: 12px;
+    background: var(--otros-fondo);
+    border: none;
+    border-radius: 8px;
+    color: var(--texto-principal);
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.btn-peligro {
+    flex: 1;
+    padding: 12px;
+    background: #ef4444;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.btn-peligro:hover {
+    background: #dc2626;
+}
+
+
+
+
+
+/* CONTENEDOR PRINCIPAL DEL MODAL (FONDO) */
+#modalSelectorPrestamo {
+    display: none; /* Se activa con la clase .active */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Fondo oscuro semitransparente */
+    backdrop-filter: blur(4px); /* Efecto de desenfoque al fondo */
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.modal-v2.active {
+    display: flex !important;
+}
+
+/* CAJA DEL CONTENIDO */
+.modal-content-v2 {
+    background: var(--fondo-tarjeta);
+    width: 100%;
+    max-width: 450px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    overflow: hidden;
+    animation: modalSlideUp 0.3s ease-out;
+}
+
+@keyframes modalSlideUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* CABECERA DEL MODAL */
+.modal-header-v2 {
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--borde-suave);
+
+}
+
+.modal-content-v2 p{
+    font-size: .8rem;
+    font-weight: 300;
+    color: var(--texto-principal);
+    margin-left: 20px;
+    display: block;
+    width: 80%;
+    margin-bottom: 20px;
+}
+.modal-header-v2 h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--texto-principal);
+    margin: 0;
+}
+
+.btn-cerrar-modal {
+    background: var(--bg-body);
+    border: none;
+    color: var(--texto-secundario);
+    font-size: 24px;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.btn-cerrar-modal:hover {
+    background: #ef4444;
+    color: white;
+}
+
+
+
+
+
+
+/* OVERLAY GENERAL */
+.modal-v2 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(4px);
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 9999;
+    padding: 20px;
+}
+
+/* CUANDO ESTÁ ACTIVO */
+.modal-v2.active {
+    display: flex;
+    animation: fadeIn 0.25s ease;
+}
+
+/* CONTENEDOR */
+.modal-content-v2 {
+    width: 100%;
+    max-width: 420px;
+    border-radius: 14px;
+    border: 1px solid var(--borde-suave);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+
+    animation: slideUp 0.25s ease;
+}
+
+/* HEADER */
+.modal-header-v2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--borde-suave);
+}
+
+.modal-header-v2 h2 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--texto-principal);
+}
+
+/* BOTÓN CERRAR */
+.btn-cerrar-modal {
+    background: transparent;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    color: #6b7280;
+
+    transition: 0.2s;
+}
+
+.btn-cerrar-modal:hover {
+    color: #111827;
+    transform: scale(1.1);
+}
+
+/* TEXTO */
+.modal-v2 p {
+    margin: 13px 20px;
+    color: var(--texto-secundario);
+    font-size: 13px;
+    font-weight: 500;
+}
+
+/* LISTA DE PRÉSTAMOS */
+.item-seleccion-prestamo {
+    background: var(--);
+    border: 1px solid var(--color-primario);
+
+    border-radius: 12px;
+    padding: 14px 16px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.item-seleccion-prestamo:hover {
+    background: #f3f4f6;
+    transform: translateY(-2px);
+    border-color: #d1d5db;
+}
+
+/* INFO INTERNA */
+.item-seleccion-prestamo div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.info-p-monto {
+    font-weight: 600;
+    color: #111827;
+    font-size: 14px;
+}
+
+.info-p-cuotas {
+    font-size: 12px;
+    color: #6b7280;
+}
+
+/* ICONO FLECHA */
+.item-seleccion-prestamo svg {
+    color: #9ca3af;
+    transition: 0.2s;
+}
+
+.item-seleccion-prestamo:hover svg {
+    transform: translateX(3px);
+    color: #6366f1;
+}
+
+/* ANIMACIONES */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px) scale(0.98);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
+
+.cliente-card.expanded .flecha-expandir {
+    transform: rotate(180deg);
+}
