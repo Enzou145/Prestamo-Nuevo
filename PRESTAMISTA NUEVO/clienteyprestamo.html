@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Gestión Pro</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="clientes.css">
+
+        <script>
+        window.OneSignalDeferred = window.OneSignalDeferred || [];
+        OneSignalDeferred.push(async function(OneSignal) {
+            await OneSignal.init({
+                appId: "c3bb8e60-531a-4a8e-aa22-f640ddb5dd2c",
+            });
+
+            // 🔥 ESTA LÍNEA TE FALTABA
+            OneSignal.showSlidedownPrompt();
+        });
+        </script>
+
+</head>
+<body>
+
+<div class="app">
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- SIDEBAR -->
+<aside class="sidebar">
+
+    <!-- TOP: Logo / App -->
+<div class="sidebar-header">
+    <h2>Gestión <span class="pro-highlight">Pro</span></h2>
+    <button class="sidebar-close-btn" id="sidebarCloseBtn">&times;</button>
+</div>
+
+<nav class="sidebar-menu">
+    <ul>
+        <li class="menu-section-label">GENERAL</li>
+        <li>
+            <a href__="panel.html">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z"/><path d="M9 21V12h6v9"/></svg>
+                Inicio
+            </a>
+        </li>
+        <li class="activo">
+            <a href="clientes.html">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                Clientes
+            </a>
+        </li>
+
+        <li class="menu-section-label">OPERACIONES</li>
+        <li>
+            <a href="pagos.html">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+                Pagos
+            </a>
+        </li>
+        <li>
+            <a href__="#">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                Planes
+            </a>
+        </li>
+
+        <li class="menu-section-label">SOPORTE</li>
+        <li>
+            <a href__="#">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                Configuración
+            </a>
+        </li>
+        <li>
+            <a href__="#">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                Documentación
+            </a>
+        </li>
+    </ul>
+</nav>
+
+
+  <!-- USER -->
+<div class="sidebar-footer">
+    <img id="sidebarUserAvatar" src="build/avat.svg" alt="Foto de usuario">
+
+    <div class="sidebar-user-info">
+        <p id="sidebarUserName">Cargando...</p>
+        <span id="sidebarUserEmail">Cargando...</span>
+    </div>
+
+<button id="logoutBtn" class="logout-btn" type="button">
+    Cerrar sesión
+</button>
+</div>
+
+
+</aside>
+
+<!-- CONTENIDO -->
+<!-- CONTENIDO -->
+<div class="main-content">
+
+    <!-- BARRA SUPERIOR -->
+    <header class="topbar">
+      <button class="menu-toggle" id="menuToggle" type="button">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+      </button>
+        <h1>Clientes</h1>
+    </header>
+
+    <!-- ÁREA DE ACCIONES (NUEVO DISEÑO) -->
+    <div class="contenedor-acciones">
+        <!-- BOTÓN AGREGAR (AHORA ES FULL WIDTH) -->
+        <button class="btn-principal-v2" id="abrirModalNuevo">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="3"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            Agregar Cliente
+        </button>
+
+        <!-- INFO Y FILTROS -->
+        <div class="sub-header-v2">
+            <div class="botones-agrupados">
+                <button class="btn-outline-v2" id="btn-abrir-filtros">
+                    <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg>
+                    Filtros
+                </button>
+                <button class="btn-outline-v2">
+                    <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    Exportar
+                </button>
+            </div>
+        </div>
+
+
+        <!-- Contenedor dinámico de filtros -->
+        <div id="contenedor-filtros-pills" class="filtros-pills-container d-none-mobile">
+            <div class="filtros-pills-scroll">
+                <button class="pill-filter active" data-estado="todos">Todos</button>
+                <button class="pill-filter" data-estado="al_dia">Al día</button>
+                <button class="pill-filter" data-estado="atrasado">Atrasados</button>
+                <button class="pill-filter" data-estado="finalizado">Finalizados</button>
+                <button class="pill-filter" data-estado="sin_prestamo">Sin plan</button>
+            </div>
+        </div>
+
+        <!-- BUSCADOR CON ICONO -->
+        <div class="buscador-container-v2">
+            <svg class="search-icon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input type="text" id="buscadorClientes" placeholder="Buscar por nombre o email...">
+        </div>
+    </div>
+
+
+    <span id="contadorClientes" class="contador-v2">Mostrando 0 de 0 clientes</span>
+    <!-- LISTA DE CLIENTES -->
+    <div class="lista-clientes" id="listaClientes"></div>
+
+    <!-- PAGINACIÓN AL FINAL -->
+<!-- Esto debe ir justo antes de cerrar el div de main-content -->
+<div class="paginacion-footer">
+    <button id="btnAnterior" class="btn-pag">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    </button>
+    
+    <span id="infoPagina" class="info-pag-texto">1 / 1</span>
+    
+    <button id="btnSiguiente" class="btn-pag">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </button>
+</div> <!-- FIN MAIN CONTENT -->
+
+
+<div id="toast" class="toast"></div>
+
+<div class="modal-overlay" id="modalNuevoCliente">
+  <div class="modal-cliente">
+    <div class="modal-header">
+      <div>
+        <h2>Nuevo Cliente</h2>
+        <p>Ingresa los datos para registrar un nuevo cliente</p>
+      </div>
+      <button class="cerrar-modal" id="cerrarNuevoCliente">&times;</button>
+    </div>
+
+    <form id="formNuevoCliente" class="modal-body">
+        <div class="campo">
+          <label>NOMBRE *</label>
+          <input type="text" id="nuevoNombreCliente" placeholder="Nombre" required>
+        </div>
+        <div class="campo">
+          <label>APELLIDO *</label>
+          <input type="text" id="nuevoApellidoCliente" placeholder="Apellido" required>
+        </div>
+
+        <div class="campo">
+          <label>DNI *</label>
+          <input type="text" id="nuevoDniCliente" placeholder="42650..." required>
+        </div>
+        <div class="campo">
+          <label>TELÉFONO *</label>
+          <input type="text" id="nuevoTelefonoCliente" placeholder="+54385..." required>
+        </div>
+
+        <div class="campo">
+          <label>CIUDAD *</label>
+          <input type="text" id="nuevoCiudadCliente" placeholder="Ciudad" required>
+        </div>
+        <div class="campo">
+          <label>BARRIO *</label>
+          <input type="text" id="nuevoBarrioCliente" placeholder="Barrio" required>
+        </div>
+
+        <div class="campo">
+          <label>CALLE *</label>
+          <input type="text" id="nuevoCalleCliente" placeholder="Calle" required>
+        </div>
+        <div class="campo">
+          <label>NRO. *</label>
+          <input type="text" id="nuevoNroCliente" placeholder="Nro." required>
+        </div>
+
+        <div class="campo campo-full">
+          <label>OCUPACIÓN *</label>
+          <input type="text" id="nuevoOcupacionCliente" placeholder="Ocupación..." required>
+        </div>
+
+        <!--<div class="linea"></div>-->
+
+        <div class="campo campo-full">
+          <label>SEÑA / PRODUCTO</label>
+          <input type="text" id="nuevoSenaCliente" placeholder="Ej: Celular Samsung">
+        </div>
+
+        <div class="campo campo-full">
+          <label>MONTO APROXIMADO</label>
+          <input type="number" id="nuevoMontoCliente" placeholder="$1000..">
+        </div>
+    </form>
+
+    <div class="linea2"></div>
+
+    <div class="acciones-modall">
+        <button type="button" class="btn-cancelar" id="cancelarNuevoCliente">Cancelar</button>
+        <button type="submit" class="btn-guardar" form="formNuevoCliente">Guardar Cliente</button>
+      </div>    
+
+    <div class="crear-prestamoo">
+      <button type="submit" class="btn-guardar-crear">Guardar y Crear Prestamo</button>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- MODAL EDITAR -->
+<div class="modal-overlay" id="modalEditarCliente">
+  <div class="modal-cliente">
+    <div class="modal-header">
+      <div>
+        <h2>Modificar Cliente</h2>
+        <p>Edita los datos del cliente seleccionado</p>
+      </div>
+      <button class="cerrar-modal" id="cerrarEditarCliente">&times;</button>
+    </div>
+
+    <form id="formEditarCliente" class="modal-body">
+      <div class="fila-modal">
+        <div class="campo">
+          <label>NOMBRE</label>
+          <input type="text" id="editarNombreCliente" required>
+        </div>
+        <div class="campo">
+          <label>APELLIDO</label>
+          <input type="text" id="editarApellidoCliente" required>
+        </div>
+      </div>
+
+      <div class="fila-modal">
+        <div class="campo">
+          <label>DNI</label>
+          <input type="text" id="editarDniCliente" placeholder="42650...">
+        </div>
+        <div class="campo">
+          <label>TELEFONO</label>
+          <input type="text" id="editarTelefonoCliente" placeholder="+54385..." required>
+        </div>
+      </div>
+
+
+
+      <div class="fila-modal">
+        <div class="campo">
+          <label>DIRECCIÓN</label>
+          <input type="text" id="editarCiudadCliente" placeholder="Ciudad">
+        </div>
+        <div class="campo">
+          <label>BARRIO</label>
+          <input type="text" id="editarBarrioCliente" placeholder="Barrio" required>
+        </div>
+        <div class="campo">
+          <label>CALLE</label>
+          <input type="text" id="editarCalleCliente" placeholder="Calle" required>
+        </div>
+        <div class="campo">
+          <label>NRO.</label>
+          <input type="text" id="editarNroCliente" placeholder="Nro." required>
+        </div>
+      </div>
+
+      <div class="campo">
+        <label>OCUPACIÓN</label>
+        <input type="text" id="editarOcupacionCliente" placeholder="Trabajo / Dedicación ..">
+      </div>
+
+      <div class="linea"></div>
+
+      <div class="fila-modal">
+        <div class="campo">
+          <label>SEÑA / PRODUCTO</label>
+          <input type="text" id="editarSenaCliente" placeholder="Ej: Celular Samsung">
+        </div>
+        <div class="campo">
+          <label>MONTO INICIAL</label>
+          <input type="number" id="editarMontoCliente" placeholder="Monto aproximado..">
+        </div>
+      </div>
+
+      <div class="acciones-modal">
+        <button type="button" class="btn-cancelar" id="cancelarEditarCliente">Cancelar</button>
+        <button type="submit" class="btn-guardar">Guardar Cambios</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- MODAL ELIMINAR -->
+<div class="modal-overlay" id="modalEliminarCliente">
+  <div class="modal-eliminar">
+    <div class="modal-header eliminar-header">
+      <div>
+        <h2>ELIMINAR CLIENTE</h2>
+        <p>¿Estás seguro que deseas eliminar este registro?</p>
+      </div>
+      <button class="cerrar-modal" id="cerrarEliminarCliente">&times;</button>
+    </div>
+
+    
+
+    <div id="filaEliminarPreview" class="fila-preview"></div>
+
+    <div class="acciones-modal eliminar-acciones">
+      <button type="button" class="btn-cancelar" id="cancelarEliminarCliente">Cancelar</button>
+      <button type="button" class="btn-eliminar-modal" id="confirmarEliminarCliente">Eliminar</button>
+    </div>
+  </div>
+</div>
+
+
+<div id="logoutModal" class="logout-modal-overlay">
+    <div class="logout-modal">
+        <div class="logout-modal-icon">↪</div>
+        <h3>¿Cerrar sesión?</h3>
+        <p>Vas a salir de tu cuenta actual.</p>
+
+        <div class="logout-modal-actions">
+            <button id="cancelLogoutBtn" class="btn-modal-secundario" type="button">
+                Cancelar
+            </button>
+            <button id="confirmLogoutBtn" class="btn-modal-danger" type="button">
+                Sí, cerrar sesión
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="clientes.js"></script>
+<script src="tema.js"></script>
+
+
+</body>
+</html>
