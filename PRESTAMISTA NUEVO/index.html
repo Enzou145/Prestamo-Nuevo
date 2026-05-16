@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Gestión Pro</title>
+    <link rel="stylesheet" href="login.css">
+
+</head>
+<body>
+
+    <div class="cuadro">
+        <div class="formulario">
+
+
+            <h1>Gestión Pro</h1>
+            <span class="subtitulo">ADMINISTRADOR</span>
+
+            <div class="card">
+                <h2>Bienvenido</h2>
+                <p>Por favor, ingrese sus credenciales para continuar.</p>
+
+                <form id="formLogin">
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" id="email" placeholder="nombre@gestionpro.com" required>
+
+                    <div class="fila">
+                        <label for="password">Contraseña</label>
+                        <a href="#" id="olvidePassword">¿Olvidó su contraseña?</a>
+                    </div>
+
+                    <input type="password" id="password" placeholder="********" required>
+
+                    <div id="mensajeLogin" class="mensaje-login"></div>
+
+                    <button type="submit" id="btnLogin">Ingresar</button>
+                </form>
+
+                <div class="footer">
+                    © 2026 Gestión Pro Sistema de Administración.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="login.js"></script>
+</body>
+</html>

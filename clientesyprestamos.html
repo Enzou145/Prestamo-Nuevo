@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión Pro | Clientes</title>
+    <!-- Importar Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="clientesyprestamos.css">
+
+    <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+    <script>
+    window.OneSignalDeferred = window.OneSignalDeferred || [];
+    OneSignalDeferred.push(async function(OneSignal) {
+        await OneSignal.init({
+        appId: "69853c34-00e4-46ca-9d17-ef926cf8660f",
+        });
+    });
+    </script>
+
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- OVERLAY PARA MÓVILES -->
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- SECCIÓN: SIDEBAR -->
+    <aside class="sidebar">
+            <div class="sidebar-logo">Gestión <span>Pro</span></div>
+
+            <div class="barrita"></div>
+
+            <p class="menu-label">General</p>
+            
+            <nav class="sidebar-menu">
+                <!-- Inicio -->
+                <a href="inicio.html" class="menu-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                    Inicio
+                </a>
+                <!-- Clientes -->
+                <a href="#" class="menu-item active">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    Clientes
+                </a>
+
+                <div class="barrita"></div>
+                <p class="menu-labell">Gestión</p>
+
+                <!-- Reportes (Actualizado) -->
+                <a href="#" class="menu-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    Reportes
+                </a>
+
+                <div class="barritaa"></div>
+
+                <p class="menu-labell">Soporte</p>
+
+
+                <!-- Configuración (Actualizado) -->
+                <a href="#" class="menu-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                    Configuración
+                </a>
+            </nav>            
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <!-- Agregamos ID al avatar para poner la inicial -->
+                    <div class="avatar-small" id="user-avatar-initial">U</div>
+                    <div class="user-info">
+                        <!-- Agregamos ID al nombre -->
+                        <p id="sidebar-user-name">Usuario Admin</p>
+                        <span>Administrador</span>
+                    </div>
+                </div>
+                <button class="btn-logout" id="btn-logout">Cerrar sesión</button>
+            </div>
+    </aside>        
+
+
+    <!-- Modal de Confirmación de Cierre de Sesión -->
+    <div id="modal-logout" class="modal">
+        <div class="modal-contentt">
+            <div class="modal-header-logout">
+                <div class="icon-warning">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                </div>
+                <h2>¿Cerrar sesión?</h2>
+            </div>
+            <p>Estás a punto de salir de tu cuenta. ¿Realmente quieres finalizar la sesión?</p>
+            <div class="modal-acciones">
+                <button id="btn-cancelar-logout" class="btn-secundario">Cancelar</button>
+                <button id="btn-confirmar-logout" class="btn-peligro">Sí, salir</button>
+            </div>
+        </div>
+    </div>
+
+        
+        <!-- SECCIÓN: CONTENIDO PRINCIPAL -->
+        <main class="main-content">
+            
+            <!-- 1. TOPBAR: Título y Botón Agregar -->
+            <header class="topbar">
+                <div class="topbar-info">
+                    <button class="menu-toggle" id="menuToggle" type="button">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <line x1="3" y1="12" x2="21" y2="12"></line>
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <line x1="3" y1="18" x2="21" y2="18"></line>
+                        </svg>
+                    </button>
+                    <div class="titulo-seccion">
+                        <h1>Clientes</h1>
+                        <!--<span id="contadorClientes" class="subtitulo">0 clientes</span>-->
+                    </div>
+                </div>
+                
+                <div class="header-acciones">
+                    <button id="btn-tema" class="btn-circular-tema" title="Cambiar tema">
+                        <svg id="tema-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </button>
+
+                    <button class="btn-principal-v2" id="abrirModalNuevo">
+                        <!-- <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="3">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>-->
+                        <span>+ Agregar Cliente</span>
+                    </button>
+                </div>
+            </header>
+
+
+            <!-- 2. BUSCADOR -->
+            <section class="seccion-busqueda">
+                <div class="buscador-container-v2">
+                    <svg class="search-icon" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    <input type="text" id="buscadorClientes" placeholder="Buscar cliente...">
+                </div>
+
+                <!-- DROPDOWN FILTRO -->
+                <div class="filtro-dropdown-wrap" id="filtroWrap">
+                    <button class="filtro-dropdown-btn" id="filtroBtn">
+                        <span id="filtroLabel">Todos</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <ul class="filtro-menu" id="filtroMenu">
+                        <li class="filtro-opcion active" data-estado="todos">Todos</li>
+                        <li class="filtro-opcion" data-estado="al dia">
+                            <span class="dot-filtro azul"></span> Al día
+                        </li>
+                        <li class="filtro-opcion" data-estado="vence hoy">
+                            <span class="dot-filtro naranja-hoy"></span> Vence hoy
+                        </li>
+                        <li class="filtro-opcion" data-estado="vence mañana">
+                            <span class="dot-filtro naranja"></span> Vence mañana
+                        </li>
+                        <li class="filtro-opcion" data-estado="atrasado">
+                            <span class="dot-filtro rojo"></span> Atrasado
+                        </li>
+                        <li class="filtro-opcion" data-estado="finalizado">
+                            <span class="dot-filtro verde"></span> Finalizado
+                        </li>
+                        <li class="filtro-opcion" data-estado="sin prestamo">
+                            <span class="dot-filtro blanco"></span> Sin préstamo
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- CONTADOR -->
+            <div id="contadorInfo">
+                <span id="textoMostrando">Mostrando 0–0</span>
+                <span id="textoTotal">0 CLIENTES</span>
+            </div>
+            
+
+            <!-- 5. LISTA DE CLIENTES -->
+            <div class="lista-clientes" id="listaClientes"></div>
+
+
+
+            <!-- PAGINACIÓN -->
+            <div class="paginacion-footer">
+                <button id="btnAnterior" class="btn-pag"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+                <span id="infoPagina" class="info-pag-texto">1 / 1</span>
+                <button id="btnSiguiente" class="btn-pag"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+            </div>
+        </main>
+    </div>
+
+    <!-- MODALES Y SCRIPTS (Se mantienen igual) -->
+    <div id="toast" class="toast"></div>
+    <!-- ... Modales ocultos ... -->
+
+    <!-- OVERLAY Y CONTENEDOR DEL MODAL -->
+    <div class="modal-overlay" id="modalNuevoCliente">
+        <div class="modal-container">
+            <!-- HEADER DEL MODAL -->
+            <div class="modal-header">
+                <div class="modal-titulo">
+                    <h2>Nuevo Cliente</h2>
+                    <p>Ingresá los datos para registrar un nuevo cliente</p>
+                </div>
+                <button class="btn-cerrar-modal" id="btnCerrarX">&times;</button>
+            </div>
+
+
+
+        <!-- MODAL NUEVO CLIENTE -->
+        <div class="modal-body">
+            <div class="input-grid">
+                <div class="input-group">
+                    <label>Nombre *</label>
+                    <input type="text" id="cl-nombre" placeholder="Nombre">
+                </div>
+                <div class="input-group">
+                    <label>Apellido *</label>
+                    <input type="text" id="cl-apellido" placeholder="Apellido">
+                </div>
+                <div class="input-group">
+                    <label>DNI *</label>
+                    <input type="text" id="cl-dni" placeholder="42650...">
+                </div>
+                <div class="input-group">
+                    <label>TELÉFONO *</label>
+                    <input type="text" id="cl-tel" placeholder="+54385...">
+                </div>
+                <div class="input-group">
+                    <label>CIUDAD *</label>
+                    <input type="text" id="cl-ciudad" placeholder="Ciudad">
+                </div>
+                <div class="input-group">
+                    <label>BARRIO *</label>
+                    <input type="text" id="cl-barrio" placeholder="Barrio">
+                </div>
+                <div class="input-group">
+                    <label>CALLE *</label>
+                    <input type="text" id="cl-calle" placeholder="Calle">
+                </div>
+                <div class="input-group">
+                    <label>NRO. *</label>
+                    <input type="text" id="cl-nro" placeholder="Nro.">
+                </div>
+                <div class="input-group full-width">
+                    <label>OCUPACIÓN *</label>
+                    <input type="text" id="cl-ocupacion" placeholder="Ocupación...">
+                </div>
+                <div class="input-group full-width">
+                    <label>SEÑA / PRODUCTO</label>
+                    <input type="text" id="cl-sena" placeholder="Ej: Celular Samsung">
+                </div>
+                <div class="input-group full-width">
+                    <label>MONTO APROXIMADO</label>
+                    <input type="text" id="cl-monto" placeholder="$1000...">
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-footer">
+            <div class="footer-row">
+                <button class="btn-cancelar" id="btnCancelarModal">Cancelar</button>
+                <!-- ID Agregado aquí -->
+                <button class="btn-guardar-solo" id="btnGuardarCliente">Guardar Cliente</button>
+            </div>
+            <button class="btn-guardar-prestamo">Guardar y Crear Préstamo</button>
+        </div>
+        </div>
+    </div>
+
+
+    <!-- MODAL COBRAR CUOTA -->
+    <div class="modal-overlay" id="modalCobrarCuota">
+        <div class="modal-container">
+            <!-- HEADER -->
+            <div class="modal-header">
+                <div class="modal-titulo">
+                    <h2>Cobrar Cuota</h2>
+                    <P id="nombreClienteCobro"></P>
+                </div>
+                <button class="btn-cerrar-modal" id="btnCerrarCobro">×</button>
+            </div>
+
+            <div class="modal-body">
+                <!-- Grid de Resumen (Las 4 tarjetitas grises) -->
+                <div class="resumen-cobro-grid">
+                    <div class="resumen-item">
+                        <span>MONTO PRESTADO</span>
+                        <p id="cobroMonto">$ 65.000</p>
+                    </div>
+                    <div class="resumen-item">
+                        <span>TOTAL A DEVOLVER</span>
+                        <p id="cobroTotal">$ 78.000</p>
+                    </div>
+                    <div class="resumen-item">
+                        <span>VALOR CUOTA</span>
+                        <p id="cobroCuota">$ 13.000</p>
+                    </div>
+                    <div class="resumen-item">
+                        <span>PROGRESO</span>
+                        <p id="cobroProgreso">1/6</p>
+                    </div>
+                </div>
+
+                <!-- Barra de Progreso -->
+                <div class="progreso-header-cobro">
+                    <span id="textoProgresoCobro">1/6 cuotas</span>
+                    <span id="porcentajeCobro">17%</span>
+                </div>
+
+                <div class="progreso-bar-container">
+                    <div class="progreso-bar-fill" id="barraProgresoCobro"></div>
+                </div>
+                
+                <!-- Selector de Cantidad -->
+                <div class="control-pago">
+                    <label>CUOTAS A PAGAR</label>
+                    <div class="selector-cantidad">
+                        <button class="btn-step" id="btnMenos">-</button>
+                        <div class="valor-display" id="cantidadCuotas">1</div>
+                        <button class="btn-step" id="btnMas">+</button>
+                    </div>
+                </div>
+
+                <!-- Caja de Total a Pagar -->
+                <label id="titulo-totalapagar">TOTAL A PAGAR</label>
+                <div class="total-a-pagar-box">
+                    <div class="monto-final" id="montoFinalPagar">$ 13.000</div>
+                </div>
+            </div>
+
+            <!-- Footer con Botones -->
+            <div class="modal-footerr-">
+                <button class="btn-cancelar-finall">CANCELAR</button>
+                <button class="btn-confirmar-final">CONFIRMAR PAGO</button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+<!-- MODAL DETALLE COMPLETO (REDISEÑADO) -->
+<div id="modalDetalles" class="modal">
+    <div class="modal-content detalle-cliente-modal">
+        <div class="modal-header-detalle">
+            <div class="header-main">
+                <div class="header-title-area">
+                    <h2>Detalle del Préstamo</h2>
+                    <div class="cliente-badge-row">
+                        <span id="det-cliente-nombre-cabecera" class="nombre-destacado">---</span>
+                        <span id="det-estado-badge" class="badge-atrasado">---</span>
+                    </div>
+                </div>
+                <button class="btn-cerrar-modal" id="btnCerrarDetalles" onclick="document.getElementById('modalDetalles').classList.remove('active')">×</button>
+            </div>
+        </div>
+
+        <div class="modal-body-scroll">
+            <!-- SECCIÓN: DATOS DEL CLIENTE (Estilo "Nuevo Cliente") -->
+            <div class="detalle-seccion">
+            <h4 class="seccion-titulo">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                DATOS DEL CLIENTE
+            </h4>
+                <div class="input-grid">
+                    <div class="input-group">
+                        <label>DNI</label>
+                        <input type="text" id="det-dni" readonly>
+                    </div>
+                    <div class="input-group">
+                        <label>TELÉFONO</label>
+                        <input type="text" id="det-tel" readonly>
+                    </div>
+                    <div class="input-group">
+                        <label>CIUDAD</label>
+                        <input type="text" id="det-ciudad" readonly>
+                    </div>
+                    <div class="input-group">
+                        <label>BARRIO</label>
+                        <input type="text" id="det-barrio" readonly>
+                    </div>
+                    <div class="input-group">
+                        <label>CALLE</label>
+                        <input type="text" id="det-calle" readonly>
+                    </div>
+                    <div class="input-group">
+                        <label>NRO.</label>
+                        <input type="text" id="det-nro" readonly>
+                    </div>
+                    <div class="input-group full-width">
+                        <label>OCUPACIÓN</label>
+                        <input type="text" id="det-ocupacion" readonly>
+                    </div>
+
+                    <div class="input-group full-width">
+                        <label>SEÑA / PRODUCTO</label>
+                        <input type="text" id="det-sena" readonly>
+                    </div>
+                    <div class="input-group full-width">
+                        <label>MONTO APROXIMADO</label>
+                        <input type="text" id="det-monto" readonly>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN: RESUMEN DEL PRÉSTAMO (Mismo estilo) -->
+            <div class="detalle-seccion">
+            <!-- DESPUÉS -->
+            <h4 class="seccion-titulo">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+                RESUMEN DEL PRÉSTAMO
+            </h4>
+                <div class="input-grid">
+                    <div class="input-group">
+                        <label>PRESTADO</label>
+                        <input type="text" id="det-prestado" readonly>
+                    </div>
+                    <div class="input-group">
+                        <label>A DEVOLVER</label>
+                        <input type="text" id="det-adevolver" readonly>
+                    </div>
+                    <div class="input-group">
+                        <label>CUOTAS PAGAS</label>
+                        <input type="text" id="det-cuotas-resumen" readonly>
+                    </div>
+                    <div class="input-group">
+                        <label>VALOR CUOTA</label>
+                        <input type="text" id="det-valor-cuota" readonly>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN: PROGRESO -->
+            <div class="detalle-seccion">
+                <div class="progreso-container">
+                    <div class="barra-progreso-bg">
+                        <div id="det-progreso-barra" class="barra-progreso-fill"></div>
+                    </div>
+                    <p id="det-progreso-texto" class="progreso-texto">0 DE 0 CUOTAS PAGADAS</p>
+                </div>
+
+                <h4 class="seccion-titulo">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    HISTORIAL DE CUOTAS
+                </h4>
+                <div id="historialCuotas" class="historial-lista">
+                    <!-- Dinámico -->
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-footer-detalle">
+            
+            <!-- NUEVO BOTÓN AGREGADO AQUÍ -->
+            <button class="btn-principal-v2 btn-editar-prestamo" style="background-color: var(--color-primario);">Editar Préstamo</button>
+            
+            <button class="btn-guardar-solo btn-editar-cliente">Editar Cliente</button>
+        </div>
+                    <button class="btn-cancelarr" onclick="document.getElementById('modalDetalles').classList.remove('active')">Cerrar</button>
+
+    </div>
+</div>
+
+
+<!-- MODAL EDITAR CLIENTE -->
+<!-- MODAL EDITAR CLIENTE (ESTILO UNIFICADO) -->
+<div class="modal-overlay" id="modalEditar">
+    <div class="modal-container">
+        <!-- HEADER -->
+        <div class="modal-header">
+            <div class="modal-titulo">
+                <h2>Editar Cliente</h2>
+                <p>Modifica los datos del cliente seleccionado</p>
+            </div>
+            <button class="btn-cerrar-modal" id="btnCerrarEditar">&times;</button>
+        </div>
+
+        <!-- CUERPO (Igual al de Nuevo Cliente) -->
+        <div class="modal-body">
+            <form id="formEditarCliente">
+                <div class="input-grid">
+                    <div class="input-group">
+                        <label>Nombre *</label>
+                        <input type="text" id="edit-nombre" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Apellido *</label>
+                        <input type="text" id="edit-apellido" required>
+                    </div>
+                    <div class="input-group">
+                        <label>DNI *</label>
+                        <input type="text" id="edit-dni" required>
+                    </div>
+                    <div class="input-group">
+                        <label>TELÉFONO *</label>
+                        <input type="text" id="edit-tel" required>
+                    </div>
+                    <div class="input-group">
+                        <label>CIUDAD *</label>
+                        <input type="text" id="edit-ciudad" required>
+                    </div>
+                    <div class="input-group">
+                        <label>BARRIO *</label>
+                        <input type="text" id="edit-barrio">
+                    </div>
+                    <div class="input-group">
+                        <label>CALLE *</label>
+                        <input type="text" id="edit-calle">
+                    </div>
+                    <div class="input-group">
+                        <label>NRO. *</label>
+                        <input type="text" id="edit-nro">
+                    </div>
+                    <div class="input-group full-width">
+                        <label>OCUPACIÓN *</label>
+                        <input type="text" id="edit-ocupacion">
+                    </div>
+                    <div class="input-group full-width">
+                        <label>SEÑA / PRODUCTO</label>
+                        <input type="text" id="edit-sena">
+                    </div>
+                    <div class="input-group full-width">
+                        <label>MONTO APROXIMADO</label>
+                        <input type="number" id="edit-monto">
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="modal-footer">
+            <div class="footer-row">
+                <button type="button" class="btn-cancelar" id="btnCancelarEditar">Cancelar</button>
+                <button type="submit" form="formEditarCliente" class="btn-guardar-solo" id="btnGuardarEdicion">Guardar Cambios</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- MODAL OTORGAR PRÉSTAMO -->
+<div class="modal" id="modalOtorgar">
+    <div class="detalle-cliente-modal oto-modal-card">
+        <div class="modal-handle"></div>
+
+        <!-- Cabecera corregida -->
+        <div class="modal-header-prestamo" style="position: relative;">
+            <div class="header-top">
+                <div class="header-title-area">
+                    <h2>Otorgar Préstamo</h2>
+                    <p class="oto-cliente-nombre" id="oto-nombre-sub" style="color: var(--color-primario); font-weight: 700; font-size: 0.95rem; margin: 2px 0 0 0;"></p>
+                </div>
+                <!-- Botón X ahora posicionado relativo al modal -->
+                <button class="btn-cerrar-modal" onclick="cerrarModalOtorgar()">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+            </div>
+        </div>
+
+        <div class="modal-body-scroll">
+            <div class="oto-grid">
+
+                <!-- MONTO -->
+                <div class="oto-field oto-full">
+                    <label class="oto-label">MONTO A PRESTAR *</label>
+                    <div class="oto-input-prefix">
+                        <span class="oto-prefix">$</span>
+                        <input type="text" id="oto-monto" placeholder="0" oninput="formatearMiles(this)">
+                    </div>
+                </div>
+
+                <!-- INTERÉS -->
+                <div class="oto-field oto-full">
+                    <label class="oto-label">INTERÉS %</label>
+                    <div class="oto-stepper">
+                        <div class="oto-step-btn" onclick="ajustar('oto-interes', -5)">−</div>
+                        <input class="oto-step-input" type="number" id="oto-interes" value="30" oninput="calcularPrestamo()">
+                        <div class="oto-step-btn" onclick="ajustar('oto-interes', 5)">+</div>
+                    </div>
+                </div>
+
+                <!-- CUOTAS -->
+                <div class="oto-field oto-full">
+                    <label class="oto-label">CANTIDAD DE CUOTAS</label>
+                    <div class="oto-stepper">
+                        <div class="oto-step-btn" onclick="ajustar('oto-cuotas', -1)">−</div>
+                        <input class="oto-step-input" type="number" id="oto-cuotas" value="3" oninput="calcularPrestamo()">
+                        <div class="oto-step-btn" onclick="ajustar('oto-cuotas', 1)">+</div>
+                    </div>
+                </div>
+
+                <!-- FRECUENCIA (botones) -->
+                <div class="oto-field oto-full">
+                    <label class="oto-label">FRECUENCIA DE PAGO</label>
+                    <div class="oto-frec-btns">
+                        <button class="oto-frec-btn oto-frec-active" data-value="Diario"   onclick="seleccionarFrecuencia(this)">Diario</button>
+                        <button class="oto-frec-btn"                  data-value="Semanal"  onclick="seleccionarFrecuencia(this)">Semanal</button>
+                        <button class="oto-frec-btn"                  data-value="Mensual"  onclick="seleccionarFrecuencia(this)">Mensual</button>
+                    </div>
+                    <!-- input oculto que guarda el valor para calcularPrestamo() -->
+                    <input type="hidden" id="oto-frec-tipo" value="Diario"> 
+                    <!-- oto-frec-valor fijo en 1 para mantener compatibilidad con calcularPrestamo() -->
+                    <input type="hidden" id="oto-frec-valor" value="1">
+                </div>
+
+                <!-- FECHAS en fila -->
+                <div class="oto-fechas-row oto-full">
+                    <div class="oto-field">
+                        <label class="oto-label" style="text-align: center;">FECHA INICIO</label>
+                        <div class="oto-date-wrap">
+                            <span class="oto-date-icon">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-primario)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                            </span>
+                            <input class="oto-date-input" type="date" id="oto-fecha-inicio" onchange="calcularPrestamo()">
+                        </div>
+                    </div>
+                    <div class="oto-field">
+                        <label class="oto-label" style="text-align: center;">FECHA FIN</label>
+                        <div class="oto-date-wrap">
+                            <span class="oto-date-icon">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-primario)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                            </span>
+                            <input class="oto-date-input" type="date" id="oto-fecha-fin" readonly>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RESUMEN CALCULADO -->
+                <div class="oto-field oto-full">
+                    <div class="oto-calculos-box">
+                        <p class="oto-calculos-title"> RESUMEN DEL PRÉSTAMO</p>
+                        <div class="oto-calculos-grid">
+                            <div class="oto-calc-item">
+                                <label class="oto-calc-label">A DEVOLVER</label>
+                                <span id="res-total">$ 0</span>
+                            </div>
+                            <div class="oto-calc-item">
+                                <label class="oto-calc-label">VALOR CUOTA</label>
+                                <span class="oto-cuota-highlight" id="res-cuota">$ 0</span>
+                            </div>
+                        </div>
+                        <p class="oto-resumen-sub" id="res-sub"></p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="oto-footer">
+            <button class="oto-btn-cancel" onclick="cerrarModalOtorgar()">Cancelar</button>
+            <button class="oto-btn-primary btn-guardar-prestamo">Otorgar Préstamo</button>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal de Confirmación de Eliminación -->
+<div id="modalEliminar" class="modal-overlay">
+    <div class="modal-containerrrr">
+        <div class="alerta-icono">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="3 6 5 6 21 6"></polyline>
+                <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path>
+                <line x1="10" y1="11" x2="10" y2="17"></line>
+                <line x1="14" y1="11" x2="14" y2="17"></line>
+            </svg>
+        </div>
+        <h2>¿Eliminar cliente?</h2>
+        <p>Esta acción es permanente. Se borrarán todos los datos de <strong><span id="nombreClienteEliminar"></span></strong>.</p>
+        <div class="modal-acciones-v2">
+            <button class="btn-secundario-v2" onclick="cerrarModalEliminar()">Cancelar</button>
+            <button class="btn-principal-v22" id="confirmarEliminar">Eliminar</button>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- MODAL SELECTOR DE PRÉSTAMOS (PARA CUANDO TIENE MÁS DE UNO) -->
+<div id="modalSelectorPrestamo" class="modal-v2">
+    <div class="modal-content-v2">
+        <div class="modal-header-v2">
+            <h2>Seleccionar Préstamo</h2>
+            <button class="btn-cerrar-modal" onclick="document.getElementById('modalSelectorPrestamo').classList.remove('active')">&times;</button>
+        </div>
+        <p>El cliente tiene varios préstamos activos. ¿Cuál desea cobrar?</p>
+        <div id="lista-prestamos-seleccion" style="padding: 0 20px 20px 20px; display: flex; flex-direction: column; gap: 10px;">
+            <!-- Se llena por JS -->
+        </div>
+    </div>
+</div>
+
+
+<!-- MODAL SELECTOR DE PRÉSTAMOS (PARA VER DETALLES) -->
+<div id="modalSelectorPrestamoDetalle" class="modal-v2">
+    <div class="modal-content-v2">
+        <div class="modal-header-v2">
+            <h2>Seleccionar Préstamo</h2>
+            <button class="btn-cerrar-modal" onclick="document.getElementById('modalSelectorPrestamoDetalle').classList.remove('active')">&times;</button>
+        </div>
+        <p style="padding: 0 0px;">El cliente tiene varios préstamos activos. ¿De cuál desea ver el detalle?</p>
+        <div id="lista-prestamos-detalle-seleccion" style="padding: 0 20px 20px 20px; display: flex; flex-direction: column; gap: 10px;">
+            <!-- Se llena por JS -->
+        </div>
+    </div>
+</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="clientesyprestamos.js"></script>
+
+</body>
+</html>
