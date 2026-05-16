@@ -1,0 +1,710 @@
+*{
+padding: 0;
+margin: 0;
+font-family: "Inter", sans-serif;}
+
+body{background: var(--color-fondo);}
+
+/* ============================================
+   GYM PRO — TEMA OSCURO
+   ============================================ */
+:root {
+  /* 🎨 FONDOS */
+  --color-fondo:              #0d0d0d;    /* Fondo principal de la app */
+  --color-fondo-suave:        #141414;   /* Fondo de popovers / menús */
+  --color-tarjeta:            #1a1a1a;   /* Fondo de tarjetas */
+  --color-tarjeta-elevada:    #212121;   /* Tarjetas destacadas / hover */
+  --color-sidebar:            #121212;   /* Fondo del menú lateral */
+
+  /* ✍️ TEXTOS */
+  --texto-principal:          #fafafa;   /* Títulos y texto fuerte */
+  --texto-secundario:         #9e9e9e;   /* Subtítulos / labels */
+  --texto-sobre-rojo:         #ffffff;   /* Texto encima del rojo */
+
+  /*ICONITOS CARD*/
+  --borde-icono: #f5353f7c;
+  --color-fondo-icono: #f5353f18;
+  --color-svg-icono: #ff000d;
+
+  /* 🔴 MARCA (ROJO) */
+  --color-rojo:               #e50914;   /* Rojo principal de marca */
+  --color-rojo-hover: #e5091467;
+  --color-rojo-brillo:        #f43641;   /* Rojo claro para gradientes/glow */
+  --color-rojo-suave:         #3d0a10;   /* Rojo apagado para fondos */
+
+  /* 🧱 BORDES Y SEPARADORES */
+  --borde-tarjeta:            #292929;   /* Borde de tarjetas y cajas */
+  --borde-input:              #242424;   /* Borde de inputs */
+  --borde-sidebar:            #242424;
+
+  /* ✅ ESTADOS DE SOCIO / PAGO */
+  --estado-activo:            #22c55e;   /* Verde — al día / activo */
+  --estado-activo-fondo:      #0f2e1c;   /* Fondo del badge verde */
+
+  --estado-vencido:           #ef1f2a;   /* Rojo — vencido / moroso */
+  --estado-vencido-fondo:     #3d0a10;   /* Fondo del badge rojo */
+
+  --estado-por-vencer:        #f5b820;   /* Amarillo — por vencer pronto */
+  --estado-por-vencer-fondo:  #2e2208;   /* Fondo del badge amarillo */
+
+  /* 🌟 SOMBRAS Y EFECTOS */
+  --sombra-tarjeta:           0 8px 24px -12px rgba(0, 0, 0, 0.6);
+  --sombra-glow-rojo:         0 0 25px -8px rgba(229, 9, 20, 0.55);
+  --gradiente-rojo:           linear-gradient(135deg, #e50914, #f43641);
+  --gradiente-tarjeta:        linear-gradient(180deg, #1c1c1c, #141414);
+  --sombra-roja-tarjetas: rgba(229, 9, 20, 0.055);
+
+  --radio-borde:              16px;      /* Border-radius general */
+}
+
+
+/* ============================================
+   GYM PRO — TEMA CLARO
+   ============================================ */
+.light {
+  /* 🎨 FONDOS */
+  --color-fondo:              #fafafa;   /* Fondo principal de la app */
+  --color-fondo-suave:        #ffffff;   /* Fondo de popovers / menús */
+  --color-tarjeta:            #ffffff;   /* Fondo de tarjetas */
+  --color-tarjeta-elevada:    #f5f5f5;   /* Tarjetas destacadas / hover */
+  --color-sidebar:            #ffffff;   /* Fondo del menú lateral */
+
+  /* ✍️ TEXTOS */
+  --texto-principal:          #141414;   /* Títulos y texto fuerte */
+  --texto-secundario:         #666666;   /* Subtítulos / labels */
+  --texto-sobre-rojo:         #ffffff;   /* Texto encima del rojo */
+
+  /* 🔴 MARCA (ROJO) — se mantiene igual */
+  --color-rojo:               #e50914;
+  --color-rojo-brillo:        #f43641;
+  --color-rojo-suave:         #fde7e8;   /* Rosado pálido para fondos */
+
+  /* 🧱 BORDES Y SEPARADORES */
+  --borde-tarjeta:            #e6e6e6;
+  --borde-input:              #ebebeb;
+  --borde-sidebar:            #e6e6e6;
+
+  /* ✅ ESTADOS DE SOCIO / PAGO */
+  --estado-activo:            #21a04a;
+  --estado-activo-fondo:      #e0f5e7;
+
+  --estado-vencido:           #e50914;
+  --estado-vencido-fondo:     #fde7e8;
+
+  --estado-por-vencer:        #f0a000;
+  --estado-por-vencer-fondo:  #fdf3d9;
+
+  /* 🌟 SOMBRAS Y EFECTOS */
+  --sombra-tarjeta:           0 6px 20px -12px rgba(0, 0, 0, 0.15);
+  --sombra-glow-rojo:         0 0 30px -10px rgba(229, 9, 20, 0.35);
+  --gradiente-rojo:           linear-gradient(135deg, #e50914, #f43641);
+  --gradiente-tarjeta:        linear-gradient(180deg, #ffffff, #f7f7f7);
+
+  --radio-borde:              16px;
+}
+
+/* ============================================
+   GYM PRO — TEMA VERDE/CELESTE
+   ============================================ */
+.green {
+  /* 🎨 FONDOS */
+  --color-fondo:              #0d0d0d;   /* Fondo principal de la app */
+  --color-fondo-suave:        #141414;   /* Fondo de popovers / menús */
+  --color-tarjeta:            #1a1a1a;   /* Fondo de tarjetas */
+  --color-tarjeta-elevada:    #212121;   /* Tarjetas destacadas / hover */
+  --color-sidebar:            #121212;   /* Fondo del menú lateral */
+
+  /* ✍️ TEXTOS */
+  --texto-principal:          #fafafa;   /* Títulos y texto fuerte */
+  --texto-secundario:         #9e9e9e;   /* Subtítulos / labels */
+  --texto-sobre-rojo:         #ffffff;   /* Texto encima del rojo */
+
+    /*ICONITOS CARD*/
+  --borde-icono: #16aca54d;
+  --color-fondo-icono: #16aca517;
+  --color-svg-icono: #16aca4;
+
+  /* 🔴 MARCA (ROJO) */
+  --color-rojo:               #16aca4;   /* Rojo principal de marca */
+  --color-rojo-hover: #3ce7df79;
+  --color-rojo-brillo:        #16aca4;   /* Rojo claro para gradientes/glow */
+  --color-rojo-suave:         #16aca560;   /* Rojo apagado para fondos */
+
+  /* 🧱 BORDES Y SEPARADORES */
+  --borde-tarjeta:            #16aca52c;    /* Borde de tarjetas y cajas */
+  --borde-input:              #242424;   /* Borde de inputs */
+  --borde-sidebar:            #242424;
+
+  /* ✅ ESTADOS DE SOCIO / PAGO */
+  --estado-activo:            #22c55e;   /* Verde — al día / activo */
+  --estado-activo-fondo:      #0f2e1c;   /* Fondo del badge verde */
+
+  --estado-vencido:           #ef1f2a;   /* Rojo — vencido / moroso */
+  --estado-vencido-fondo:     #3d0a10;   /* Fondo del badge rojo */
+
+  --estado-por-vencer:        #f5b820;   /* Amarillo — por vencer pronto */
+  --estado-por-vencer-fondo:  #2e2208;   /* Fondo del badge amarillo */
+
+  /* 🌟 SOMBRAS Y EFECTOS */
+  --sombra-tarjeta:           0 8px 24px -12px rgba(0, 0, 0, 0.6);
+  --sombra-glow-rojo:         0 0 15px -8px #16aca586; 
+  --gradiente-rojo:           linear-gradient(135deg, #16aca4, #16aca4);
+  --gradiente-tarjeta:        linear-gradient(180deg, #1c1c1c, #141414);
+
+  --radio-borde:              16px;      /* Border-radius general */
+}
+
+
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+}
+
+.contenido-principal {
+  flex: 1;
+  overflow-y: auto;
+  background-color: var(--color-fondo);
+  padding: 0 100px;
+  animation: slideDownFade 0.5s ease-out forwards;
+}
+
+.app{
+display: flex;
+height: 100vh;}
+
+
+/* ================= TODO EL CONTENIDO EN GENERAL ================ */
+
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+}
+
+.contenido-principal {
+  flex: 1;
+  overflow-y: auto;
+  background-color: var(--color-fondo);
+  padding: 0 100px;
+  animation: slideDownFade 0.5s ease-out forwards;
+}
+
+.app{
+display: flex;
+height: 100vh;}
+
+
+
+
+
+
+
+/* Contenedor del Modal (Fondo oscuro) */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Fondo traslúcido */
+    display: none; /* OCULTO POR DEFECTO */
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    backdrop-filter: blur(4px); /* Efecto borroso de fondo */
+}
+
+/* CLASE QUE ACTIVA EL MODAL */
+.modal-overlay.abierto {
+    display: flex !important; /* SE MUESTRA AL AGREGAR LA CLASE */
+}
+
+/* La tarjeta blanca/oscura dentro del modal */
+.modal-content {
+    background: var(--bg-card, #ffffff); /* Usa tus variables de tema */
+    width: 90%;
+    max-width: 500px;
+    padding: 2rem;
+    border-radius: 15px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+/* ========================================== */
+
+.filtro-container{
+    position: relative;
+}
+
+.dropdown{
+    position: absolute;
+    top: 110%;
+    left: 0;
+
+    background-color: var(--color-tarjeta);
+    border: 1px solid var(--borde-tarjeta);
+    border-radius: 10px;
+
+    min-width: 200px;
+
+    padding: 5px 0;
+    list-style: none;
+
+    display: none;
+    z-index: 1000;
+}
+
+.dropdown.abierto{
+    display: block;
+}
+
+.dropdown li{
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+.dropdown li:hover{
+    background-color: var(--hover);
+}
+
+/* ================= SIDEBAR ================ */
+.cliente .inicial{
+height: 40px;
+width: 40px;
+background-color: var(--estado-vencido-fondo);
+color: var(--estado-vencido);
+border: 1px solid var(--color-rojo-hover);
+border-radius: 10px;
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: 14px;
+font-weight: 800;}
+
+.cliente .nombreyplan{
+display: flex;
+flex-direction: column;
+gap: 6px;}
+
+.cliente .nombreyplan h1{
+font-size: 14px;
+color: var(--texto-principal);}
+
+.cliente .nombreyplan p{
+font-size: 11px;
+letter-spacing: 0;
+font-weight: 500;
+color: var(--texto-secundario);}
+
+.cliente .vencimientos{
+ text-align: right;
+ display: flex;
+ flex-direction: column;
+ gap: 6px;}
+
+.cliente .vencimientos p{
+color: var(--texto-secundario);
+font-size: 10px;
+letter-spacing: 0;
+font-weight: 500;}
+
+.cliente .vencimientos h1{
+color: var(--texto-principal);
+font-size: 13px;
+letter-spacing: 0;
+font-weight: 800;}
+
+.cliente .estado{
+padding: 6px 14px;
+border-radius: 8px;
+font-size: 11px;
+font-weight: 800;
+letter-spacing: 0.5px;
+display: inline-flex;
+align-items: center;
+justify-content: center;}
+
+.cliente .estado.activo {
+    background-color: var(--estado-activo-fondo);
+    color: var(--estado-activo);
+}
+
+.cliente .estado.vencido {
+    background-color: var(--estado-vencido-fondo);
+    color: var(--estado-vencido);
+}
+
+.cliente .estado.por-vencer {
+    background-color: var(--estado-por-vencer-fondo);
+    color: var(--estado-por-vencer);
+}
+
+.sidebar{
+background-color: var(--color-sidebar) ;
+border: 1px solid var(--borde-sidebar);
+width: 230px;
+height: 100vh;}
+
+.sidebar-arriba{
+border-bottom: 1px solid var(--borde-sidebar);
+height: 70px;
+color: var(--texto-principal);
+text-align: center;
+font-weight: 900;
+font-size: 18px;
+display: flex;
+align-items: center;
+margin-left: 10px;
+gap: 10px;}
+
+.sidebar-arriba .logo img{
+width: 35px;
+height: 35px;
+}
+
+.sidebar-arriba .logo{
+display: flex;
+align-items: center;
+}
+
+.sidebar-arriba span{
+color: var(--color-rojo);}
+
+
+.texto p{
+color: var(--texto-secundario);
+font-size: 10px;
+font-weight: 400;
+letter-spacing: 4px;
+margin: 0;
+}
+
+.sidebar-menu{
+height: 75%;}
+
+
+
+/* ================= SIDEBAR DENTRO ================ */
+
+.sidebar-menu h1{
+color: var(--texto-secundario);
+font-size: 9px;
+margin: 15px 0 15px 25px;
+letter-spacing: 2px;}
+
+.opciones{
+width: 90%;
+height: auto;
+margin: 0 auto;
+display: flex;
+flex-direction: column;
+gap: 5px;
+}
+
+.opciones .opcion-item {
+  font-size: 13px;
+  color: var(--texto-secundario);
+  font-weight: 600;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  padding-left: 15px;
+  gap: 10px;
+  position: relative;
+  transition: all 0.9s ease;
+}
+
+.opcion-item.activo::before {
+  content: "";
+  position: absolute;
+  left: -18px;           /* Pegado a la izquierda */
+  top: 15%;          /* No ocupa todo el alto, para que se vea estético */
+  height: 70%;       /* Altura de la línea */
+  width: 10px;        /* Grosor de la línea */
+  background-color: var(--color-rojo); /* En tu imagen parece blanca sobre el fondo rojo */
+  border-radius: 0 5px 5px 0;
+}
+
+.opciones .opcion-item svg {
+  height: 16px;
+  width: 16px;
+  flex-shrink: 0;
+}
+
+.opcion-item:hover {
+  background-color: var(--color-tarjeta-elevada);
+  color: var(--texto-principal);
+}
+
+.opcion-item:hover svg {
+  stroke: var(--color-rojo);
+}
+
+
+.opciones .opcion-item.activo {
+  background-color: var(--color-rojo);
+  color: white;
+}
+
+.opciones a{
+text-decoration: none;
+list-style: none;
+color: var(--texto-secundario);}
+
+/* ================== SIDEBAR FOOTER ======================== */
+
+.sidebar-footer {
+    display: flex;
+    width: 100%;
+    height: 15%;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+
+    border-top: 1px solid var(--borde-sidebar);
+}
+
+.user-card {
+    background: var(--color-tarjeta);
+    border-radius: 12px;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid var(--borde-input);
+}
+
+.user-avatar {
+    width: 37px;
+    height: 37px;
+    background: var(--color-fondo-icono); /* Fondo rojo suave */
+    border: 1.5px solid var(--color-rojo);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+#user-initials {
+    color: var(--color-rojo);
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.user-name {
+    color: var(--texto-principal);
+    font-weight: 600;
+    font-size: 13px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.user-role {
+    color: #888;
+    font-size: 11px;
+}
+
+.btn-logout {
+    background: none;
+    border: none;
+    color: var(--color-rojo);
+    cursor: pointer;
+    padding: 5px;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+}
+
+.btn-logout:hover {
+    color: #ff4444;
+    transform: scale(1.1);
+}
+
+
+
+
+/* ================= TOP BAR ================ */
+.top-bar{
+height: 70px;
+width: 100%;
+border-bottom: 1px solid var(--borde-sidebar);
+color: var(--texto-principal);
+display: flex;
+font-weight: 900;
+font-size: 25px;
+align-items: center;
+justify-content: space-between;
+padding: 0 40px; 
+width: auto;  
+background-color: var(--color-sidebar);
+}
+
+.top-bar-derecha{
+display: flex;
+gap: 10px;
+align-items: center;}
+
+
+.top-bar #buscador{
+    width: 300px;
+    height: 30px;
+    border: 1px solid var(--borde-input);
+    border-radius: 8px;
+    margin-left: 10px;
+    padding-left: 10px;
+    background-color: var(--color-tarjeta-elevada);
+}
+
+.top-bar .tema{
+width: 30px;
+height: 30px;
+border-radius: 10px;
+border: 1px solid var(--borde-sidebar);
+margin-left: 10px;
+display: flex;
+justify-content: center;
+align-items: center;
+background-color: var(--color-tarjeta-elevada);
+cursor: pointer;}
+
+.tema svg{
+width: 14px;
+height: 14px;
+fill: var(--texto-secundario);
+}
+
+.top-bar .tema:hover{
+border: 1px solid var(--color-rojo);}
+.top-bar .tema svg:hover{
+fill: var(--color-rojo);}
+
+.top-bar .notificacion{
+width: 30px;
+height: 30px;
+border-radius: 10px;
+border: 1px solid var(--borde-sidebar);
+margin-left: 10px;
+display: flex;
+justify-content: center;
+align-items: center;
+background-color: var(--color-tarjeta-elevada);
+cursor: pointer;}
+
+.notificacion svg{
+width: 14px;
+height: 14px;
+fill: var(--texto-secundario);
+}
+
+.top-bar .notificacion:hover{
+border: 1px solid var(--color-rojo);}
+.top-bar .notificacion svg:hover{
+fill: var(--color-rojo);}
+
+.top-bar .nombre{
+width: 30px;
+height: 30px;
+border-radius: 10px;
+border: 1px solid var(--borde-sidebar);
+margin-left: 10px;
+background-color: var(--color-tarjeta-elevada);
+}
+
+
+
+
+
+
+
+/* ============================================
+   RESPONSIVE GLOBAL � ESTILOS.CSS
+   ============================================ */
+
+/* Ocultar hamburguesa en desktop */
+.menu-toggle {
+  display: none;
+}
+
+/* TABLET (768px - 1100px) */
+@media (max-width: 1100px) and (min-width: 769px) {
+  .contenido-principal {
+    padding: 0 30px;
+  }
+  .top-bar {
+    padding: 0 24px;
+  }
+}
+
+/* MOBILE (max 768px) */
+@media (max-width: 768px) {
+  .contenido-principal {
+    padding: 0 14px;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    width: 100%;
+  }
+  .top-bar {
+    padding: 0 16px;
+    font-size: 16px;
+  }
+  #buscador {
+    display: none;
+  }
+  .menu-toggle {
+    display: flex;
+    background: none;
+    border: none;
+    color: var(--texto-principal);
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 8px;
+  }
+  .sidebar {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 75%;
+    max-width: 280px;
+    height: 100vh;
+    z-index: 999;
+    border: none;
+    border-right: 1px solid var(--borde-sidebar);
+    overflow-y: auto;
+  }
+  .sidebar.abierto {
+    display: flex;
+    flex-direction: column;
+  }
+  .sidebar-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.75);
+    z-index: 998;
+  }
+  .sidebar-overlay.abierto {
+    display: block;
+  }
+  .app {
+    flex-direction: column;
+  }
+  .main-wrapper {
+    width: 100%;
+  }
+}

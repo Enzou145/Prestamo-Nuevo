@@ -1,0 +1,720 @@
+/* ================= PLANES HEADER ================ */
+.planes-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+
+.planes-header .titulos p {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--texto-secundario);
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.planes-header .titulos h1 {
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--texto-principal);
+    letter-spacing: 1px;
+}
+
+.planes-header .titulos h2{
+    font-size: 11px;
+    font-weight: 900;
+    color: var(--color-rojo);
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+}
+
+.fecha-hoy{
+display: flex;
+align-items: center;
+gap: 6px;}
+
+/* ================= ASISTENCIA HEADER ================ */
+.asistencia-header {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 30px;
+    width: 100%;
+    align-items: center;}
+
+.card-escaner {
+    background-color: var(--color-tarjeta);
+    border: 1px solid var(--borde-tarjeta);
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: var(--sombra-tarjeta);
+    position: relative;
+    overflow: visible;
+    width: 100%;
+}
+
+.card-escaner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background-color: var(--color-rojo);
+    box-shadow: var(--sombra-glow-rojo);
+    border-radius: 16px 0 0 16px;
+}
+
+.card-escaner h2 {
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--texto-principal);
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+.card-escaner p {
+    font-size: 13px;
+    color: var(--texto-secundario);
+    margin-bottom: 25px;
+}
+
+.form-escaner {
+    display: flex;
+    gap: 15px;
+}
+
+.input-escaner-wrapper {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-escaner-wrapper svg {
+    position: absolute;
+    left: 15px;
+    color: var(--texto-secundario);
+}
+
+.input-escaner-wrapper input {
+    width: 100%;
+    background-color: var(--color-fondo-suave);
+    border: 1px solid var(--borde-input);
+    border-radius: 12px;
+    padding: 18px 20px 18px 50px;
+    color: var(--texto-principal);
+    font-size: 16px;
+    font-weight: 600;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input-escaner-wrapper input:focus {
+    border-color: var(--color-rojo);
+    box-shadow: 0 0 15px rgba(229, 9, 20, 0.2);
+}
+
+#btn-registrar {
+    background-color: var(--color-rojo);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 0 30px;
+    font-size: 14px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: var(--sombra-glow-rojo);
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+#btn-registrar:hover {
+    background-color: var(--color-rojo-brillo);
+}
+
+#btn-registrar:active {
+    transform: translateY(2px);
+}
+
+.stats-asistencia {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.stats-asistencia .tarjeta {
+    flex: 1;
+    margin: 0;
+}
+
+.tarjeta-asistencia{
+width: 30%;
+min-width: 180px;}
+
+
+/* ================= TARJETA ASISTENCIA ================ */
+.tarjeta-asistencia {
+  background: var(--gradiente-tarjeta);
+  border: 1px solid var(--borde-tarjeta);
+  border-radius: var(--radio-borde);
+  box-shadow: var(--sombra-tarjeta);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 25px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  height: auto;
+  min-height: 110px;
+}
+
+.tarjeta-asistencia:hover {
+  transform: translateY(-0.5px);
+  box-shadow: var(--sombra-glow-rojo);
+  border-color: var(--color-rojo-hover);
+}
+
+.tarjeta-asistencia-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.icono-izquierdaaa {
+  width: 36px;
+  height: 36px;
+  background-color: var(--color-rojo);
+  color: #ffffff;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+
+.icono-derechaa {
+  color: var(--texto-secundario);
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 900;
+}
+
+.tarjeta-labell {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--texto-secundario);
+  font-weight: 700;
+}
+
+.tarjeta-valorr {
+  font-size: 30px;
+  font-weight: 900;
+  color: var(--texto-principal);
+}
+
+
+/* ================= ALERTA DIN√ÅMICA ================ */
+.alerta-ingreso {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 30px;
+    border-radius: 16px;
+    margin-bottom: 30px;
+    transform: translateY(0);
+    opacity: 1;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.alerta-ingreso.oculta {
+    transform: translateY(-20px);
+    opacity: 0;
+    pointer-events: none;
+    height: 0;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+.alerta-ingreso.exito {
+    background-color: rgba(34, 197, 94, 0.1);
+    border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+.alerta-ingreso.exito .alerta-icono {
+    background-color: rgba(34, 197, 94, 0.2);
+    color: #22c55e;
+}
+
+.alerta-ingreso.error {
+    background-color: rgba(239, 31, 42, 0.1);
+    border: 1px solid rgba(239, 31, 42, 0.2);
+}
+
+.alerta-ingreso.error .alerta-icono {
+    background-color: rgba(239, 31, 42, 0.2);
+    color: #ef1f2a;
+}
+
+.alerta-icono {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.alerta-icono svg {
+    width: 24px;
+    height: 24px;
+}
+
+.alerta-info h3 {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--texto-principal);
+    margin-bottom: 4px;
+}
+
+.alerta-info p {
+    font-size: 14px;
+    color: var(--texto-secundario);
+    font-weight: 500;
+}
+
+.membresias-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.filtro-fecha-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--color-tarjeta);
+    border: 1px solid var(--borde-tarjeta);
+    padding: 8px 15px;
+    border-radius: 8px;
+    color: var(--texto-secundario);
+}
+
+.filtro-fecha-container svg {
+    color: var(--color-rojo);
+}
+
+#filtro-fecha-asistencia {
+    background: transparent;
+    border: none;
+    color: var(--texto-principal);
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    outline: none;
+    cursor: pointer;
+}
+
+#filtro-fecha-asistencia::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+}
+
+#filtro-fecha-asistencia::-webkit-calendar-picker-indicator:hover {
+    opacity: 1;
+}
+
+/* Ajustes tabla asistencias */
+#tabla-asistencia .titulo-tabla-clientes,
+#tabla-asistencia .cliente {
+    grid-template-columns: 2fr 1fr 1fr;
+}
+
+
+/* ================= AUTOCOMPLETE ================ */
+.autocomplete-items {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    background-color: var(--color-tarjeta);
+    border: 1px solid var(--borde-tarjeta);
+    border-radius: 12px;
+    margin-top: 5px;
+    max-height: 250px;
+    overflow-y: auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    display: none;
+}
+
+.autocomplete-items.activo {
+    display: block;
+}
+
+.autocomplete-item {
+    padding: 12px 20px;
+    cursor: pointer;
+    border-bottom: 1px solid var(--borde-tarjeta);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.2s;
+}
+
+.autocomplete-item:last-child {
+    border-bottom: none;
+}
+
+.autocomplete-item:hover {
+    background-color: var(--color-fondo-suave);
+}
+
+.autocomplete-nombre {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--texto-principal);
+}
+
+.autocomplete-dni {
+    font-size: 12px;
+    color: var(--texto-secundario);
+}
+
+/* ================= PREVIEW SOCIO ================ */
+.preview-socio {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+    padding: 15px 20px;
+    background-color: var(--color-fondo-suave);
+    border: 1px solid var(--borde-tarjeta);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.preview-socio.oculta {
+    display: none;
+}
+
+.preview-avatar {
+    width: 40px;
+    height: 40px;
+    background-color: var(--color-rojo);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 14px;
+}
+
+.preview-info {
+    flex: 1;
+}
+
+.preview-info h3 {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--texto-principal);
+    margin-bottom: 2px;
+}
+
+.preview-info p {
+    font-size: 12px;
+    color: var(--texto-secundario);
+}
+
+.preview-estado .badge {
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.preview-estado.activo .badge {
+    background-color: rgba(34, 197, 94, 0.1);
+    color: #22c55e;
+    border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+.preview-estado.por-vencer .badge {
+    background-color: rgba(234, 179, 8, 0.1);
+    color: #eab308;
+    border: 1px solid rgba(234, 179, 8, 0.2);
+}
+
+.preview-estado.vencido .badge {
+    background-color: rgba(239, 31, 42, 0.1);
+    color: #ef1f2a;
+    border: 1px solid rgba(239, 31, 42, 0.2);
+}
+
+
+
+#contenedor-filas-asistencia{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;}
+
+/* ============================================
+   RESPONSIVE ó DESKTOP (ocultar hamburguesa)
+   ============================================ */
+* {
+  box-sizing: border-box;
+}
+
+.menu-toggle {
+  display: none;
+}
+
+/* ============================================
+   RESPONSIVE ó TABLET (768px - 1100px)
+   ============================================ */
+@media (max-width: 1100px) and (min-width: 769px) {
+
+  .contenido-principal {
+    padding: 0 30px;
+  }
+
+  .planes-header .titulos h1 {
+    font-size: 20px;
+  }
+
+  .asistencia-header {
+    gap: 20px;
+  }
+
+  .tarjeta-asistencia {
+    width: 35%;
+    min-width: 160px;
+  }
+
+  .membresias-header {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  #tabla-asistencia .titulo-tabla-clientes,
+  #tabla-asistencia .cliente {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+}
+
+/* ============================================
+   RESPONSIVE ó MOBILE (max 768px)
+   ============================================ */
+@media (max-width: 768px) {
+
+  /* APP LAYOUT */
+  .app {
+    flex-direction: column;
+  }
+
+  /* SIDEBAR */
+  .sidebar {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 75%;
+    max-width: 280px;
+    height: 100vh;
+    z-index: 999;
+    border: none;
+    border-right: 1px solid var(--borde-sidebar);
+    overflow-y: auto;
+  }
+
+  .sidebar.abierto {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sidebar-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 998;
+  }
+
+  .sidebar-overlay.abierto {
+    display: block;
+  }
+
+  .sidebar-footer {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: flex;
+    background: none;
+    border: none;
+    color: var(--texto-principal);
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 8px;
+  }
+
+  .menu-toggle:hover {
+    background-color: var(--color-tarjeta-elevada);
+  }
+
+  /* MAIN WRAPPER */
+  .main-wrapper {
+    width: 100%;
+  }
+
+  /* TOP BAR */
+  .top-bar {
+    padding: 0 16px;
+    font-size: 16px;
+  }
+
+  #buscador {
+    display: none;
+  }
+
+  /* CONTENIDO PRINCIPAL */
+  .contenido-principal {
+    padding: 0 14px;
+    overflow-x: hidden;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* PLANES HEADER (usado en asistencia) */
+  .planes-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 16px;
+    margin-top: 16px;
+  }
+
+  .planes-header .titulos h1 {
+    font-size: 20px;
+  }
+
+  /* ASISTENCIA HEADER ó apilar escaner y tarjeta */
+  .asistencia-header {
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .tarjeta-asistencia {
+    width: 100%;
+    min-width: unset;
+    min-height: auto;
+    padding: 16px 20px;
+  }
+
+  /* FORM ESCANER ó botÛn debajo del input */
+  .form-escaner {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #btn-registrar {
+    width: 100%;
+    padding: 14px 20px;
+    border-radius: 10px;
+  }
+
+  .card-escaner {
+    padding: 20px 16px;
+  }
+
+  .card-escaner h2 {
+    font-size: 17px;
+  }
+
+  /* HISTORIAL ó header con filtro fecha */
+  .membresias-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  #titulo-tabla-asistencia {
+    font-size: 14px;
+  }
+
+  .filtro-fecha-container {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  /* TABLA ASISTENCIA ó ocultar columna hora en mobile muy pequeÒo */
+  #tabla-asistencia .titulo-tabla-clientes {
+    display: none;
+  }
+
+  #tabla-asistencia .cliente {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 12px 14px;
+    width: 100%;
+  }
+
+  #tabla-asistencia .cliente .socio-info {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  #tabla-asistencia .cliente .vencimiento-info {
+    padding-left: 48px;
+  }
+
+  #tabla-asistencia .cliente .estado {
+    margin-left: 48px;
+  }
+
+  /* ALERTA DIN¡MICA */
+  .alerta-ingreso {
+    padding: 14px 16px;
+    gap: 12px;
+    border-radius: 12px;
+    margin-bottom: 16px;
+  }
+
+  .alerta-info h3 {
+    font-size: 15px;
+  }
+
+  .alerta-info p {
+    font-size: 12px;
+  }
+}
+
+/* ============================================
+   RESPONSIVE ó MOBILE PEQUE—O (max 480px)
+   ============================================ */
+@media (max-width: 480px) {
+
+  .planes-header .titulos h1 {
+    font-size: 17px;
+  }
+
+  .card-escaner h2 {
+    font-size: 15px;
+  }
+
+  .tarjeta-valorr {
+    font-size: 24px;
+  }
+}

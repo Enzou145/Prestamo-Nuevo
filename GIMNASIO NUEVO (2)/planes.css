@@ -1,0 +1,766 @@
+/* ================= PLANES HEADER ================ */
+.planes-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+
+.planes-header .titulos p {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--texto-secundario);
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.planes-header .titulos h1 {
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--texto-principal);
+    letter-spacing: 1px;
+}
+
+.planes-header .titulos h2{
+    font-size: 11px;
+    font-weight: 900;
+    color: var(--color-rojo);
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+}
+
+#btn-nuevo-plan {
+    background-color: var(--color-rojo);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+    box-shadow: var(--sombra-glow-rojo);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.2s, box-shadow 0.2s, transform 0.1s;
+}
+
+#btn-nuevo-plan:hover {
+    background-color: var(--color-rojo-brillo);
+    box-shadow: 0 4px 15px rgba(229, 9, 20, 0.4);
+}
+
+#btn-nuevo-plan:active {
+    transform: translateY(2px);
+}
+
+
+
+
+
+
+
+
+/* ================= DROPDOWN DE ACCIONES ================ */
+.acciones-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dropdown-acciones {
+    position: absolute;
+    right: 0;
+    top: 35px;
+    background-color: var(--color-tarjeta);
+    border: 1px solid var(--borde-tarjeta);
+    border-radius: 8px;
+    box-shadow: var(--sombra-tarjeta);
+    list-style: none;
+    width: 130px;
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: all 0.2s ease;
+    padding: 5px 0;
+}
+
+.dropdown-acciones.activo {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.dropdown-acciones li {
+    padding: 10px 15px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--texto-principal);
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.dropdown-acciones li:hover {
+    background-color: var(--color-tarjeta-elevada);
+    color: var(--color-rojo);
+}
+
+.dropdown-acciones li.accion-eliminar:hover {
+    color: var(--estado-vencido);
+    background-color: var(--estado-vencido-fondo);
+}
+
+
+
+
+
+/* ================= CARD-DATOS ================ */
+.card-datos{
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+width: 100%;
+margin: 0 auto;
+gap: 20px;
+margin-bottom: 30px;}
+
+.tarjeta {
+  background: var(--gradiente-tarjeta);
+  border: 1px solid var(--borde-tarjeta);
+  border-radius: var(--radio-borde);
+  box-shadow: var(--sombra-tarjeta);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 15px 25px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  height: auto;
+  min-height: 85px;
+}
+
+.tarjeta:hover {
+  transform: translateY(-0.5px);
+  box-shadow: var(--sombra-glow-rojo);
+  border-color: var(--color-rojo-hover);
+}
+
+.tarjeta-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.icono-izquierda {
+  width: 36px;
+  height: 36px;
+  background-color: var(--color-rojo);
+  color: #ffffff;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+
+.icono-izquierdaa {
+  width: auto;
+  height: auto;
+  background-color: transparent;
+  border: none;
+  color: var(--color-svg-icono);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+}
+
+.icono-izquierdaa svg{
+  width: 16px;
+  height: 16px;
+}
+
+.icono-izquierda svg{
+  width: 18px;
+  height: 18px;
+}
+
+.icono-derecha {
+  color: var(--texto-secundario);
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.tarjeta-label {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--texto-secundario);
+  font-weight: 700;
+}
+
+.tarjeta-valor {
+  font-size: 30px;
+  font-weight: 900;
+  color: var(--texto-principal);
+}
+
+.modal-overlay.abierto {
+    display: flex !important; /* O 'block', seg√∫n como est√© dise√±ado */
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* ================= GRID DE PLANES ================ */
+.grid-planes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 50px; /* Mas margen para acomodar el icono que sobresale */
+}
+
+.plan-card {
+    background-color: var(--color-tarjeta);
+    border: 1px solid var(--borde-tarjeta);
+    border-radius: 16px;
+    padding: 55px 25px 25px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-shadow: var(--sombra-tarjeta);
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.plan-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    border-color: var(--color-rojo-hover);
+}
+
+.plan-card.destacado {
+    background: linear-gradient(180deg, var(--color-tarjeta) 0%, rgba(229, 9, 20, 0.05) 100%);
+    border: 1px solid var(--color-rojo-hover);
+}
+
+.plan-icon-header {
+    position: absolute;
+    top: -20px;
+    left: 20px;
+    background-color: var(--color-rojo);
+    width: 65px;
+    height: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    transform: skewX(-8deg);
+    box-shadow: var(--sombra-glow-rojo);
+}
+
+.plan-icon-header svg {
+    transform: skewX(8deg); /* Deshacer el skew para el icono */
+    color: white;
+    width: 32px;
+    height: 32px;
+}
+
+.plan-titulo-nuevo {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--texto-principal);
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+
+.plan-precio-nuevo {
+    display: flex;
+    align-items: flex-start;
+    gap: 4px;
+    margin-bottom: 15px;
+    border-bottom: 1px dashed var(--borde-tarjeta);
+    padding-bottom: 20px;
+}
+
+.plan-precio-nuevo .signo {
+    font-size: 18px;
+    font-weight: 800;
+    margin-top: 4px;
+    color: var(--color-rojo);
+}
+
+.plan-precio-nuevo h2 {
+    font-size: 40px;
+    font-weight: 900;
+    color: var(--color-rojo);
+    line-height: 1;
+}
+
+.plan-card.destacado .plan-precio-nuevo h2 {
+    color: var(--texto-principal);
+}
+
+.plan-precio-nuevo .duracion {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--texto-secundario);
+    align-self: flex-end;
+    margin-bottom: 4px;
+    margin-left: 2px;
+}
+
+.plan-descripcion {
+    font-size: 12px;
+    color: var(--texto-secundario);
+    line-height: 1.5;
+    margin-bottom: 25px;
+}
+
+.plan-features-nuevo {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+    flex-grow: 1;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: var(--texto-principal);
+    font-weight: 500;
+}
+
+.feature-item svg {
+    width: 16px;
+    height: 16px;
+    color: var(--texto-secundario);
+    flex-shrink: 0;
+}
+
+.plan-footer-nuevo {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+}
+
+.btn-modificar-plan {
+    background-color: var(--color-rojo);
+    color: white;
+    border: none;
+    padding: 14px 20px;
+    border-radius: 8px;
+    font-weight: 800;
+    font-size: 13px;
+    cursor: pointer;
+    box-shadow: var(--sombra-glow-rojo);
+    width: 100%;
+    transition: transform 0.2s, background-color 0.2s;
+    letter-spacing: 0.5px;
+}
+
+.btn-modificar-plan:hover {
+    background-color: var(--color-rojo-brillo);
+    transform: translateY(-2px);
+}
+
+.miembros-activos-small {
+    font-size: 11px;
+    color: var(--texto-secundario);
+    font-weight: 500;
+}
+
+.miembros-activos-small span {
+    font-weight: 800;
+    color: var(--texto-principal);
+}
+
+
+
+
+
+
+
+
+
+
+@keyframes slideDownFade {
+  from {
+    opacity: 0;
+    transform: translateY(-20px); /* Efecto de arriba hacia abajo */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tarjeta {
+  opacity: 0;
+  animation: slideDownFade 0.5s ease-out forwards;
+  
+  /* Usamos variables que inyectaremos con JS */
+  /* El retraso base de la fila + un peque√±o extra por su posici√≥n horizontal */
+  animation-delay: calc(var(--fila) * 0.2s + var(--columna) * 0.1s);
+}
+
+
+/* La primera tarjeta sale al instante */
+.tarjeta:nth-child(1) { animation-delay: 0.1s; }
+
+/* La segunda espera 0.2 segundos */
+.tarjeta:nth-child(2) { animation-delay: 0.2s; }
+
+/* La tercera espera 0.3 segundos */
+.tarjeta:nth-child(3) { animation-delay: 0.3s; }
+
+/* Y as√≠ sucesivamente... */
+.tarjeta:nth-child(4) { animation-delay: 0.4s; }
+
+
+/* ================= ESTILOS BASE DEL MODAL ================ */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro */
+    backdrop-filter: blur(4px); /* Efecto borroso de fondo */
+    display: none; /* Oculto por defecto */
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.abierto {
+    display: flex !important;
+    opacity: 1;
+}
+
+.modal-container {
+    background-color: var(--color-tarjeta);
+    border: 1px solid var(--borde-tarjeta);
+    border-radius: 16px;
+    width: 90%;
+    max-width: 400px;
+    padding: 0;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: modalEntrada 0.3s ease-out;
+}
+
+@keyframes modalEntrada {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-header {
+    padding: 20px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--borde-tarjeta);
+}
+
+.modal-header h2 {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--texto-principal);
+    letter-spacing: 1px;
+}
+
+.btn-cerrar-modal {
+    background: none;
+    border: none;
+    color: var(--texto-secundario);
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.btn-cerrar-modal:hover {
+    color: var(--color-rojo);
+}
+
+.modal-body {
+    padding: 25px;
+}
+
+/* Estilos de los grupos de entrada dentro del modal */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--texto-secundario);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.form-group input, .select-wrapper select {
+    width: 100%;
+    background-color: var(--color-tarjeta-elevada);
+    border: 1px solid var(--borde-tarjeta);
+    border-radius: 8px;
+    padding: 12px 15px;
+    color: var(--texto-principal);
+    font-size: 14px;
+    outline: none;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.modal-footer {
+    margin-top: 10px;
+}
+
+.btn-guardar {
+    width: 100%;
+    background-color: var(--color-rojo);
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 8px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-guardar:hover {
+    background-color: var(--color-rojo-brillo);
+    box-shadow: var(--sombra-glow-rojo);
+}
+
+
+
+
+
+
+
+
+/* ============================================
+   RESPONSIVE ó DESKTOP (ocultar hamburguesa)
+   ============================================ */
+.menu-toggle {
+  display: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* ============================================
+   RESPONSIVE ó TABLET (768px - 1100px)
+   ============================================ */
+@media (max-width: 1100px) and (min-width: 769px) {
+
+  .contenido-principal {
+    padding: 0 30px;
+  }
+
+  .planes-header {
+    gap: 15px;
+  }
+
+  .planes-header .titulos h1 {
+    font-size: 20px;
+  }
+
+  .card-datos {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .grid-planes {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 30px;
+  }
+}
+
+/* ============================================
+   RESPONSIVE ó MOBILE (max 768px)
+   ============================================ */
+@media (max-width: 768px) {
+
+  .app {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 75%;
+    max-width: 280px;
+    height: 100vh;
+    z-index: 999;
+    border: none;
+    border-right: 1px solid var(--borde-sidebar);
+    overflow-y: auto;
+  }
+
+  .sidebar.abierto {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sidebar-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 998;
+  }
+
+  .sidebar-overlay.abierto {
+    display: block;
+  }
+
+  .sidebar-footer {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: flex;
+    background: none;
+    border: none;
+    color: var(--texto-principal);
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 8px;
+  }
+
+  .menu-toggle:hover {
+    background-color: var(--color-tarjeta-elevada);
+  }
+
+  .main-wrapper {
+    width: 100%;
+  }
+
+  .top-bar {
+    padding: 0 16px;
+    font-size: 16px;
+  }
+
+  #buscador {
+    display: none;
+  }
+
+  .contenido-principal {
+    padding: 0 14px;
+    overflow-x: hidden;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* PLANES HEADER ó apilar verticalmente */
+  .planes-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 20px;
+    margin-top: 16px;
+  }
+
+  .planes-header .titulos h1 {
+    font-size: 20px;
+  }
+
+  .planes-header .titulos p {
+    font-size: 12px;
+  }
+
+  #btn-nuevo-plan {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* CARD DATOS (KPIs) */
+  .card-datos {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .tarjeta {
+    min-height: auto;
+    padding: 12px 14px;
+  }
+
+  .tarjeta-valor {
+    font-size: 22px;
+  }
+
+  /* GRID DE PLANES ó 1 columna en mobile */
+  .grid-planes {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-top: 40px;
+    padding-bottom: 30px;
+  }
+
+  .plan-card {
+    width: 100%;
+    padding: 55px 20px 20px;
+  }
+
+  .plan-precio-nuevo h2 {
+    font-size: 32px;
+  }
+
+  /* MODAL */
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .modal-container {
+    width: 95%;
+    max-height: 92vh;
+  }
+
+  .modal-body {
+    padding: 16px;
+  }
+}
+
+/* ============================================
+   RESPONSIVE ó MOBILE PEQUE—O (max 480px)
+   ============================================ */
+@media (max-width: 480px) {
+
+  .card-datos {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .tarjeta-valor {
+    font-size: 20px;
+  }
+
+  .planes-header .titulos h1 {
+    font-size: 17px;
+  }
+}

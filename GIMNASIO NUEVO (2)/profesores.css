@@ -1,0 +1,429 @@
+/* ================= PROFESORES HEADER ================ */
+.profesores-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+
+.profesores-header .titulos p {
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--color-rojo);
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+}
+
+.profesores-header .titulos h1 {
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--texto-principal);
+    letter-spacing: 1px;
+}
+
+#btn-nuevo-profe {
+    background-color: var(--color-rojo);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+    box-shadow: var(--sombra-glow-rojo);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.2s, box-shadow 0.2s, transform 0.1s;
+}
+
+#btn-nuevo-profe:hover {
+    background-color: var(--color-rojo-brillo);
+    box-shadow: 0 4px 15px rgba(229, 9, 20, 0.4);
+}
+
+#btn-nuevo-profe:active {
+    transform: translateY(2px);
+}
+
+/* ================= GRID DE PROFESORES ================ */
+.grid-profesores {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 25px;
+}
+
+.profe-card {
+    background-color: var(--color-tarjeta);
+    border: 1px solid var(--borde-tarjeta);
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-shadow: var(--sombra-tarjeta);
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+
+.profe-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.123);
+    border-color: var(--color-rojo-hover);
+}
+
+
+
+.btn-mas{
+position: absolute;
+top: 10px;
+right: 10px;
+background-color: var(--color-fondo-icono);
+border: none;
+height: 16px;
+width: 25px;
+cursor: pointer;
+border-radius: 2px;}
+
+.btn-mas svg{
+color: var(--texto-principal);}
+
+.profe-perfil {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 25px;
+    padding-bottom: 25px;
+    border-bottom: 1px dashed var(--borde-tarjeta);
+}
+
+.profe-perfil h3 {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--texto-principal);
+    margin-bottom: 5px;
+}
+
+.profe-especialidad {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-rojo);
+    background-color: var(--color-fondo-icono);
+    padding: 4px 12px;
+    border-radius: 20px;
+    border: 1px solid var(--color-rojo-hover);
+}
+
+.profe-info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.info-item svg {
+    color: var(--texto-secundario);
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.info-item div {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.info-item .dias-turno p , .info-item .horario p , .info-item .contacto p  {
+    font-size: 11px;
+    color: var(--texto-secundario);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-align: center;
+}
+
+
+.info-item strong {
+    font-size: 14px;
+    color: var(--texto-principal);
+    font-weight: 600;
+}
+
+
+.profe-footer-acciones {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.btn-edit-p, .btn-delete-p {
+    flex: 1;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Bot√≥n Modificar: Fondo oscuro, letra blanca */
+.btn-edit-p {
+    background: var(--color-rojo);
+    color: white;
+}
+
+.btn-edit-p:hover {
+    box-shadow: 2px 2px 6px var(--color-rojo-hover);
+}
+
+/* Bot√≥n Eliminar: Fondo rojo suave / borde rojo */
+.btn-delete-p {
+    background: rgba(255, 68, 68, 0.1);
+    color: #ff4444;
+    border: 1px solid rgba(255, 68, 68, 0.2);
+}
+
+.btn-delete-p:hover {
+    background: #ff4444;
+    color: white;
+}
+
+/* Ajuste opcional: quitar el padding extra si la card queda muy larga */
+.profe-card {
+    padding-bottom: 20px;
+}
+
+/* Contenedor del c√≠rculo */
+.profe-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    border: 3px solid var(--color-rojo); /* El borde rojo de tu dise√±o */
+    padding: 3px; /* Espacio entre el borde y la foto */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Corta la imagen en forma de c√≠rculo */
+    background-color: #1a1a1a;
+}
+
+/* La imagen dentro del c√≠rculo */
+.profe-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Esto evita que la imagen se estire o se vea mal */
+    border-radius: 50%;
+}
+
+/* ============================================
+   RESPONSIVE ó DESKTOP (ocultar hamburguesa)
+   ============================================ */
+* {
+  box-sizing: border-box;
+}
+
+.menu-toggle {
+  display: none;
+}
+
+/* ============================================
+   RESPONSIVE ó TABLET (768px - 1100px)
+   ============================================ */
+@media (max-width: 1100px) and (min-width: 769px) {
+
+  .contenido-principal {
+    padding: 0 30px;
+  }
+
+  .profesores-header {
+    gap: 15px;
+  }
+
+  .profesores-header .titulos h1 {
+    font-size: 20px;
+  }
+
+  .grid-profesores {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+/* ============================================
+   RESPONSIVE ó MOBILE (max 768px)
+   ============================================ */
+@media (max-width: 768px) {
+
+  /* APP LAYOUT */
+  .app {
+    flex-direction: column;
+  }
+
+  /* SIDEBAR */
+  .sidebar {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 75%;
+    max-width: 280px;
+    height: 100vh;
+    z-index: 999;
+    border: none;
+    border-right: 1px solid var(--borde-sidebar);
+    overflow-y: auto;
+  }
+
+  .sidebar.abierto {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sidebar-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 998;
+  }
+
+  .sidebar-overlay.abierto {
+    display: block;
+  }
+
+  .sidebar-footer {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: flex;
+    background: none;
+    border: none;
+    color: var(--texto-principal);
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 8px;
+  }
+
+  .menu-toggle:hover {
+    background-color: var(--color-tarjeta-elevada);
+  }
+
+  /* MAIN WRAPPER */
+  .main-wrapper {
+    width: 100%;
+  }
+
+  /* TOP BAR */
+  .top-bar {
+    padding: 0 16px;
+    font-size: 16px;
+  }
+
+  #buscador {
+    display: none;
+  }
+
+  /* CONTENIDO PRINCIPAL */
+  .contenido-principal {
+    padding: 0 14px;
+    overflow-x: hidden;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* PROFESORES HEADER ó apilar verticalmente */
+  .profesores-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 20px;
+    margin-top: 16px;
+  }
+
+  .profesores-header .titulos h1 {
+    font-size: 20px;
+  }
+
+  .profesores-header .titulos p {
+    font-size: 11px;
+  }
+
+  #btn-nuevo-profe {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* GRID DE PROFESORES ó 1 columna en mobile */
+  .grid-profesores {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding-bottom: 30px;
+  }
+
+  /* PROFE CARD ó ajustar tamaÒo del avatar */
+  .profe-avatar {
+    width: 80px;
+    height: 80px;
+  }
+
+  .profe-perfil h3 {
+    font-size: 18px;
+  }
+
+  /* MODAL ó colapsar form-row */
+  .form-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .modal-container {
+    width: 95% !important;
+    max-height: 92vh;
+  }
+
+  .modal-body {
+    padding: 16px;
+  }
+
+  .modal-footer {
+    flex-direction: column-reverse;
+    gap: 10px;
+  }
+
+  .btn-cancelar,
+  .btn-guardar {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+/* ============================================
+   RESPONSIVE ó MOBILE PEQUE—O (max 480px)
+   ============================================ */
+@media (max-width: 480px) {
+
+  .profesores-header .titulos h1 {
+    font-size: 17px;
+  }
+
+  .profe-avatar {
+    width: 70px;
+    height: 70px;
+  }
+}

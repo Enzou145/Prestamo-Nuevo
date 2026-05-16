@@ -1,0 +1,1523 @@
+*{
+padding: 0;
+margin: 0;
+font-family: "Inter", sans-serif;}
+
+body{background: var(--color-fondo);}
+
+/* ============================================
+   GYM PRO — TEMA OSCURO
+   ============================================ */
+:root {
+  /* 🎨 FONDOS */
+  --color-fondo:              #474747;   /* Fondo principal de la app */
+  --color-fondo-suave:        #141414;   /* Fondo de popovers / menús */
+  --color-tarjeta:            #1a1a1a;   /* Fondo de tarjetas */
+  --color-tarjeta-elevada:    #212121;   /* Tarjetas destacadas / hover */
+  --color-sidebar:            #121212;   /* Fondo del menú lateral */
+
+  /* ✍️ TEXTOS */
+  --texto-principal:          #fafafa;   /* Títulos y texto fuerte */
+  --texto-secundario:         #9e9e9e;   /* Subtítulos / labels */
+  --texto-sobre-rojo:         #ffffff;   /* Texto encima del rojo */
+
+  /*ICONITOS CARD*/
+  --borde-icono: #f5353f7c;
+  --color-fondo-icono: #f5353f18;
+  --color-svg-icono: #ff000d;
+
+  /* 🔴 MARCA (ROJO) */
+  --color-rojo:               #e50914;   /* Rojo principal de marca */
+  --color-rojo-hover: #e5091467;
+  --color-rojo-brillo:        #f43641;   /* Rojo claro para gradientes/glow */
+  --color-rojo-suave:         #3d0a10;   /* Rojo apagado para fondos */
+
+  /* 🧱 BORDES Y SEPARADORES */
+  --borde-tarjeta:            #292929;   /* Borde de tarjetas y cajas */
+  --borde-input:              #242424;   /* Borde de inputs */
+  --borde-sidebar:            #242424;
+
+  /* ✅ ESTADOS DE SOCIO / PAGO */
+  --estado-activo:            #22c55e;   /* Verde — al día / activo */
+  --estado-activo-fondo:      #0f2e1c;   /* Fondo del badge verde */
+
+  --estado-vencido:           #ef1f2a;   /* Rojo — vencido / moroso */
+  --estado-vencido-fondo:     #3d0a10;   /* Fondo del badge rojo */
+
+  --estado-por-vencer:        #f5b820;   /* Amarillo — por vencer pronto */
+  --estado-por-vencer-fondo:  #2e2208;   /* Fondo del badge amarillo */
+
+  /* 🌟 SOMBRAS Y EFECTOS */
+  --sombra-tarjeta:           0 8px 24px -12px rgba(0, 0, 0, 0.6);
+  --sombra-glow-rojo:         0 0 25px -8px rgba(229, 9, 20, 0.55);
+  --gradiente-rojo:           linear-gradient(135deg, #e50914, #f43641);
+  --gradiente-tarjeta:        linear-gradient(180deg, #1c1c1c, #141414);
+  --sombra-roja-tarjetas: rgba(229, 9, 20, 0.055);
+
+  --radio-borde:              16px;      /* Border-radius general */
+}
+
+
+/* ============================================
+   GYM PRO — TEMA CLARO
+   ============================================ */
+.light {
+  /* 🎨 FONDOS */
+  --color-fondo:              #fafafa;   /* Fondo principal de la app */
+  --color-fondo-suave:        #ffffff;   /* Fondo de popovers / menús */
+  --color-tarjeta:            #ffffff;   /* Fondo de tarjetas */
+  --color-tarjeta-elevada:    #f5f5f5;   /* Tarjetas destacadas / hover */
+  --color-sidebar:            #ffffff;   /* Fondo del menú lateral */
+
+  /* ✍️ TEXTOS */
+  --texto-principal:          #141414;   /* Títulos y texto fuerte */
+  --texto-secundario:         #666666;   /* Subtítulos / labels */
+  --texto-sobre-rojo:         #ffffff;   /* Texto encima del rojo */
+
+  /* 🔴 MARCA (ROJO) — se mantiene igual */
+  --color-rojo:               #e50914;
+  --color-rojo-brillo:        #f43641;
+  --color-rojo-suave:         #fde7e8;   /* Rosado pálido para fondos */
+
+  /* 🧱 BORDES Y SEPARADORES */
+  --borde-tarjeta:            #e6e6e6;
+  --borde-input:              #ebebeb;
+  --borde-sidebar:            #e6e6e6;
+
+  /* ✅ ESTADOS DE SOCIO / PAGO */
+  --estado-activo:            #21a04a;
+  --estado-activo-fondo:      #e0f5e7;
+
+  --estado-vencido:           #e50914;
+  --estado-vencido-fondo:     #fde7e8;
+
+  --estado-por-vencer:        #f0a000;
+  --estado-por-vencer-fondo:  #fdf3d9;
+
+  /* 🌟 SOMBRAS Y EFECTOS */
+  --sombra-tarjeta:           0 6px 20px -12px rgba(0, 0, 0, 0.15);
+  --sombra-glow-rojo:         0 0 30px -10px rgba(229, 9, 20, 0.35);
+  --gradiente-rojo:           linear-gradient(135deg, #e50914, #f43641);
+  --gradiente-tarjeta:        linear-gradient(180deg, #ffffff, #f7f7f7);
+
+  --radio-borde:              16px;
+}
+
+/* ============================================
+   GYM PRO — TEMA VERDE/CELESTE
+   ============================================ */
+.green {
+  /* 🎨 FONDOS */
+  --color-fondo:              #0d0d0d;   /* Fondo principal de la app */
+  --color-fondo-suave:        #141414;   /* Fondo de popovers / menús */
+  --color-tarjeta:            #1a1a1a;   /* Fondo de tarjetas */
+  --color-tarjeta-elevada:    #212121;   /* Tarjetas destacadas / hover */
+  --color-sidebar:            #121212;   /* Fondo del menú lateral */
+
+  /* ✍️ TEXTOS */
+  --texto-principal:          #fafafa;   /* Títulos y texto fuerte */
+  --texto-secundario:         #9e9e9e;   /* Subtítulos / labels */
+  --texto-sobre-rojo:         #ffffff;   /* Texto encima del rojo */
+
+    /*ICONITOS CARD*/
+  --borde-icono: #16aca54d;
+  --color-fondo-icono: #16aca517;
+  --color-svg-icono: #16aca4;
+
+  /* 🔴 MARCA (ROJO) */
+  --color-rojo:               #16aca4;   /* Rojo principal de marca */
+  --color-rojo-hover: #67f1ea31;
+  --color-rojo-brillo:        #16aca4;   /* Rojo claro para gradientes/glow */
+  --color-rojo-suave:         #16aca4;   /* Rojo apagado para fondos */
+
+  /* 🧱 BORDES Y SEPARADORES */
+  --borde-tarjeta:            #16aca52c;    /* Borde de tarjetas y cajas */
+  --borde-input:              #242424;   /* Borde de inputs */
+  --borde-sidebar:            #242424;
+
+  /* ✅ ESTADOS DE SOCIO / PAGO */
+  --estado-activo:            #22c55e;   /* Verde — al día / activo */
+  --estado-activo-fondo:      #0f2e1c;   /* Fondo del badge verde */
+
+  --estado-vencido:           #ef1f2a;   /* Rojo — vencido / moroso */
+  --estado-vencido-fondo:     #3d0a10;   /* Fondo del badge rojo */
+
+  --estado-por-vencer:        #f5b820;   /* Amarillo — por vencer pronto */
+  --estado-por-vencer-fondo:  #2e2208;   /* Fondo del badge amarillo */
+
+  /* 🌟 SOMBRAS Y EFECTOS */
+  --sombra-tarjeta:           0 8px 24px -12px rgba(0, 0, 0, 0.6);
+  --sombra-glow-rojo:         0 0 15px -8px #16aca586; 
+  --gradiente-rojo:           linear-gradient(135deg, #16aca4, #16aca4);
+  --gradiente-tarjeta:        linear-gradient(180deg, #1c1c1c, #141414);
+
+  --radio-borde:              16px;      /* Border-radius general */
+}
+
+
+
+
+/* ================= MAIN CONTENT ================ */
+.card-bienvenido{
+height: auto;
+background: var(--gradiente-tarjeta);  
+border: 1px solid var(--borde-tarjeta);
+padding: 30px;
+display: flex;
+flex-direction: column;
+gap: 10px;
+justify-content: center;
+border-radius: var(--radio-borde);
+margin: 25px auto;
+box-shadow: var(--sombra-tarjeta);
+  position: relative;
+  overflow: hidden;
+}
+
+.card-bienvenido::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(229, 9, 20, 0.068) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+.card-bienvenido p{
+font-size: 11px;
+letter-spacing: 3px;
+color: var(--color-rojo);
+font-weight: 800;}
+
+.card-bienvenido h1{
+  font-size: 35px;
+font-weight: 900;
+color: var(--texto-principal);}
+
+.card-bienvenido span{
+color: var(--color-rojo);
+font-weight: 900;}
+
+.card-bienvenido h3{
+font-size: 13px;
+color: var(--texto-secundario);
+font-weight: 400;}
+
+.card-bienvenido .textoybotones{
+display: flex;
+justify-content: space-between;
+padding-right: 50px;}
+
+.card-bienvenido .textoybotones .botones-atajo{
+display: flex;
+gap: 10px;}
+
+.card-bienvenido .textoybotones .botones-atajo button{
+padding: 10px 15px;
+background-color: var(--color-rojo);
+color: #ffffff;
+border: none;
+border-radius: 8px;
+font-weight: 600;
+cursor: pointer;
+box-shadow: var(--sombra-tarjeta);}
+
+
+.card-bienvenido .textoybotones .botones-atajo #registrar-pago{
+padding: 13px 25px;
+background-color: var(--color-tarjeta-elevada);
+color: var(--texto-principal);
+border: 1px solid var(--borde-tarjeta);
+border-radius: 8px;
+font-weight: 600;
+display: flex;
+align-items: center;
+gap: 10px;
+cursor: pointer;}
+
+.card-bienvenido .textoybotones .botones-atajo #registrar-pago svg{
+height: 17px;
+width: 17px;}
+
+.card-bienvenido .textoybotones .botones-atajo #registrar-pago:hover{
+border: 1px solid var(--color-rojo);
+color: var(--color-rojo);
+transition: .2s;}
+
+.card-bienvenido .textoybotones .botones-atajo #nuevo-socio{
+padding: 13px 25px;
+font-weight: 600;
+box-shadow: var(--sombra-glow-rojo);
+cursor: pointer;
+display: flex;
+align-items: center;
+gap: 6px;}
+
+.card-bienvenido .textoybotones .botones-atajo #nuevo-socio:hover{
+box-shadow: 2px 2px 10px var(--color-rojo-hover);
+transition: .2s;}
+
+
+/* ================= CARD-DATOS ================ */
+.card-datos{
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+width: 100%;
+margin: 0 auto;
+gap: 15px;
+height: auto;}
+
+.tarjeta {
+  background: var(--gradiente-tarjeta);  /* 👈 en vez de background-color */
+  border: 1px solid var(--borde-tarjeta);
+  border-radius: var(--radio-borde);
+  box-shadow: var(--sombra-tarjeta);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 15px 25px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.tarjeta:hover {
+  transform: translateY(-0.5px);
+  box-shadow: var(--sombra-glow-rojo);
+  border-color: var(--color-rojo-hover);
+}
+
+.tarjeta-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.icono-izquierda {
+  width: 36px;
+  height: 36px;
+  background-color: var(--color-rojo);
+  color: #ffffff;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+
+.icono-izquierdaa {
+  width: 36px;
+  height: 36px;
+  background-color: var(--color-fondo-icono);
+  border: 1px solid var(--borde-icono);
+  color:var(--color-svg-icono);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+
+.icono-izquierdaa svg{
+  width: 16px;
+  height: 16px;
+}
+
+.icono-izquierda svg{
+  width: 18px;
+  height: 18px;
+}
+
+.icono-derecha {
+  color: var(--texto-secundario);
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.tarjeta-label {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--texto-secundario);
+  font-weight: 700;
+}
+
+.tarjeta-valor {
+  font-size: 30px;
+  font-weight: 900;
+  color: var(--texto-principal);
+}
+
+.tarjeta-sub {
+  font-size: 12px;
+  color: var(--estado-activo);
+}
+
+
+
+
+
+
+/* ================= CONTENENEDOR ================ */
+.contender-abajo{
+width: 100%;
+height: auto;
+border-radius: 10px;
+display: flex;
+gap: 10px;
+margin-top: 30px;
+}
+
+.membresias{
+background: var(--gradiente-tarjeta);  /* 👈 en vez de background-color */
+border: 1px solid var(--borde-tarjeta);
+box-shadow: var(--sombra-tarjeta);
+width: 70%;
+height: auto;
+padding: 20px;
+border-radius: var(--radio-borde);
+}
+
+.membresias p{
+font-size: 10px;
+font-weight: 700;
+letter-spacing: 3px;
+color: var(--color-rojo);}
+
+.contender-abajo .membresias-header{
+display: flex;
+justify-content: space-between;
+margin-top: 10px;}
+
+.contender-abajo .membresias-header h1{
+color: var(--texto-principal);
+font-size: 18px;
+font-weight: 900;}
+
+.contender-abajo .membresias-header p{
+font-size: 12px;
+font-weight: 800;
+color: var(--texto-secundario);
+letter-spacing: 0;}
+
+.lista-clientes{
+margin-top: 10px;
+display: flex;
+flex-direction: column;
+gap: 10px;}
+
+.tabla-header-inicio {
+    display: grid;
+    grid-template-columns: 45px 1.5fr 1.2fr 110px; /* Un poco mas de espacio para alinear */
+    gap: 10px;
+    padding: 0 10px 10px 10px;
+    margin-top: 20px;
+    border-bottom: 1px solid var(--borde-tarjeta);
+}
+
+.tabla-header-inicio p {
+    font-size: 10px;
+    font-weight: 800;
+    color: var(--texto-secundario);
+    letter-spacing: 1px;
+}
+
+.th-socio {
+    padding-left: 5px;
+}
+
+.th-vencimiento {
+    text-align: center;
+}
+
+.th-estado {
+    text-align: left;
+    padding-left: 15px;
+}
+
+.cliente{
+display: grid;
+grid-template-columns: 45px 1.5fr 1.2fr 110px;
+gap: 10px;
+align-items: center;
+background-color: var(--color-tarjeta-elevada);
+padding: 10px;
+border-radius: 10px;}
+
+.cliente .inicial{
+    height: 40px;
+    width: 40px;
+    background-color: var(--estado-vencido-fondo);
+    color: var(--estado-vencido);
+    border: 1px solid var(--color-rojo-hover);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.cliente .nombreyplan{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.cliente .nombreyplan h1{
+    font-size: 14px;
+    color: var(--texto-principal);
+}
+
+.cliente .nombreyplan p{
+    font-size: 11px;
+    letter-spacing: 0;
+    font-weight: 500;
+    color: var(--texto-secundario);
+}
+
+.cliente .vencimientos{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.cliente .vencimientos p{
+    color: var(--texto-secundario);
+    font-size: 10px;
+    letter-spacing: 0;
+    font-weight: 500;
+}
+
+.cliente .vencimientos h1{
+    color: var(--texto-principal);
+    font-size: 13px;
+    letter-spacing: 0;
+    font-weight: 800;
+}
+
+.cliente .estado{
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    justify-self: start; /* Para tirarlo mas a la izquierda */
+    margin-left: 5px;
+}
+
+.cliente .estado.activo {
+    background-color: var(--estado-activo-fondo);
+    color: var(--estado-activo);
+}
+
+.cliente .estado.vencido {
+    background-color: var(--estado-vencido-fondo);
+    color: var(--estado-vencido);
+}
+
+.cliente .estado.por-vencer {
+    background-color: var(--estado-por-vencer-fondo);
+    color: var(--estado-por-vencer);
+}
+
+
+
+.derecha{
+width: 33%;}
+
+.derecha .acciones-rapidas{
+  background: var(--gradiente-tarjeta);  /* 👈 en vez de background-color */
+border: 1px solid var(--borde-tarjeta);
+box-shadow: var(--sombra-tarjeta);
+height: auto;
+padding: 25px;
+border-radius: var(--radio-borde);
+  /* 👇 Esto es lo que falta */
+  position: relative;
+  overflow: hidden;
+}
+
+.derecha .acciones-rapidas::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(to bottom, 
+   0%, transparent 100%);
+  pointer-events: none;
+}
+
+.derecha .acciones-rapidas p{
+font-size: 10px;
+letter-spacing: 2px;
+color: var(--color-rojo);
+font-weight: 700;
+margin-bottom: 10px;}
+
+.derecha .acciones-rapidas h1{
+color: var(--texto-principal);
+font-size: 18px;
+font-weight: 900;
+margin-top: 6px;
+margin-bottom: 20px;}
+
+.derecha .acciones-rapidas .botones{
+display: flex;
+flex-direction: column;
+gap: 10px;}
+
+.derecha .acciones-rapidas #nuevo-socio{
+padding: 10px 15px;
+background-color: var(--color-rojo);
+color: #ffffff;
+padding: 10px 15px;
+font-weight: 700;
+border: none;
+border-radius: 12px;
+height: 45px;
+border: 1px solid var(--borde-tarjeta);
+cursor: pointer;
+display: flex;
+align-items: center;
+padding: 0 0 0 140px;
+gap: 10px;}
+
+.derecha .acciones-rapidas #registrar-pago, #asignar-rutina{
+padding: 10px 15px;
+background-color: var(--color-tarjeta-elevada);
+color: var(--texto-principal);
+font-weight: 700;
+border: none;
+border-radius: 12px;
+height: 45px;
+border: 1px solid var(--borde-tarjeta);
+cursor: pointer;
+display: flex;
+align-items: center;
+padding: 0 0 0 150px;
+gap: 10px;}
+
+#btn-nuevo-socio-accion{
+padding: 10px 15px;
+background-color: var(--color-rojo);
+color: #ffffff;
+font-weight: 700;
+border: none;
+border-radius: 12px;
+height: 45px;
+border: 1px solid var(--borde-tarjeta);
+cursor: pointer;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 10px;
+width: 100%;}
+
+#btn-crear-plan-accion , #btn-add-profesor-accion{
+padding: 10px 15px;
+background-color: var(--color-tarjeta);
+color: var(--texto-principal);
+font-weight: 700;
+border: none;
+border-radius: 12px;
+height: 45px;
+border: 1px solid var(--borde-tarjeta);
+cursor: pointer;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 10px;
+width: 100%;}
+
+#btn-add-profesor-accion:hover , #btn-crear-plan-accion:hover{
+border: 1px solid var(--color-rojo);
+color: var(--color-rojo);
+transition: .2s;
+}
+
+#btn-add-profesor-accion svg{
+width: 15px;
+height: 15px;}
+
+.botones #nuevo-socio:hover{
+box-shadow: 2px 2px 8px var(--color-rojo-hover);
+transition: .2s;}
+
+.botones #asignar-rutina:hover{
+border: 1px solid var(--color-rojo);
+color: var(--color-rojo);
+transition: .2s;
+}
+
+.botones #registrar-pago:hover{
+border: 1px solid var(--color-rojo);
+color: var(--color-rojo);
+transition: .2s;
+}
+
+.botones #registrar-pago svg{
+height: 17px;
+width: 17px;}
+
+.plan-top{
+  background: var(--gradiente-tarjeta);  /* 👈 en vez de background-color */
+border: 1px solid var(--borde-tarjeta);
+border-radius: var(--radio-borde);
+padding: 20px;
+margin-top: 20px;}
+
+.plan-top h2{
+color: var(--color-rojo);
+font-size: 10px;
+font-weight: 700;
+letter-spacing: 2px;}
+
+.plan-top h1 {
+    color: var(--texto-principal);
+    font-size: 20px;
+    font-weight: 900;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.plan-top p {
+    color: var(--texto-secundario);
+    font-size: 11px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.plan-top .barra-fondo{
+height: 7px;
+width: 100%;
+background-color: var(--color-tarjeta-elevada);
+border-radius: 5px;}
+
+.barra-progreso{
+height: 7px;
+width: 100%;
+background-color: var(--color-rojo);
+border-radius: 5px;}
+
+.plan-top .meta-row{
+display: flex;
+justify-content: space-between;
+margin-top: 5px;}
+
+.plan-top span {
+    color: var(--texto-principal);
+    font-size: 11px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+
+
+
+
+
+
+.sidebar-menu h1{
+color: var(--texto-secundario);
+font-size: 9px;
+margin: 15px 0 15px 25px;
+letter-spacing: 2px;}
+
+.opciones{
+width: 90%;
+height: auto;
+margin: 0 auto;
+display: flex;
+flex-direction: column;
+gap: 5px;
+}
+
+.opciones .opcion-item {
+  font-size: 13px;
+  color: var(--texto-secundario);
+  font-weight: 600;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  padding-left: 15px;
+  gap: 10px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.opcion-item.activo::before {
+  content: "";
+  position: absolute;
+  left: -18px;           /* Pegado a la izquierda */
+  top: 15%;          /* No ocupa todo el alto, para que se vea estético */
+  height: 70%;       /* Altura de la línea */
+  width: 10px;        /* Grosor de la línea */
+  background-color: var(--color-rojo); /* En tu imagen parece blanca sobre el fondo rojo */
+  border-radius: 0 5px 5px 0;
+}
+
+.opciones .opcion-item svg {
+  height: 16px;
+  width: 16px;
+  flex-shrink: 0;
+}
+
+.opcion-item:hover {
+  background-color: var(--color-tarjeta-elevada);
+  color: var(--texto-principal);
+}
+
+.opcion-item:hover svg {
+  stroke: var(--color-rojo);
+}
+
+
+.opciones .opcion-item.activo {
+  background-color: var(--color-rojo);
+  color: white;
+}
+
+.opciones a{
+text-decoration: none;
+list-style: none;
+color: var(--texto-secundario);}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ================= MODAL NUEVO SOCIO ================ */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.abierto {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-container {
+    background: var(--color-tarjeta);
+    border: 1px solid var(--borde-tarjeta);
+    border-radius: var(--radio-borde);
+    width: 90%;
+    max-width: 500px;
+    box-shadow: var(--sombra-tarjeta);
+    transform: translateY(-30px);
+    transition: transform 0.3s ease;
+    overflow: hidden;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-overlay.abierto .modal-container {
+    transform: translateY(0);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+    border-bottom: 1px solid var(--borde-tarjeta);
+    background-color: var(--color-tarjeta-elevada);
+}
+
+.modal-header h2 {
+    color: var(--texto-principal);
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.btn-cerrar-modal {
+    background: none;
+    border: none;
+    color: var(--texto-secundario);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s;
+}
+
+.btn-cerrar-modal:hover {
+    color: var(--color-rojo);
+}
+
+.modal-body {
+    padding: 25px;
+    overflow-y: auto;
+}
+
+.formulario-socio {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--texto-secundario);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.form-group input, 
+.form-group select {
+    background-color: var(--color-fondo-suave);
+    border: 1px solid var(--borde-input);
+    color: var(--texto-principal);
+    padding: 12px 15px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.form-group input:focus, 
+.form-group select:focus {
+    border-color: var(--color-rojo);
+    box-shadow: 0 0 0 2px rgba(229, 9, 20, 0.1);
+}
+
+/* Custom select */
+.select-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.select-wrapper select {
+    appearance: none;
+    -webkit-appearance: none;
+    padding-right: 40px;
+    cursor: pointer;
+}
+
+.select-wrapper svg {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--texto-secundario);
+    pointer-events: none;
+}
+
+.separador {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 15px 0 5px 0;
+}
+
+.separador p {
+    font-size: 10px;
+    font-weight: 800;
+    color: var(--color-rojo);
+    letter-spacing: 2px;
+}
+
+.separador .linea {
+    flex: 1;
+    height: 1px;
+    background-color: var(--borde-tarjeta);
+}
+
+.modal-footer {
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn-guardar {
+    background-color: var(--color-rojo);
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+    box-shadow: var(--sombra-glow-rojo);
+    transition: background-color 0.2s, box-shadow 0.2s, transform 0.1s;
+    letter-spacing: 1px;
+}
+
+.btn-guardar:hover {
+    background-color: var(--color-rojo-brillo);
+    box-shadow: 0 4px 15px rgba(229, 9, 20, 0.4);
+}
+
+.btn-guardar:active {
+    transform: translateY(2px);
+}
+
+/* ================= SECCIÓN DE PAGO (MODALS) ================ */
+.pago-resumen {
+    background: var(--color-tarjeta-elevada);
+    border: 1px solid var(--borde-tarjeta);
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.pago-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px dashed var(--borde-input);
+    padding-bottom: 15px;
+    margin-bottom: 5px;
+}
+
+.pago-info span {
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--texto-secundario);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.pago-info h2 {
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--color-rojo);
+    letter-spacing: 1px;
+}
+
+.input-con-icono {
+    position: relative;
+    width: 100%;
+}
+
+.input-con-icono span {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--texto-secundario);
+    font-weight: 800;
+    font-size: 14px;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.input-con-icono input {
+    padding-left: 32px !important;
+}
+
+/* Checkbox Personalizado */
+.checkbox-pago {
+    margin-top: 5px;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--texto-secundario);
+    user-select: none;
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+.checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    height: 18px;
+    width: 18px;
+    background-color: var(--color-fondo-suave);
+    border: 1px solid var(--borde-input);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    flex-shrink: 0;
+}
+
+.checkbox-container:hover input ~ .checkmark {
+    border-color: var(--color-rojo);
+}
+
+.checkbox-container input:checked ~ .checkmark {
+    background-color: var(--color-rojo);
+    border-color: var(--color-rojo);
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.checkbox-container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.checkbox-container .checkmark:after {
+    width: 4px;
+    height: 8px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    margin-bottom: 2px;
+}
+
+.checkbox-container input:checked ~ .texto-checkbox {
+    color: var(--texto-principal);
+}
+
+
+/* ================= DROPDOWN DE ACCIONES ================ */
+.acciones-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dropdown-acciones {
+    position: absolute;
+    right: 0;
+    top: 35px;
+    background-color: var(--color-tarjeta);
+    border: 1px solid var(--borde-tarjeta);
+    border-radius: 8px;
+    box-shadow: var(--sombra-tarjeta);
+    list-style: none;
+    width: 130px;
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: all 0.2s ease;
+    padding: 5px 0;
+}
+
+.dropdown-acciones.activo {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.dropdown-acciones li {
+    padding: 10px 15px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--texto-principal);
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.dropdown-acciones li:hover {
+    background-color: var(--color-tarjeta-elevada);
+    color: var(--color-rojo);
+}
+
+.dropdown-acciones li.accion-eliminar:hover {
+    color: var(--estado-vencido);
+    background-color: var(--estado-vencido-fondo);
+}
+
+
+
+
+
+
+@keyframes slideDownFade {
+  from {
+    opacity: 0;
+    transform: translateY(-20px); /* Efecto de arriba hacia abajo */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tarjeta {
+  opacity: 0;
+  animation: slideDownFade 0.5s ease-out forwards;
+  
+  /* Usamos variables que inyectaremos con JS */
+  /* El retraso base de la fila + un pequeño extra por su posición horizontal */
+  animation-delay: calc(var(--fila) * 0.2s + var(--columna) * 0.1s);
+}
+
+
+/* La primera tarjeta sale al instante */
+.tarjeta:nth-child(1) { animation-delay: 0.1s; }
+
+/* La segunda espera 0.2 segundos */
+.tarjeta:nth-child(2) { animation-delay: 0.2s; }
+
+/* La tercera espera 0.3 segundos */
+.tarjeta:nth-child(3) { animation-delay: 0.3s; }
+
+/* Y así sucesivamente... */
+.tarjeta:nth-child(4) { animation-delay: 0.4s; }
+
+
+/* ============================================
+   RESPONSIVE — DESKTOP (ocultar hamburguesa)
+   ============================================ */
+.menu-toggle {
+  display: none;
+}
+
+/* ============================================
+   RESPONSIVE — TABLET (768px - 1100px)
+   ============================================ */
+@media (max-width: 1100px) and (min-width: 769px) {
+
+  .contenido-principal {
+    padding: 0 30px;
+  }
+
+  .card-bienvenido h1 {
+    font-size: 26px;
+  }
+
+  .card-bienvenido .textoybotones {
+    flex-direction: column;
+    gap: 12px;
+    padding-right: 0;
+  }
+
+  .card-bienvenido .textoybotones .botones-atajo {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .card-datos {
+    grid-template-columns: repeat(2, 1fr);
+    height: auto;
+  }
+
+  .contender-abajo {
+    flex-direction: column;
+    margin-top: 20px;
+  }
+
+  .membresias {
+    width: 100%;
+  }
+
+  .derecha {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+  }
+
+  .derecha .acciones-rapidas,
+  .derecha .plan-top {
+    margin-top: 0;
+  }
+
+  #btn-nuevo-socio-accion,
+  #btn-crear-plan-accion,
+  #btn-add-profesor-accion {
+    width: 100%;
+    padding: 10px 15px;
+    justify-content: center;
+  }
+}
+
+/* ============================================
+   RESPONSIVE — MOBILE (max 768px)
+   ============================================ */
+@media (max-width: 768px) {
+
+  /* APP LAYOUT */
+  .app {
+    flex-direction: column;
+  }
+
+  /* SIDEBAR — menú lateral mobile */
+  .sidebar {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 75%;
+    max-width: 280px;
+    height: 100vh;
+    z-index: 999;
+    border: none;
+    border-right: 1px solid var(--borde-sidebar);
+    overflow-y: auto;
+  }
+
+  .sidebar.abierto {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Overlay oscuro detrás del menú */
+  .sidebar-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 998;
+  }
+
+  .sidebar-overlay.abierto {
+    display: block;
+  }
+
+  .sidebar-footer {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: flex;
+    background: none;
+    border: none;
+    color: var(--texto-principal);
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 8px;
+  }
+
+  .menu-toggle:hover {
+    background-color: var(--color-tarjeta-elevada);
+  }
+
+  /* MAIN WRAPPER */
+  .main-wrapper {
+    width: 100%;
+  }
+
+  /* TOP BAR */
+  .top-bar {
+    padding: 0 16px;
+    font-size: 16px;
+  }
+
+  #buscador {
+    display: none;
+  }
+
+  /* CONTENIDO PRINCIPAL */
+  .contenido-principal {
+    padding: 0 14px;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  /* CARD BIENVENIDO */
+  .card-bienvenido {
+    margin: 14px auto;
+    padding: 20px 16px;
+  }
+
+  .card-bienvenido h1 {
+    font-size: 20px;
+  }
+
+  .card-bienvenido h3 {
+    font-size: 12px;
+  }
+
+  .card-bienvenido .textoybotones {
+    flex-direction: column;
+    gap: 14px;
+    padding-right: 0;
+  }
+
+  .card-bienvenido .textoybotones .botones-atajo {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .card-bienvenido .textoybotones .botones-atajo button,
+  .card-bienvenido .textoybotones .botones-atajo #registrar-pago,
+  .card-bienvenido .textoybotones .botones-atajo #btn-nuevo-socio-top,
+  .card-bienvenido .textoybotones .botones-atajo #registrar-pago {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 16px;
+  }
+
+  /* CARD DATOS (KPIs) */
+  .card-datos {
+    grid-template-columns: repeat(2, 1fr);
+    height: auto;
+    gap: 10px;
+  }
+
+  .tarjeta {
+    padding: 14px 16px;
+  }
+
+  .tarjeta-valor {
+    font-size: 22px;
+  }
+
+  /* CONTENEDOR ABAJO */
+  .contender-abajo {
+    flex-direction: column;
+    margin-top: 16px;
+    gap: 14px;
+    padding-bottom: 30px;
+  }
+
+  .membresias {
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+
+  .derecha {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* ACCIONES RÁPIDAS — botones */
+  #btn-nuevo-socio-accion,
+  #btn-crear-plan-accion,
+  #btn-add-profesor-accion {
+    width: 100%;
+    padding: 10px 15px;
+    justify-content: center;
+  }
+
+  /* TABLA DE VENCIMIENTOS en mobile */
+  .tabla-header-inicio {
+    grid-template-columns: 40px 1fr 0 80px;
+    gap: 6px;
+  }
+
+  .th-vencimiento {
+    display: none;
+  }
+
+  /* CLIENTE ROW */
+  .cliente {
+    grid-template-columns: 40px 1fr 80px;
+    gap: 6px;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .cliente .vencimientos {
+    display: none;
+  }
+
+  .cliente .estado {
+    font-size: 9px;
+    padding: 4px 8px;
+    margin-left: 0;
+  }
+
+  /* MODALES — colapsar form-row en mobile */
+  .form-row {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .modal-container {
+    width: 95%;
+    max-height: 92vh;
+  }
+
+  .modal-body {
+    padding: 16px;
+  }
+}
+
+/* ============================================
+   RESPONSIVE — MOBILE PEQUEÑO (max 480px)
+   ============================================ */
+@media (max-width: 480px) {
+
+  .card-datos {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .card-bienvenido h1 {
+    font-size: 18px;
+  }
+
+  .tarjeta-valor {
+    font-size: 20px;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}

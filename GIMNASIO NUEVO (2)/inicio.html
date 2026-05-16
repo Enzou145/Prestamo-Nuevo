@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Alumni+Sans+Pinstripe:ital@0;1&family=Anton&family=Bebas+Neue&family=Bruno+Ace+SC&family=Electrolize&family=Fjalla+One&family=Gemunu+Libre:wght@200..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Madimi+One&family=Michroma&family=Monoton&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rajdhani:wght@300;400;500;600;700&family=Teko:wght@300..700&family=Tomorrow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Zen+Kurenaido&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="inicio.css">
+    <link rel="stylesheet" href="estilos.css">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <div class="app">
+
+        <!----------------------  PANEL LATERAL -------------------------->
+        <!----------------------  PANEL LATERAL -------------------------->
+        <aside class="sidebar">
+            <div class="sidebar-arriba"> 
+                <div class="logo"><img src="fueguito.svg" alt=""> </div>
+                    <div class="texto"> GYM <span>CRONOS</span> 
+                        <p>MANAGMENT</p>
+                    </div>
+                </div>
+
+                <div class="sidebar-menu">
+                <h1>MENÚ</h1>
+                <div class="opciones">
+                    <a href="inicio.html">
+                        <div class="opcion-item activo">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+                            </svg> Inicio
+                        </div>
+                    </a>
+
+                    <a href="socio.html">
+                        <div class="opcion-item">
+                            
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                            Socios
+                        </div>
+                    </a>
+
+                    <a href="planes.html">
+                        <div class="opcion-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
+                            </svg>
+                            Planes
+                        </div>
+                    </a>
+
+                    <a href="profesores.html">
+                        <div class="opcion-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><polyline points="17 11 19 13 23 9"/></svg>
+                            Profesores
+                        </div>
+                    </a>
+
+                    <a href="asistencia.html">
+                        <div class="opcion-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M9 14l2 2 4-4"/></svg>
+                            Asistencia
+                        </div>
+                    </a>
+                        
+                    <div class="opcion-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/>
+                        <circle cx="12" cy="12" r="3"/>
+                        </svg> Configuración</div>
+                </div>
+            </div>
+            <div class="sidebar-footer">
+                <div class="user-card">
+                    <div class="user-avatar" id="user-avatar-circle">
+                        <span id="user-initials">--</span>
+                    </div>
+                    <div class="user-info">
+                        <span class="user-name" id="sidebar-user-name">Cargando...</span>
+                        <span class="user-role">Administrador</span>
+                    </div>
+                    <button class="btn-logout" id="btn-logout" title="Cerrar Sesión">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                    </button>
+                </div>
+            </div>
+
+        </aside>
+        <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+
+        <div class="main-wrapper">
+
+            <!----------------------  TOP BARR ------------------------ -->
+            <!----------------------  TOP BARR ------------------------ -->
+            <div class="top-bar">
+                    <!-- Botón Hamburguesa -->
+                <button id="menu-toggle" class="menu-toggle">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>INICIO
+                <div class="top-bar-derecha">
+                    <input type="text" id="buscador" placeholder="Buscar socio, pago..">
+                    <div class="tema" id="cambiar-tema">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path d="M239.3 48.7c-107.1 8.5-191.3 98.1-191.3 207.3 0 114.9 93.1 208 208 208 33.3 0 64.7-7.8 92.6-21.7-103.4-23.4-180.6-115.8-180.6-226.3 0-65.8 27.4-125.1 71.3-167.3zM0 256c0-141.4 114.6-256 256-256 19.4 0 38.4 2.2 56.7 6.3 9.9 2.2 17.3 10.5 18.5 20.5s-4 19.8-13.1 24.4c-60.6 30.2-102.1 92.7-102.1 164.8 0 101.6 82.4 184 184 184 5 0 9.9-.2 14.8-.6 10.1-.8 19.6 4.8 23.8 14.1s2 20.1-5.3 27.1C387.3 484.8 324.8 512 256 512 114.6 512 0 397.4 0 256z"/></svg>
+                    </div>
+                    <div class="notificacion">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path d="M224 0c-13.3 0-24 10.7-24 24l0 9.7C118.6 45.3 56 115.4 56 200l0 14.5c0 37.7-10 74.7-29 107.3L5.1 359.2C1.8 365 0 371.5 0 378.2 0 399.1 16.9 416 37.8 416l372.4 0c20.9 0 37.8-16.9 37.8-37.8 0-6.7-1.8-13.3-5.1-19L421 321.7c-19-32.6-29-69.6-29-107.3l0-14.5c0-84.6-62.6-154.7-144-166.3l0-9.7c0-13.3-10.7-24-24-24zM392.4 368l-336.9 0 12.9-22.1C91.7 306 104 260.6 104 214.5l0-14.5c0-66.3 53.7-120 120-120s120 53.7 120 120l0 14.5c0 46.2 12.3 91.5 35.5 131.4L392.4 368zM156.1 464c9.9 28 36.6 48 67.9 48s58-20 67.9-48l-135.8 0z"/></svg>
+                    </div>
+                    <div class="nombre"></div>
+                </div>
+            </div>
+
+            <!----------------------  MAIN CONTENT ------------------------ -->
+            <div class="contenido-principal">
+
+                <!-------------- CARD ARRIBA ----------------- -->
+                <!-------------- CARD ARRIBA ----------------- -->
+                <div class="card-bienvenido">
+                    <p>BIENVENIDO, COACH</p>
+                    <h1>TU GIMANASIO <span>EN MOVIMIENTO</span></h1>
+                    <div class="textoybotones">
+                        <h3>Resumen en tiempo real de socios, ingresos y vencimientos. Tomá <br>decisiones rapidas</h3>
+                        <div class="botones-atajo">
+                            <button id="btn-nuevo-socio-top" onclick="abrirModalNuevoSocio()">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                                <line x1="12" y1="5" x2="12" y2="19"/>
+                                <line x1="5" y1="12" x2="19" y2="12"/>
+                                </svg>
+                                Nuevo Socio</button>
+                            <button id="registrar-pago" >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M9 14l2 2 4-4"/></svg>
+                             Registrar Asistencia</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-------------- CARD DATOS ----------------- -->
+                <!-------------- CARD DATOS ----------------- -->
+                <div class="card-datos">
+                    <div class="tarjeta">
+                        <div class="tarjeta-header">
+                            
+                        <div class="icono-izquierda">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="2" x2="12" y2="22"/>
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                            </svg>
+                        </div>
+                        <div class="icono-derecha">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="7" y1="17" x2="17" y2="7"/>
+                            <polyline points="7 7 17 7 17 17"/>
+                            </svg>
+                        </div>
+                        </div>
+                        <p class="tarjeta-label">INGRESOS DEL MES</p>
+                        <h1 class="tarjeta-valor" id="tarjeta-ingresos">$ 0</h1>
+                        <p class="tarjeta-sub" id="tarjeta-ingresos-sub">Este mes</p>
+                    </div>
+                    <div class="tarjeta">
+                        <div class="tarjeta-header">
+                        <div class="icono-izquierdaa">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+
+                        <div class="icono-derecha">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="7" y1="17" x2="17" y2="7"/>
+                            <polyline points="7 7 17 7 17 17"/>
+                            </svg>
+                        </div>
+                        </div>
+                        <p class="tarjeta-label">SOCIOS ACTIVOS</p>
+                        <h1 class="tarjeta-valor" id="tarjeta-activos"> 0</h1>
+                        <p class="tarjeta-sub" id="tarjeta-activos-sub">Al día</p>
+                    </div>
+
+                    <div class="tarjeta">
+                        <div class="tarjeta-header">
+                        <div class="icono-izquierdaa">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/>
+                            <line x1="12" y1="8" x2="12" y2="12"/>
+                            <line x1="12" y1="16" x2="12.01" y2="16"/>
+                            </svg>
+                        </div>
+                        <div class="icono-derecha">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="7" y1="17" x2="17" y2="7"/>
+                            <polyline points="7 7 17 7 17 17"/>
+                            </svg>
+                        </div>
+                        </div>
+                        <p class="tarjeta-label">SOCIOS CON DEUDA</p>
+                        <h1 class="tarjeta-valor" id="tarjeta-deuda"> 0</h1>
+                        <p class="tarjeta-sub" id="tarjeta-deuda-sub">Vencidos</p>
+                    </div>
+
+                    <div class="tarjeta">
+                        <div class="tarjeta-header">
+                        <div class="icono-izquierdaa">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 7.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3.5"/>
+                            <path d="M16 2v4"/>
+                            <path d="M8 2v4"/>
+                            <path d="M3 10h5"/>
+                            <circle cx="18" cy="18" r="4"/>
+                            <path d="M18 16v2l1 1"/>
+                            </svg>
+                        </div>
+                        <div class="icono-derecha">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="7" y1="17" x2="17" y2="7"/>
+                            <polyline points="7 7 17 7 17 17"/>
+                            </svg>
+                        </div>
+                        </div>
+                        <p class="tarjeta-label">VENCEN HOY</p>
+                        <h1 class="tarjeta-valor" id="tarjeta-vencen-hoy"> 0</h1>
+                        <p class="tarjeta-sub" id="tarjeta-vencen-hoy-sub">Hoy</p>
+                    </div>
+                </div>
+
+                <!-------------- VENCIMIENTOS ----------------- -->
+                <!-------------- VENCIMIENTOS ----------------- -->
+                <div class="contender-abajo">
+                    <div class="membresias">
+                        <p>MEMBRESIAS</p>
+                        <div class="membresias-header">
+                            <h1>VENCIMIENTOS RECIENTES</h1>
+                            <p>Ver todos ></p>
+                        </div>
+                        <div class="tabla-header-inicio">
+                            <p></p> <!-- Espacio para la inicial -->
+                            <p class="th-socio">SOCIO Y PLAN</p>
+                            <p class="th-vencimiento">VENCIMIENTO</p>
+                            <p class="th-estado">ESTADO</p>
+                        </div>
+                        <div class="lista-clientes" id="lista-vencimientos">
+                            <!-- Los clientes se cargarán dinámicamente -->
+                        </div>
+                    </div>
+
+                <!-------------- OPERACIONES RAPIDAS ----------------- -->
+                <!-------------- OPERACIONES RAPIDAS ----------------- -->
+                    <div class="derecha">
+                        <div class="acciones-rapidas">
+                            <p>ACCIONES RAPIDAS</p>
+                            <h1>OPERÁ EN SEGUNDOS</h1>
+                            <div class="botones">
+
+                            <button id="btn-nuevo-socio-accion" onclick="abrirModalNuevoSocio()">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                                <line x1="12" y1="5" x2="12" y2="19"/>
+                                <line x1="5" y1="12" x2="19" y2="12"/>
+                                </svg>
+                                Nuevo Socio
+                            </button>
+
+                            <button id="btn-crear-plan-accion" onclick="document.getElementById('modal-plan-inicio').classList.add('abierto')">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/>
+                                </svg>
+                                Crear Plan
+                            </button>
+
+                            <button id="btn-add-profesor-accion" onclick="document.getElementById('modal-profe-inicio').classList.add('abierto')">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><polyline points="17 11 19 13 23 9"/></svg>
+                                Añadir Profesor
+                            </button>
+
+
+                            
+
+                            </div>
+                        </div>
+
+                        <!-------------- PLAN TOP DEL MES ----------------- -->
+                        <!-------------- PLAN TOP DEL MES ----------------- -->
+                        <div class="plan-top">
+                            <h2>PLAN TOP DEL MES</h2>
+                            <h1>PLAN MENSUAL</h1>
+                            <p>142 socios activos · $ 553.800 facturados</p>
+                            <div class="barra-fondo">
+                                <div class="barra-progreso" style="width: 72%"></div>
+                            </div>
+                            <div class="meta-row">
+                                <p>72% de meta</p>
+                                <span>$ 770.000</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+
+
+
+        <!-------------- MODAL NUEVO SOCIO ----------------- -->
+        <!-------------- MODAL NUEVO SOCIO ----------------- -->
+        <div class="modal-overlay" id="modal-nuevo-socio">
+            <div class="modal-container">
+                <div class="modal-header">
+                    <h2>NUEVO SOCIO</h2>
+                    <button class="btn-cerrar-modal" id="cerrar-modal-socio">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form class="formulario-socio" id="form-nuevo-socio">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Nombre</label>
+                                <input type="text" id="input-nombre" placeholder="Ej. Juan">
+                            </div>
+                            <div class="form-group">
+                                <label>Apellido</label>
+                                <input type="text" id="input-apellido" placeholder="Ej. Pérez">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" id="input-email" placeholder="juanperez@email.com">
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Fecha de Nacimiento</label>
+                                <input type="date" id="input-fecha-nacimiento">
+                            </div>
+                            <div class="form-group">
+                                <label>Género</label>
+                                <div class="select-wrapper">
+                                    <select id="select-genero">
+                                        <option value="" disabled selected>Seleccionar...</option>
+                                        <option value="Masculino">Masculino</option>
+                                        <option value="Femenino">Femenino</option>
+                                        <option value="Otro">Otro</option>
+                                    </select>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Teléfono</label>
+                            <input type="tel" id="input-telefono" placeholder="+54 11 1234-5678">
+                        </div>
+
+                        <div class="separador">
+                            <p>MEMBRESÍA</p>
+                            <div class="linea"></div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Tipo de Plan</label>
+                                <div class="select-wrapper">
+                                    <select id="select-plan-nuevo">
+                                        <option value="" disabled selected>Seleccionar...</option>
+                                        <option value="semanal">Semanal</option>
+                                        <option value="mensual">Mensual</option>
+                                        <option value="trimestral">Trimestral</option>
+                                    </select>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Fecha de Ingreso</label>
+                                <input type="date" id="input-fecha-ingreso">
+                            </div>
+                        </div>
+
+                        <div class="separador">
+                            <p>PAGO</p>
+                            <div class="linea"></div>
+                        </div>
+
+                        <div class="pago-resumen">
+                            <div class="pago-info">
+                                <span>Total del Plan</span>
+                                <h2 id="precio-total-nuevo">$ 0</h2>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Monto a Abonar</label>
+                                    <div class="input-con-icono">
+                                        <span>$</span>
+                                        <input type="number" id="input-monto-nuevo" placeholder="Ej. 45000">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Método de Pago</label>
+                                    <div class="select-wrapper">
+                                        <select id="select-metodo-pago">
+                                            <option value="Efectivo" selected>Efectivo</option>
+                                            <option value="Transferencia">Transferencia</option>
+                                            <option value="Tarjeta">Tarjeta</option>
+                                        </select>
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="checkbox-pago">
+                                <label class="checkbox-container">
+                                    <input type="checkbox" id="checkbox-generar-recibo" checked>
+                                    <span class="checkmark"></span>
+                                    <span class="texto-checkbox">Generar recibo y activar socio inmediatamente</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="submit" class="btn-guardar" id="btn-guardar-socio">Guardar Socio</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <!-- MODAL PLAN EN INICIO -->
+    <div id="modal-plan-inicio" class="modal-overlay">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2>NUEVO PLAN</h2>
+                <button class="btn-cerrar-modal" onclick="document.getElementById('modal-plan-inicio').classList.remove('abierto')">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="formulario-socio" id="form-plan-inicio"> 
+                    <div class="form-group">
+                        <label>Nombre del Plan</label>
+                        <input type="text" id="input-plan-nombre" placeholder="Ej. Semanal" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Descripción corta</label>
+                        <input type="text" id="input-plan-desc" placeholder="Ej. Pase libre">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Duración</label>
+                            <div class="select-wrapper">
+                                <select id="select-plan-duracion">
+                                    <option value="7">Semanal (7 días)</option>
+                                    <option value="30" selected>Mensual (30 días)</option>
+                                    <option value="90">Trimestral (90 días)</option>
+                                    <option value="365">Anual (365 días)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Precio</label>
+                            <div class="input-con-icono">
+                                <span>$</span>
+                                <input type="number" id="input-plan-precio" placeholder="0" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="submit" class="btn-guardar" id="btn-guardar-plan-inicio">Guardar Plan</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL PROFESOR EN INICIO -->
+    <div class="modal-overlay" id="modal-profe-inicio">
+        <div class="modal-container" style="max-width: 450px;">
+            <div class="modal-header">
+                <h2>NUEVO PROFESOR</h2>
+                <button class="btn-cerrar-modal" onclick="document.getElementById('modal-profe-inicio').classList.remove('abierto')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="formulario-socio" id="form-profe-inicio">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Nombre y Apellido</label>
+                            <input type="text" id="profe-nombre-inicio" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Especialidad</label>
+                            <input type="text" id="profe-especialidad-inicio" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Teléfono</label>
+                            <input type="text" id="profe-contacto-inicio" required>
+                        </div>
+                        <div class="form-group">
+                            <label>URL Foto</label>
+                            <input type="text" id="profe-avatar-inicio">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Días de Turno</label>
+                            <input type="text" id="profe-dias-inicio" placeholder="Lun a Vie" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Horario</label>
+                            <input type="text" id="profe-horario-inicio" placeholder="08:00 - 16:00" required>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn-guardar" id="btn-guardar-profe-inicio">Guardar Profesor</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="inicio.js"></script>
+</body>
+</html>

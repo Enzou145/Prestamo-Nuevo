@@ -1,0 +1,312 @@
+*{
+padding: 0;
+margin: 0;
+font-family: "Inter", sans-serif;}
+
+body{background: var(--color-fondo);}
+
+/* ============================================
+   GYM PRO — TEMA OSCURO
+   ============================================ */
+:root {
+  /* 🎨 FONDOS */
+  --color-fondo:              #0d0d0d;    /* Fondo principal de la app */
+  --color-fondo-suave:        #141414;   /* Fondo de popovers / menús */
+  --color-tarjeta:            #1a1a1a;   /* Fondo de tarjetas */
+  --color-tarjeta-elevada:    #212121;   /* Tarjetas destacadas / hover */
+  --color-sidebar:            #121212;   /* Fondo del menú lateral */
+
+  /* ✍️ TEXTOS */
+  --texto-principal:          #fafafa;   /* Títulos y texto fuerte */
+  --texto-secundario:         #9e9e9e;   /* Subtítulos / labels */
+  --texto-sobre-rojo:         #ffffff;   /* Texto encima del rojo */
+
+  /*ICONITOS CARD*/
+  --borde-icono: #f5353f7c;
+  --color-fondo-icono: #f5353f18;
+  --color-svg-icono: #ff000d;
+
+  /* 🔴 MARCA (ROJO) */
+  --color-rojo:               #e50914;   /* Rojo principal de marca */
+  --color-rojo-hover: #e5091467;
+  --color-rojo-brillo:        #f43641;   /* Rojo claro para gradientes/glow */
+  --color-rojo-suave:         #3d0a10;   /* Rojo apagado para fondos */
+
+  /* 🧱 BORDES Y SEPARADORES */
+  --borde-tarjeta:            #292929;   /* Borde de tarjetas y cajas */
+  --borde-input:              #242424;   /* Borde de inputs */
+  --borde-sidebar:            #242424;
+
+  /* ✅ ESTADOS DE SOCIO / PAGO */
+  --estado-activo:            #22c55e;   /* Verde — al día / activo */
+  --estado-activo-fondo:      #0f2e1c;   /* Fondo del badge verde */
+
+  --estado-vencido:           #ef1f2a;   /* Rojo — vencido / moroso */
+  --estado-vencido-fondo:     #3d0a10;   /* Fondo del badge rojo */
+
+  --estado-por-vencer:        #f5b820;   /* Amarillo — por vencer pronto */
+  --estado-por-vencer-fondo:  #2e2208;   /* Fondo del badge amarillo */
+
+  /* 🌟 SOMBRAS Y EFECTOS */
+  --sombra-tarjeta:           0 8px 24px -12px rgba(0, 0, 0, 0.6);
+  --sombra-glow-rojo:         0 0 25px -8px rgba(229, 9, 20, 0.55);
+  --gradiente-rojo:           linear-gradient(135deg, #e50914, #f43641);
+  --gradiente-tarjeta:        linear-gradient(180deg, #1c1c1c, #141414);
+  --sombra-roja-tarjetas: rgba(229, 9, 20, 0.055);
+
+  --radio-borde:              16px;      /* Border-radius general */
+}
+
+
+/* ============================================
+   GYM PRO — TEMA CLARO
+   ============================================ */
+.light {
+  /* 🎨 FONDOS */
+  --color-fondo:              #fafafa;   /* Fondo principal de la app */
+  --color-fondo-suave:        #ffffff;   /* Fondo de popovers / menús */
+  --color-tarjeta:            #ffffff;   /* Fondo de tarjetas */
+  --color-tarjeta-elevada:    #f5f5f5;   /* Tarjetas destacadas / hover */
+  --color-sidebar:            #ffffff;   /* Fondo del menú lateral */
+
+  /* ✍️ TEXTOS */
+  --texto-principal:          #141414;   /* Títulos y texto fuerte */
+  --texto-secundario:         #666666;   /* Subtítulos / labels */
+  --texto-sobre-rojo:         #ffffff;   /* Texto encima del rojo */
+
+  /* 🔴 MARCA (ROJO) — se mantiene igual */
+  --color-rojo:               #e50914;
+  --color-rojo-brillo:        #f43641;
+  --color-rojo-suave:         #fde7e8;   /* Rosado pálido para fondos */
+
+  /* 🧱 BORDES Y SEPARADORES */
+  --borde-tarjeta:            #e6e6e6;
+  --borde-input:              #ebebeb;
+  --borde-sidebar:            #e6e6e6;
+
+  /* ✅ ESTADOS DE SOCIO / PAGO */
+  --estado-activo:            #21a04a;
+  --estado-activo-fondo:      #e0f5e7;
+
+  --estado-vencido:           #e50914;
+  --estado-vencido-fondo:     #fde7e8;
+
+  --estado-por-vencer:        #f0a000;
+  --estado-por-vencer-fondo:  #fdf3d9;
+
+  /* 🌟 SOMBRAS Y EFECTOS */
+  --sombra-tarjeta:           0 6px 20px -12px rgba(0, 0, 0, 0.15);
+  --sombra-glow-rojo:         0 0 30px -10px rgba(229, 9, 20, 0.35);
+  --gradiente-rojo:           linear-gradient(135deg, #e50914, #f43641);
+  --gradiente-tarjeta:        linear-gradient(180deg, #ffffff, #f7f7f7);
+
+  --radio-borde:              16px;
+}
+
+/* ============================================
+   GYM PRO — TEMA VERDE/CELESTE
+   ============================================ */
+.green {
+  /* 🎨 FONDOS */
+  --color-fondo:              #0d0d0d;   /* Fondo principal de la app */
+  --color-fondo-suave:        #141414;   /* Fondo de popovers / menús */
+  --color-tarjeta:            #1a1a1a;   /* Fondo de tarjetas */
+  --color-tarjeta-elevada:    #212121;   /* Tarjetas destacadas / hover */
+  --color-sidebar:            #121212;   /* Fondo del menú lateral */
+
+  /* ✍️ TEXTOS */
+  --texto-principal:          #fafafa;   /* Títulos y texto fuerte */
+  --texto-secundario:         #9e9e9e;   /* Subtítulos / labels */
+  --texto-sobre-rojo:         #ffffff;   /* Texto encima del rojo */
+
+    /*ICONITOS CARD*/
+  --borde-icono: #16aca54d;
+  --color-fondo-icono: #16aca517;
+  --color-svg-icono: #16aca4;
+
+  /* 🔴 MARCA (ROJO) */
+  --color-rojo:               #16aca4;   /* Rojo principal de marca */
+  --color-rojo-hover: #3ce7df79;
+  --color-rojo-brillo:        #16aca4;   /* Rojo claro para gradientes/glow */
+  --color-rojo-suave:         #16aca560;   /* Rojo apagado para fondos */
+
+  /* 🧱 BORDES Y SEPARADORES */
+  --borde-tarjeta:            #16aca52c;    /* Borde de tarjetas y cajas */
+  --borde-input:              #242424;   /* Borde de inputs */
+  --borde-sidebar:            #242424;
+
+  /* ✅ ESTADOS DE SOCIO / PAGO */
+  --estado-activo:            #22c55e;   /* Verde — al día / activo */
+  --estado-activo-fondo:      #0f2e1c;   /* Fondo del badge verde */
+
+  --estado-vencido:           #ef1f2a;   /* Rojo — vencido / moroso */
+  --estado-vencido-fondo:     #3d0a10;   /* Fondo del badge rojo */
+
+  --estado-por-vencer:        #f5b820;   /* Amarillo — por vencer pronto */
+  --estado-por-vencer-fondo:  #2e2208;   /* Fondo del badge amarillo */
+
+  /* 🌟 SOMBRAS Y EFECTOS */
+  --sombra-tarjeta:           0 8px 24px -12px rgba(0, 0, 0, 0.6);
+  --sombra-glow-rojo:         0 0 15px -8px #16aca586; 
+  --gradiente-rojo:           linear-gradient(135deg, #16aca4, #16aca4);
+  --gradiente-tarjeta:        linear-gradient(180deg, #1c1c1c, #141414);
+
+  --radio-borde:              16px;      /* Border-radius general */
+}
+
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 440px;
+    padding: 20px;
+}
+
+.header-section { text-align: center; margin-bottom: 30px; }
+
+.logo-icon {
+    background: var(--color-rojo);
+    width: 54px; height: 54px;
+    border-radius: 14px;
+    display: flex; justify-content: center; align-items: center;
+    margin: 0 auto 15px;
+    box-shadow: 0 0 20px rgba(224, 70, 70, 0.4);
+}
+
+.header-section span{
+    color: var(--color-rojo);}
+
+.logo-icon i { color: white; width: 28px; height: 28px; }
+
+h1 { font-size: 26px; font-weight: 800; letter-spacing: -0.5px; }
+.badge { color: var(--texto-principal); font-size: 11px; font-weight: 700; letter-spacing: 2px; margin-top: 5px; }
+
+.card {
+    background: var(--color-tarjeta);
+    padding: 40px 30px;
+    border-radius: 28px;
+    border: 1px solid var(--borde-tarjeta);
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+}
+
+h2 { font-size: 22px; margin-bottom: 8px; text-align: center; color: var(--texto-principal); }
+.subtitle { color: var(--texto-secundario); font-size: 14px; text-align: center; margin-bottom: 30px; }
+
+/* INPUTS DENTRO DE WRAPPERS */
+.input-group { margin-bottom: 22px; }
+.label-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+label { font-size: 14px; font-weight: 500; color: var(--texto-principal); }
+.forgot-link { font-size: 12px; color: var(--texto-principal); text-decoration: none; }
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.prefix-icon {
+    position: absolute;
+    left: 15px;
+    width: 18px;
+    color: var(--texto-secundario);
+}
+
+input {
+    width: 100%;
+    background: var(--borde-input);
+    border: 1px solid var(--borde-input);
+    padding: 14px 45px; /* Espacio para iconos izq y der */
+    border-radius: 12px;
+    color: white;
+    font-size: 15px;
+    transition: 0.2s;
+}
+
+.input-wrapper ::placeholder{
+font-size: 14px;}
+
+input:focus {
+    outline: none;
+    border-color: var(--color-tarjeta-elevada);
+    box-shadow: 0 0 0 4px rgba(76, 70, 224, 0.15);
+}
+
+.suffix-btn {
+    position: absolute;
+    right: 15px;
+    background: none;
+    border: none;
+    color: var(--texto-principal);
+    cursor: pointer;
+    display: flex;
+}
+
+/* CHECKBOX */
+.form-options { margin-bottom: 25px; }
+.custom-checkbox {
+    display: flex; align-items: center; gap: 10px;
+    cursor: pointer; font-size: 14px; color: var(--texto-secundario);
+}
+.custom-checkbox input { width: 18px; height: 18px; cursor: pointer; }
+
+/* BOTÓN */
+.btn-primary {
+    width: 100%;
+    background: var(--color-rojo);
+    color: white;
+    padding: 16px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    display: flex; justify-content: center; align-items: center; gap: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.btn-primary:hover { background: var(--color-rojo); transform: translateY(-1px); }
+
+.error-msg {
+    color: #f87171; font-size: 13px; text-align: center;
+    margin-bottom: 15px; display: none;
+}
+
+.copyright {
+    text-align: center; color: var(--texto-secundario); font-size: 11px; margin-top: 30px;
+}
+
+#mensajeLogin {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    min-height: 20px;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+/* Animación de sacudida para el error */
+.error-active {
+    animation: shake 0.4s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+
+/* RESPONSIVO PARA CELULARES */
+@media (max-width: 480px) {
+    .container { padding: 15px; }
+    .card { padding: 30px 20px; border-radius: 20px; }
+    h1 { font-size: 22px; }
+    input { font-size: 16px; } /* Evita zoom automático en iPhone */
+}
+
