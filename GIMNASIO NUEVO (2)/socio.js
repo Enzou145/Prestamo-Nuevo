@@ -122,36 +122,12 @@ function aplicarTema(tema) {
 
 
 
-
-const menuToggle = document.getElementById('menu-toggle');
-const sidebar = document.querySelector('.sidebar');
-const overlay = document.getElementById('sidebar-overlay');
-
-menuToggle.addEventListener('click', () => {
-  sidebar.classList.toggle('abierto');
-  overlay.classList.toggle('abierto');
-});
-
-overlay.addEventListener('click', () => {
-  sidebar.classList.remove('abierto');
-  overlay.classList.remove('abierto');
-});
-
-
-
-
 // Función general para cerrar modals
 function cerrarModals() {
     if(modalNuevoSocio) modalNuevoSocio.classList.remove('abierto');
     if(modalEditarSocio) modalEditarSocio.classList.remove('abierto');
     if(modalVerSocio) modalVerSocio.classList.remove('abierto');
 }
-
-
-
-
-
-
 
 
 
